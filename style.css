@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+@font-face {
+  font-family: 'Steppe-Book';
+  src: url('../fonts/Steppe-Book.ttf');
+}
+
+@font-face {
+  font-family: 'Steppe-ExtraBold';
+  src: url('../fonts/Steppe-ExtraBold.ttf');
+}
+
+body {
+  background: #5243F4;
+  font-family: 'Steppe-Book', sans-serif;
+  color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.button {
+  background-color: white;
+  border-radius: 10px;
+  width: 178px;
+  height: 58px;
+  box-sizing: border-box;
+  padding: 18px;
+  align-items: center;
+  font-size: 22px;
+  color: #5243F4;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  margin-right: 20px;
+
+}
+
+.button-nav {
+  background-color: white;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  color: #5243F4;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.button-nav img {
+  width: 60%;
+  height: 60%; 
+  object-fit: cover;
+}
+
+.button:hover {
+  background-color: #eeeeee;
+}
+
+.main {
+  position: relative;
+  overflow: hidden;
+}
+
+.common-title {
+  font-family: 'Steppe-ExtraBold', sans-serif;
+  font-size: 40px;
+  line-height: 100%;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.header {
+  padding: 40px 0;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  vertical-align: bottom;
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 50px;
+}
+
+.menu {
+  margin-left: 650px;
+}
+
+
+.menu-item a:hover {
+  border-bottom: 2px solid white;
+}
+
+.main-title {
+  font-family: 'Steppe-ExtraBold', sans-serif;
+  font-size: 70px;
+  line-height: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.main-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  margin-left: auto;
+  margin-right: auto;
+  width: 55%;
+  height: 3%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+  border-radius: 30px;
+}
+
+.main-courses {
+  background-color: white;
+  max-width: 60%;
+  margin: auto;
+  padding: 40px;
+  padding-top: 100px;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));    /* 3 строки одинаковой высоты */
+  gap: 100px; /* Отступы между элементами */
+}
+
+/* Стиль для каждого элемента курса */
+.course {
+  background-color: #5243F4;
+  color: white;
+  padding: 20px;
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+
+.footer {
+  padding: 126px 0 50px 0;
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* полупрозрачный черный фон */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Поверх всех элементов */
+}
+
+/* Окно авторизации */
+.authorization_menu {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень вокруг окна */
+  position: relative;
+  text-align: center;
+}
+
+/* Заголовок авторизации */
+.authorization_menu h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #333;
+  font-family: 'Steppe-ExtraBold', sans-serif;
+}
+
+/* Кнопка закрытия */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+/* Стили формы */
+.authorization_menu form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Метки (label) */
+.authorization_menu label {
+  font-family: 'Steppe-Book', sans-serif;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: left;
+}
+
+/* Поля ввода */
+.authorization_menu input[type="text"],
+.authorization_menu input[type="password"] {
+  width: 95%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Кнопка "Войти" */
+.authorization_menu button[type="submit"] {
+  margin-top: 20px;
+  padding: 10px;
+  width: 100%;
+  background-color: #4CAF50; /* Зеленый цвет кнопки */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.authorization_menu button[type="submit"]:hover {
+  background-color: #45a049; /* Цвет при наведении */
+}
