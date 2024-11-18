@@ -15,3 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const courseButton = document.querySelector('.course-button');
+
+    if (courseButton) {
+        courseButton.addEventListener('click', () => {
+            // Перенаправление на coursePage.html
+            window.location.href = './html/coursePage.html';
+        });
+    }
+});

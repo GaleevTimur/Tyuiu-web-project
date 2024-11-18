@@ -109,8 +109,10 @@ body {
   font-family: 'Steppe-ExtraBold', sans-serif;
   font-size: 70px;
   line-height: 100%;
-  margin-bottom: 20px;
   text-align: center;
+  color: #5243F4;
+  width: 100%;
+  margin-bottom: 100px;
 }
 
 .main-menu {
@@ -134,24 +136,106 @@ body {
   padding: 40px;
   padding-top: 100px;
   border-radius: 20px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(100px, 1fr));    /* 3 строки одинаковой высоты */
-  gap: 100px; /* Отступы между элементами */
+   /* Отступы между элементами */
 }
 
+.courses-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));    /* 3 строки одинаковой высоты */
+  gap: 100px;
+}
 /* Стиль для каждого элемента курса */
 .course {
-  background-color: #5243F4;
+  background-color: #ffffff; /* Белый фон */
+  border: 3px solid #000000;
   color: white;
   padding: 20px;
   display: flex;
-  height: 100px;
+  height: 200px;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   border-radius: 10px;
   font-size: 1.2rem;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
+.course-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between; /* Распределение заголовка и картинки */
+  align-items: center; /* Выравнивание по вертикали */
+  gap: 5px; /* Отступ между текстом и картинкой */
+  font-family: Arial, sans-serif; /* Простой шрифт */
+  font-size: 2vw; /* Крупный текст */
+  font-family: 'Steppe-ExtraBold', sans-serif;
+  color: #000000; /* Чёрный цвет текста */
+  text-align: left; /* Выравнивание текста по левому краю */
+  height: 50%;
+}
+
+.course-header img {
+  width: 20%; /* Размер картинки */
+  height: 70%; /* Высота картинки */
+  object-fit: contain; /* Адаптивное масштабирование */
+}
+
+.course-progress {
+  display: flex;
+  flex-direction: column; /* Элементы сверху вниз */
+  align-items: center; /* Центрирование элементов */
+  gap: 10px; /* Расстояние между шкалой и текстом */
+  width: 100%;
+  height: 30%;
+}
+
+.course-progress meter {
+  width: 90%; /* Ширина шкалы прогресса */
+  height: 20px; /* Высота шкалы */
+  background: #e0e0e0; /* Цвет заднего плана шкалы */
+  border-radius: 10px; /* Скругление */
+  overflow: hidden;
+}
+
+meter::-webkit-meter-bar {
+  background: #e0e0e0; /* Задний фон */
+  border-radius: 10px; /* Скругление шкалы */
+}
+
+meter::-webkit-meter-value {
+  background: #5243F4; /* Цвет прогресса */
+  border-radius: 10px; /* Скругление прогресса */
+  transition: width 0.3s ease;
+}
+
+.course-progress-start {
+  font-size: 16px; /* Размер текста */
+  color: #000000; /* Чёрный цвет текста */
+}
+
+.course-footer {
+  display: flex;
+  justify-content: center; /* Центрирование кнопки */
+  align-items: center; /* Центрирование по вертикали */
+  width: 50%;
+}
+
+.course-button {
+  background-color: #5243F4; /* Цвет кнопки */
+  color: #ffffff; /* Цвет текста */
+  border: none; /* Убираем границы */
+  padding: 10px 20px; /* Внутренние отступы */
+  border-radius: 5px; /* Скругление углов */
+  font-size: 16px; /* Размер шрифта */
+  cursor: pointer; /* Указатель при наведении */
+  transition: background-color 0.3s ease; /* Плавное изменение цвета */
+}
+
+.course-button:hover {
+  background-color: #372fb3; /* Тёмный цвет при наведении */
+}
+
 
 
 .footer {

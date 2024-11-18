@@ -1,4 +1,4 @@
-import '../style.css';
+import '/styles/main-menu.css';
 
 export function getHTMLForPopup() {
     return `
