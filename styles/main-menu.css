@@ -173,6 +173,7 @@ body {
   color: #000000; /* Чёрный цвет текста */
   text-align: left; /* Выравнивание текста по левому краю */
   height: 50%;
+  margin-bottom: 20px;
 }
 
 .course-header img {

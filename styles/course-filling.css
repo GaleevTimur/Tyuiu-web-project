@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h1, h2, h3, h4 {
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+ul, ol {
+    margin: 20px;
+    padding-left: 40px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Центровка интерактивных элементов */
+.whatIsWeb, .course-guide, .devInstruments, .aboutCourses .howCourseWork {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для кнопок */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Стили для текстовых полей и форм */
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Стили для чекбоксов */
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Стили для интерактивных элементов */
+.interactive-element {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f0f8ff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .whatIsWeb, .course-guide, .devInstruments, .aboutCourses {
+        padding: 15px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}
+.responsive-image {
+    display: block; /* Центрирование изображения через margin */
+    max-width: 30%; /* Масштабирование под ширину родителя */
+    height: 20%; /* Сохранение пропорций */
+    margin: 20px auto; /* Отступы сверху и снизу, центрирование по горизонтали */
+    border-radius: 10px; /* Скругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень вокруг изображения */
+    transition: transform 0.3s ease; /* Плавное увеличение при наведении */
+}
+
+.responsive-image:hover {
+    transform: scale(1.05); /* Легкое увеличение изображения при наведении */
+}
+
+/* Адаптивность изображений для маленьких экранов */
+@media (max-width: 768px) {
+    .responsive-image {
+        margin: 10px auto; /* Меньшие отступы на мобильных устройствах */
+        border-radius: 5px; /* Меньшее скругление углов */
+    }
+}

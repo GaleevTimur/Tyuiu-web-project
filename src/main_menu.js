@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 document.addEventListener('DOMContentLoaded', () => {
-    const courseButton = document.querySelector('.course-button');
+    const courseButton = document.querySelector('#course-button_id1');
 
     if (courseButton) {
         courseButton.addEventListener('click', () => {
@@ -25,3 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const courseButton = document.querySelector('#course-button_id2');
+
+    if (courseButton) {
+        courseButton.addEventListener('click', () => {
+            // Перенаправление на coursePage.html
+            window.location.href = './html/coursePage_2.html';
+        });
+    }
+});
+
