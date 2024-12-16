@@ -1,15 +1,11 @@
-import {  loadAboutCourse, loadCourseGuide, loadDevInstruments, loadAboutWhatIsWeb, loadHowCourseWork } from './course_page_dynamic.js';
+import {  basicHTMLConcepts } from './course_page_dynamic_2.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const sidebarItems = document.querySelectorAll('.sidebar-main-section-div');
     const mainFilling = document.querySelector('.coursePage-main-filling');
 
     const functionMap = {
-        loadAboutCourse,
-        loadCourseGuide,
-        loadDevInstruments,
-        loadAboutWhatIsWeb,
-        loadHowCourseWork
+        basicHTMLConcepts
     };
 
     sidebarItems.forEach(item => {
