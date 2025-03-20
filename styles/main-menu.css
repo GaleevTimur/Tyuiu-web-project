@@ -1,340 +1,549 @@
+/* Общие стили */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #1a1a1a; 
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-
-@font-face {
-  font-family: 'Steppe-Book';
-  src: url('../fonts/Steppe-Book.ttf');
+a {
+  font-weight: 500;
+  color: #3b82f6;
+  text-decoration: inherit;
+  transition: color 0.3s;
 }
 
-@font-face {
-  font-family: 'Steppe-ExtraBold';
-  src: url('../fonts/Steppe-ExtraBold.ttf');
+a:hover {
+  color: #2563eb;
 }
 
 body {
-  background: #5243F4;
-  font-family: 'Steppe-Book', sans-serif;
-  color: white;
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: #333;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  color: #1e293b;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #334155;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+#app {
+  width: 100%;
+  margin: 0 auto;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.button {
-  background-color: white;
-  border-radius: 10px;
-  width: 178px;
-  height: 58px;
-  box-sizing: border-box;
-  padding: 18px;
-  align-items: center;
-  font-size: 22px;
-  color: #5243F4;
-  border: 0;
-  outline: none;
-  cursor: pointer;
-  margin-right: 20px;
-
-}
-
-.button-nav {
-  background-color: white;
-  border-radius: 10px;
-  width: 50px;
-  height: 50px;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-  margin-right: 10px;
-  color: #5243F4;
-  border: 0;
-  outline: none;
-  cursor: pointer;
-}
-
-.button-nav img {
-  width: 60%;
-  height: 60%; 
-  object-fit: cover;
-}
-
-.button:hover {
-  background-color: #eeeeee;
-}
-
-.main {
-  position: relative;
-  overflow: hidden;
-}
-
-.common-title {
-  font-family: 'Steppe-ExtraBold', sans-serif;
-  font-size: 40px;
-  line-height: 100%;
-  text-align: left;
-  margin-left: 20px;
-}
-
+/* Header */
 .header {
-  padding: 40px 0;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.header .container {
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3b82f6;
   display: flex;
   align-items: center;
 }
 
 .logo img {
-  vertical-align: bottom;
-  max-width: 100px;
-  max-height: 100px;
-  border-radius: 50px;
+  height: 2rem;
+  margin-right: 0.5rem;
 }
 
-.menu {
-  margin-left: 650px;
-}
-
-
-.menu-item a:hover {
-  border-bottom: 2px solid white;
-}
-
-.main-title {
-  font-family: 'Steppe-ExtraBold', sans-serif;
-  font-size: 70px;
-  line-height: 100%;
-  text-align: center;
-  color: #5243F4;
-  width: 100%;
-  margin-bottom: 100px;
-}
-
-.main-menu {
+.nav-menu {
   display: flex;
-  justify-content: center;
-  align-items: center; 
-  margin-left: auto;
-  margin-right: auto;
-  width: 55%;
-  height: 3%;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  margin-bottom: 50px;
-  border-radius: 30px;
+  list-style: none;
+  gap: 1.5rem;
 }
 
-.main-courses {
-  background-color: white;
-  max-width: 60%;
-  margin: auto;
-  padding: 40px;
-  padding-top: 100px;
-  border-radius: 20px;
-   /* Отступы между элементами */
+.nav-link {
+  font-weight: 500;
 }
 
-.courses-wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(100px, 1fr));    /* 3 строки одинаковой высоты */
-  gap: 100px;
-}
-/* Стиль для каждого элемента курса */
-.course {
-  background-color: #ffffff; /* Белый фон */
-  border: 3px solid #000000;
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   color: white;
-  padding: 20px;
-  display: flex;
-  height: 200px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 10px;
-  font-size: 1.2rem;
+  padding: 4rem 0;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
 }
-.course-header {
-  display: flex;
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #3b82f6;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+}
+
+.btn-course {
+  display: block;
   width: 100%;
-  justify-content: space-between; /* Распределение заголовка и картинки */
-  align-items: center; /* Выравнивание по вертикали */
-  gap: 5px; /* Отступ между текстом и картинкой */
-  font-family: Arial, sans-serif; /* Простой шрифт */
-  font-size: 2vw; /* Крупный текст */
-  font-family: 'Steppe-ExtraBold', sans-serif;
-  color: #000000; /* Чёрный цвет текста */
-  text-align: left; /* Выравнивание текста по левому краю */
-  height: 50%;
-  margin-bottom: 20px;
+  text-align: center;
+  margin-top: 1rem;
+  background-color: #3b82f6;
+  color: white;
 }
 
-.course-header img {
-  width: 20%; /* Размер картинки */
-  height: 70%; /* Высота картинки */
-  object-fit: contain; /* Адаптивное масштабирование */
+.btn-course:hover {
+  background-color: #2563eb;
 }
 
-.course-progress {
-  display: flex;
-  flex-direction: column; /* Элементы сверху вниз */
-  align-items: center; /* Центрирование элементов */
-  gap: 10px; /* Расстояние между шкалой и текстом */
-  width: 100%;
-  height: 30%;
+/* Courses Section */
+.courses {
+  padding: 4rem 0;
 }
 
-.course-progress meter {
-  width: 90%; /* Ширина шкалы прогресса */
-  height: 20px; /* Высота шкалы */
-  background: #e0e0e0; /* Цвет заднего плана шкалы */
-  border-radius: 10px; /* Скругление */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.course-card {
+  background-color: white;
+  border-radius: 0.5rem;
   overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-meter::-webkit-meter-bar {
-  background: #e0e0e0; /* Задний фон */
-  border-radius: 10px; /* Скругление шкалы */
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
-meter::-webkit-meter-value {
-  background: #5243F4; /* Цвет прогресса */
-  border-radius: 10px; /* Скругление прогресса */
-  transition: width 0.3s ease;
+.course-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
 }
 
-.course-progress-start {
-  font-size: 16px; /* Размер текста */
-  color: #000000; /* Чёрный цвет текста */
+.course-content {
+  padding: 1.5rem;
+}
+
+.course-tag {
+  display: inline-block;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.course-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.course-description {
+  color: #64748b;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
 }
 
 .course-footer {
   display: flex;
-  justify-content: center; /* Центрирование кнопки */
-  align-items: center; /* Центрирование по вертикали */
-  width: 50%;
-}
-
-.course-button {
-  background-color: #5243F4; /* Цвет кнопки */
-  color: #ffffff; /* Цвет текста */
-  border: none; /* Убираем границы */
-  padding: 10px 20px; /* Внутренние отступы */
-  border-radius: 5px; /* Скругление углов */
-  font-size: 16px; /* Размер шрифта */
-  cursor: pointer; /* Указатель при наведении */
-  transition: background-color 0.3s ease; /* Плавное изменение цвета */
-}
-
-.course-button:hover {
-  background-color: #372fb3; /* Тёмный цвет при наведении */
-}
-
-
-
-.footer {
-  padding: 126px 0 50px 0;
-  text-align: center;
-}
-
-.hidden {
-  display: none !important;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* полупрозрачный черный фон */
-  display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  z-index: 1000; /* Поверх всех элементов */
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1rem;
 }
 
-/* Окно авторизации */
-.authorization_menu {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень вокруг окна */
-  position: relative;
+.course-price {
+  font-weight: 700;
+  color: #3b82f6;
+}
+
+/* Features Section */
+.features {
+  padding: 4rem 0;
+  background-color: #f8fafc;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   text-align: center;
 }
 
-/* Заголовок авторизации */
-.authorization_menu h2 {
-  margin-top: 0;
-  font-size: 1.5rem;
-  color: #333;
-  font-family: 'Steppe-ExtraBold', sans-serif;
+.feature-icon {
+  font-size: 2.5rem;
+  color: #3b82f6;
+  margin-bottom: 1rem;
 }
 
-/* Кнопка закрытия */
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+/* Testimonials */
+.testimonials {
+  padding: 4rem 0;
+}
+
+.testimonial-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #1e293b;
+  color: white;
+  padding: 3rem 0 1.5rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-heading {
+  color: white;
+  margin-bottom: 1.2rem;
   font-size: 1.2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #999;
 }
 
-.close-btn:hover {
-  color: #333;
+.footer-links {
+  list-style: none;
 }
 
-/* Стили формы */
-.authorization_menu form {
+.footer-link {
+  margin-bottom: 0.8rem;
+}
+
+.footer-link a {
+  color: #cbd5e1;
+  transition: color 0.3s;
+}
+
+.footer-link a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid #334155;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* Course Page Styles */
+.course-hero {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  padding: 4rem 0;
+}
+
+.course-hero-content {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.course-hero h1 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.course-hero p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.course-hero-image img {
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.course-meta {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.meta-item {
   display: flex;
   flex-direction: column;
 }
 
-/* Метки (label) */
-.authorization_menu label {
-  font-family: 'Steppe-Book', sans-serif;
-  margin-top: 15px;
+.meta-label {
   font-size: 0.9rem;
-  color: #555;
-  text-align: left;
+  opacity: 0.8;
 }
 
-/* Поля ввода */
-.authorization_menu input[type="text"],
-.authorization_menu input[type="password"] {
-  width: 95%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
+.meta-value {
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
-/* Кнопка "Войти" */
-.authorization_menu button[type="submit"] {
-  margin-top: 20px;
-  padding: 10px;
-  width: 100%;
-  background-color: #4CAF50; /* Зеленый цвет кнопки */
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
+.course-content {
+  padding: 4rem 0;
 }
 
-.authorization_menu button[type="submit"]:hover {
-  background-color: #45a049; /* Цвет при наведении */
+.course-details {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.course-details h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #1e293b;
+  font-size: 1.8rem;
+}
+
+.course-details h2:first-child {
+  margin-top: 0;
+}
+
+.course-details ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.course-details li {
+  margin-bottom: 0.5rem;
+}
+
+.course-modules {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.module {
+  background-color: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border-left: 4px solid #3b82f6;
+}
+
+.module h3 {
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.instructor {
+  display: flex;
+  align-items: center;
+  background-color: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.instructor-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 1.5rem;
+  object-fit: cover;
+}
+
+.instructor-info h3 {
+  margin-bottom: 0.5rem;
+}
+
+.instructor-info p {
+  margin-bottom: 0.5rem;
+  color: #64748b;
+}
+
+.related-courses {
+  padding: 4rem 0;
+  background-color: #f8fafc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .courses-grid, 
+  .features-grid,
+  .course-modules {
+    grid-template-columns: 1fr;
+  }
+  
+  .course-hero-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .course-hero-image {
+    order: -1;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #1a1a1a;
+  }
+  
+  .header,
+  .course-card,
+  .feature-card,
+  .testimonial-card,
+  .course-details {
+    background-color: #242424;
+  }
+  
+  .course-description {
+    color: #a1a1aa;
+  }
+  
+  .features,
+  .related-courses,
+  .module,
+  .instructor {
+    background-color: #1a1a1a;
+  }
+  
+  h1, h2, h3 {
+    color: #e2e8f0;
+  }
+  
+  .course-tag {
+    background-color: #0c4a6e;
+    color: #7dd3fc;
+  }
+  
+  .footer {
+    background-color: #0f172a;
+  }
 }
