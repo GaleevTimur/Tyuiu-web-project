@@ -212,6 +212,7 @@ p {
 
 .course-content {
   padding: 1.5rem;
+  
 }
 
 .course-tag {
@@ -509,7 +510,7 @@ p {
   }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     color: rgba(255, 255, 255, 0.87);
     background-color: #1a1a1a;
@@ -524,7 +525,7 @@ p {
   }
   
   .course-description {
-    color: #a1a1aa;
+    color: white;
   }
   
   .features,
@@ -535,7 +536,7 @@ p {
   }
   
   h1, h2, h3 {
-    color: #e2e8f0;
+    color: white;
   }
   
   .course-tag {
@@ -547,3 +548,4 @@ p {
     background-color: #0f172a;
   }
 }
+*/

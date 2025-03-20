@@ -77,15 +77,6 @@ const coursesData = [
         </div>
       </div>
       
-      <h2>Преподаватель</h2>
-      <div class="instructor">
-        <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Александр Иванов" class="instructor-avatar">
-        <div class="instructor-info">
-          <h3>Александр Иванов</h3>
-          <p>Старший преподаватель кафедры информационных технологий</p>
-          <p>Опыт в веб-разработке: 8+ лет</p>
-        </div>
-      </div>
     `
   },
   {
@@ -327,7 +318,6 @@ function renderCoursePage(app, courseId) {
               </div>
               <div class="meta-item">
                 <span class="meta-label">Стоимость:</span>
-                <span class="meta-value">${course.price}</span>
               </div>
             </div>
             <a href="#" class="btn btn-primary">Записаться на курс</a>
@@ -413,8 +403,7 @@ function renderCourses() {
         <h3 class="course-title">${course.title}</h3>
         <p class="course-description">${course.description}</p>
         <div class="course-footer">
-          <span class="course-price">${course.price}</span>
-          <span>${course.duration}</span>
+
         </div>
         ${course.id === 1 ? '<a href="#" class="btn btn-course" data-course-id="1">Перейти к курсу</a>' : ''}
       </div>
@@ -435,7 +424,7 @@ function renderRelatedCourses(currentCourseId) {
           <h3 class="course-title">${course.title}</h3>
           <p class="course-description">${course.description}</p>
           <div class="course-footer">
-            <span class="course-price">${course.price}</span>
+
             <span>${course.duration}</span>
           </div>
           <a href="#" class="btn btn-course" data-course-id="${course.id}">Перейти к курсу</a>
@@ -444,21 +433,7 @@ function renderRelatedCourses(currentCourseId) {
     `).join('');
 }
 
-// Функция для рендеринга отзывов
-function renderTestimonials() {
-  return testimonials.map(testimonial => `
-    <div class="testimonial-card">
-      <p class="testimonial-text">"${testimonial.text}"</p>
-      <div class="testimonial-author">
-        <img src="${testimonial.avatar}" alt="${testimonial.name}" class="testimonial-avatar">
-        <div>
-          <h4>${testimonial.name}</h4>
-          <p>${testimonial.position}</p>
-        </div>
-      </div>
-    </div>
-  `).join('');
-}
+
 
 // Функция для настройки обработчиков событий
 function setupEventListeners() {
