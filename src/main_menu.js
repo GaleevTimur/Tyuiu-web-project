@@ -1,5 +1,10 @@
 import '/styles/main-menu.css';
-import { showAuthPopup, getHTMLForPopup, setupCloseAuthPopup } from './authorization_menu.js';
+import { initializeAuthPopup, showAuthPopup, setupCloseAuthPopup } from './authorization_menu.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+    initializeAuthPopup(); // Инициализация попапа
+    setupCloseAuthPopup(); // Настройка закрытия попапа
+});
 
 // Данные о курсах
 const coursesData = [
@@ -86,7 +91,74 @@ const coursesData = [
     image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     tag: 'Средний',
     price: 'Бесплатно',
-    duration: '8 недель'
+    duration: '8 недель',
+    fullDescription: `
+      <h2>О курсе</h2>
+      <p>В этом курсе вы изучите JavaScript — один из самых популярных языков программирования, который используется для создания интерактивных веб-страниц и веб-приложений. Вы освоите основы языка, современные концепции и инструменты разработки.</p>
+      
+      <h2>Чему вы научитесь</h2>
+      <ul>
+        <li>Основам JavaScript: синтаксис, переменные, типы данных и функции</li>
+        <li>Работе с DOM для создания интерактивных веб-страниц</li>
+        <li>Использованию современных возможностей ES6+</li>
+        <li>Асинхронному программированию: Promises, async/await</li>
+        <li>Основам работы с API и Fetch</li>
+        <li>Тестированию и отладке кода</li>
+      </ul>
+      
+      <h2>Программа курса</h2>
+      <div class="course-modules">
+        <div class="module">
+          <h3>Модуль 1: Введение в JavaScript</h3>
+          <ul>
+            <li>Основы синтаксиса JavaScript</li>
+            <li>Переменные, типы данных и операторы</li>
+            <li>Условные конструкции и циклы</li>
+            <li>Функции и их использование</li>
+          </ul>
+        </div>
+        
+        <div class="module">
+          <h3>Модуль 2: Работа с DOM</h3>
+          <ul>
+            <li>Что такое DOM и как с ним работать</li>
+            <li>Выбор и изменение элементов на странице</li>
+            <li>Создание и удаление элементов</li>
+            <li>Обработка событий</li>
+          </ul>
+        </div>
+        
+        <div class="module">
+          <h3>Модуль 3: Современный JavaScript (ES6+)</h3>
+          <ul>
+            <li>Стрелочные функции</li>
+            <li>Деструктуризация</li>
+            <li>Шаблонные строки</li>
+            <li>Классы и модули</li>
+          </ul>
+        </div>
+        
+        <div class="module">
+          <h3>Модуль 4: Асинхронное программирование</h3>
+          <ul>
+            <li>Callback-функции</li>
+            <li>Promises и их использование</li>
+            <li>Async/await</li>
+            <li>Работа с Fetch API</li>
+          </ul>
+        </div>
+        
+        <div class="module">
+          <h3>Модуль 5: Практический проект</h3>
+          <ul>
+            <li>Создание интерактивного веб-приложения</li>
+            <li>Интеграция с внешними API</li>
+            <li>Тестирование и отладка</li>
+            <li>Публикация проекта</li>
+          </ul>
+        </div>
+      </div>
+    `
   },
   {
     id: 3,
@@ -827,6 +899,14 @@ function setupEventListeners() {
       navigateToHome(scrollTo);
     });
   });
+
+  document.querySelectorAll('.btn:not(.btn-course)').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault(); // Предотвращаем стандартное поведение ссылки
+      showAuthPopup(); // Открываем попап авторизации
+      setupCloseAuthPopup(); // Настраиваем закрытие попапа
+    });
+  });
 }
 
 // Функция для отображения деталей курса (заглушка)
@@ -865,6 +945,8 @@ function navigateToHome(scrollTo) {
     window.scrollTo(0, 0);
   }
 }
+
+
 
 // Инициализация приложения
 document.addEventListener('DOMContentLoaded', () => {
