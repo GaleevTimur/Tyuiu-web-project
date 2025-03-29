@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupCloseAuthPopup(); // Настройка закрытия попапа
 });
 
+
 // Данные о курсах
 const coursesData = [
   {
@@ -39,7 +40,6 @@ const coursesData = [
             <li>Семантическая верстка</li>
             <li>Работа с текстом и ссылками</li>
           </ul>
-          <a href="course.html">Курсы</a>
         </div>
         
         <div class="module">
@@ -82,8 +82,9 @@ const coursesData = [
           </ul>
         </div>
       </div>
-      
+      button: '<button class="course-button" data-course-id="1">Перейти к курсу</button>'
     `
+    
   },
   {
     id: 2,
@@ -803,12 +804,7 @@ function renderCourses() {
         <div class="course-footer">
 
         </div>
-        ${course.id === 1 ? '<a href="#" class="btn btn-course" data-course-id="1">Перейти к курсу</a>' : ''}
-        ${course.id === 2 ? '<a href="#" class="btn btn-course" data-course-id="1">Перейти к курсу</a>' : ''}
-        ${course.id === 3 ? '<a href="#" class="btn btn-course" data-course-id="1">Перейти к курсу</a>' : ''}
-        ${course.id === 4 ? '<a href="#" class="btn btn-course" data-course-id="1">Перейти к курсу</a>' : ''}
-        ${course.id === 5 ? '<a href="#" class="btn btn-course" data-course-id="1">Перейти к курсу</a>' : ''}
-        ${course.id === 6 ? '<a href="#" class="btn btn-course" data-course-id="1">Перейти к курсу</a>' : ''}
+        <a href="#" class="btn btn-course" data-course-id="${course.id}">Перейти к курсу</a>
       </div>
     </div>
   `).join('');
@@ -840,7 +836,7 @@ function renderRelatedCourses(currentCourseId) {
 
 // Функция для настройки обработчиков событий
 function setupEventListeners() {
-  // Плавная прокрутка для навигационных ссылок
+  // 1. Плавная прокрутка для якорных ссылок
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
@@ -857,57 +853,58 @@ function setupEventListeners() {
     });
   });
 
-  // Обработчик клика по карточке курса
+  // 2. Обработчик клика по карточке курса (если нужно открывать при клике на всю карточку)
   document.querySelectorAll('.course-card').forEach(card => {
     card.addEventListener('click', function(e) {
-      // Если клик был по кнопке, то обработчик кнопки сработает сам
-      if (e.target.classList.contains('btn-course')) {
+      // Если клик был по кнопке или ссылке, пропускаем
+      if (e.target.tagName === 'A' || e.target.classList.contains('btn-course')) {
         return;
       }
       
       const courseId = this.getAttribute('data-id');
-      showCourseDetails(courseId);
+      navigateToCourse(courseId);
     });
   });
 
-  // Обработчик клика по кнопке "Перейти к курсу"
+  // 3. Обработчик для кнопок "Перейти к курсу" (ИСПРАВЛЕННАЯ ВЕРСИЯ)
   document.querySelectorAll('.btn-course').forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
-      e.stopPropagation(); // Предотвращаем всплытие события
+      e.stopPropagation(); // Важно: предотвращаем всплытие
       
       const courseId = this.getAttribute('data-course-id');
-      navigateToCourse(courseId);
+      navigateToCourse(courseId); // Используем нашу функцию навигации
     });
   });
 
-  // Обработчик клика по ссылкам в футере
+  // 4. Обработчик для ссылок на курсы в футере
   document.querySelectorAll('.footer-link a[data-course-id]').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
-      
       const courseId = this.getAttribute('data-course-id');
       navigateToCourse(courseId);
     });
   });
 
-  // Обработчик для навигации на главную
+  // 5. Обработчики для навигации на главную
   document.querySelectorAll('[data-page="home"]').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
-      
       const scrollTo = this.getAttribute('data-scroll-to');
       navigateToHome(scrollTo);
     });
   });
 
+  // 6. Обработчик для кнопок авторизации
   document.querySelectorAll('.btn:not(.btn-course)').forEach(btn => {
     btn.addEventListener('click', function(e) {
-      e.preventDefault(); // Предотвращаем стандартное поведение ссылки
-      showAuthPopup(); // Открываем попап авторизации
-      setupCloseAuthPopup(); // Настраиваем закрытие попапа
+      e.preventDefault();
+      showAuthPopup();
     });
   });
+
+  // 7. Обработчик для закрытия попапа авторизации (если нужно)
+  setupCloseAuthPopup();
 }
 
 // Функция для отображения деталей курса (заглушка)
