@@ -39,6 +39,7 @@ const coursesData = [
             <li>Семантическая верстка</li>
             <li>Работа с текстом и ссылками</li>
           </ul>
+          <a href="course.html">Курсы</a>
         </div>
         
         <div class="module">
