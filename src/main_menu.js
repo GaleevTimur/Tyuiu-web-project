@@ -870,10 +870,10 @@ function setupEventListeners() {
   document.querySelectorAll('.btn-course').forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
-      e.stopPropagation(); // Предотвращаем всплытие события
-      
       const courseId = this.getAttribute('data-course-id');
-      navigateToCourse(courseId);
+      
+      // Переход на страницу курса в папке courses
+      window.location.href = `courses/course.html?id=${courseId}`;
     });
   });
 
