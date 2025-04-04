@@ -1,46 +1,24 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Курсы</title>
-  <!-- Подключаем стили курса -->
-  <link rel="stylesheet" href="/courses/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Platform</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="course-container">
-    <h1>Интерактивные уроки</h1>
-    <div id="lessons-root"></div>  <!-- Сюда встроится курс -->
-    <a href="index.html" class="back-button">На главную</a>
-  </div>
+    <nav class="main-nav">
+        <div class="nav-content">
+            <a href="/" class="logo">LearnHub</a>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Courses</a>
+                <a href="/profile" class="nav-link">Profile</a>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Подключаем скрипт курса -->
-  <script src="lesson.js"></script>
-  <script>
-    // Получаем ID курса из URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const courseId = urlParams.get('id');
-    
-    // Загружаем данные курса
-    if (courseId) {
-      fetch('/js/script.js')
-        .then(response => response.text())
-        .then(scriptText => {
-          // Извлекаем данные курсов из скрипта
-          const coursesMatch = scriptText.match(/const coursesData = (\[.*?\])/s);
-          if (coursesMatch) {
-            const coursesData = JSON.parse(coursesMatch[1]
-              .replace(/'/g, '"')
-              .replace(/,\s*]/g, ']'));
-              
-            const course = coursesData.find(c => c.id == courseId);
-            if (course) {
-              document.title = course.title;
-              document.querySelector('h1').textContent = course.title;
-              // Здесь рендерим остальные данные курса
-            }
-          }
-        });
-    }
-  </script>
+    <div id="app"></div>
+
+    <script type="module" src="main_course.js"></script>
 </body>
 </html>

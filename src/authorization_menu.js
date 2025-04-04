@@ -1,5 +1,6 @@
 import '/styles/main-menu.css';
 
+
 // Функция для получения HTML-кода попапа
 export function getHTMLForPopup() {
     return `

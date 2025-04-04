@@ -1,6 +1,6 @@
-import { renderHome } from './pages/home.js';
-import { renderLesson } from './pages/lesson.js';
-import { courses } from './data/courses.js';
+import { renderHome } from './home.js';
+import { renderLesson } from './lesson.js';
+import { courses } from '/data/courses.js';
 
 const app = document.querySelector('#app');
 

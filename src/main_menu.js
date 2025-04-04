@@ -1,11 +1,44 @@
 import '/styles/main-menu.css';
 import { initializeAuthPopup, showAuthPopup, setupCloseAuthPopup } from './authorization_menu.js';
+import { renderLesson } from './lesson.js';
+import { courses } from '/data/courses.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeAuthPopup(); // Инициализация попапа
     setupCloseAuthPopup(); // Настройка закрытия попапа
 });
 
+export function router() {
+  const path = window.location.pathname;
+  if (path === '/') {
+      // Рендеринг главной страницы
+      renderHome(document.querySelector('#app'), courses);
+  } else if (path.startsWith('/course/')) {
+      // Обработка страниц курсов
+      const courseId = path.split('/')[2];
+      const lessonId = path.split('/')[3] || '1'; // По умолчанию выбираем первый урок
+      const course = courses.find(c => c.id === parseInt(courseId));
+      if (course) {
+          // Рендеринг урока
+          renderLesson(document.querySelector('#app'), lessonId);
+      } else {
+          console.error(`Курс с ID ${courseId} не найден.`);
+          document.querySelector('#app').innerHTML = '<p>Курс не найден.</p>';
+      }
+  }
+}
+// Обработка навигации
+window.addEventListener('popstate', router); // При изменении истории браузера
+
+// Обработка кликов по ссылкам
+document.addEventListener('click', (e) => {
+  if (e.target.matches('[data-link]')) {
+      e.preventDefault();
+      const href = e.target.getAttribute('href');
+      history.pushState(null, '', href); // Изменяем URL без перезагрузки страницы
+      router(); // Вызываем маршрутизатор
+  }
+});
 
 // Данные о курсах
 const coursesData = [
@@ -548,13 +581,11 @@ let currentCourseId = null;
 // Функция для создания HTML-структуры сайта
 function renderApp() {
   const app = document.querySelector('#app');
-  
   if (currentPage === 'home') {
-    renderHomePage(app);
+    renderHomePage(app); // Рендерим главную страницу
   } else if (currentPage === 'course' && currentCourseId) {
-    renderCoursePage(app, currentCourseId);
+    renderCoursePage(app, currentCourseId); // Рендерим страницу курса
   }
-
   // Добавляем обработчики событий
   setupEventListeners();
 }
@@ -801,14 +832,12 @@ function renderCourses() {
         <span class="course-tag">${course.tag}</span>
         <h3 class="course-title">${course.title}</h3>
         <p class="course-description">${course.description}</p>
-        <div class="course-footer">
-
-        </div>
         <a href="#" class="btn btn-course" data-course-id="${course.id}">Перейти к курсу</a>
       </div>
     </div>
   `).join('');
 }
+
 
 // Функция для рендеринга похожих курсов
 function renderRelatedCourses(currentCourseId) {
@@ -870,13 +899,18 @@ function setupEventListeners() {
   document.querySelectorAll('.btn-course').forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
-      const courseId = this.getAttribute('data-course-id');
-      
-      // Переход на страницу курса в папке courses
-      window.location.href = `courses/course.html?id=${courseId}`;
+      const courseId = this.getAttribute('data-course-id'); // Получаем ID курса
+      const course = courses.find(c => c.id === parseInt(courseId)); // Находим курс в массиве courses
+      if (!course) {
+        console.error(`Курс с ID ${courseId} не найден.`);
+        return;
+      }
+      // Выбираем первый урок (или любой другой)
+      const firstLessonId = course.lessons[0].id; // ID первого урока
+      // Рендерим урок
+      renderLesson(document.querySelector('#app'), firstLessonId);
     });
   });
-
   // 4. Обработчик для ссылок на курсы в футере
   document.querySelectorAll('.footer-link a[data-course-id]').forEach(link => {
     link.addEventListener('click', function(e) {
@@ -908,19 +942,13 @@ function setupEventListeners() {
 }
 
 // Функция для отображения деталей курса (заглушка)
-function showCourseDetails(courseId) {
-  const course = coursesData.find(c => c.id === parseInt(courseId));
-  if (course) {
-    navigateToCourse(courseId); // Всегда переходим на страницу курса
-  }
-}
 
 // Функция для навигации на страницу курса
 function navigateToCourse(courseId) {
-  currentPage = 'course';
-  currentCourseId = courseId;
-  renderApp();
-  window.scrollTo(0, 0);
+  currentPage = 'course'; // Устанавливаем текущую страницу как "курс"
+  currentCourseId = courseId; // Устанавливаем ID текущего курса
+  renderApp(); // Перерендериваем приложение
+  window.scrollTo(0, 0); // Прокручиваем страницу вверх
 }
 
 // Функция для навигации на главную страницу
@@ -948,5 +976,5 @@ function navigateToHome(scrollTo) {
 
 // Инициализация приложения
 document.addEventListener('DOMContentLoaded', () => {
-  renderApp();
+  renderApp(); // Рендерим приложение при загрузке страницы
 });
