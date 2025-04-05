@@ -531,8 +531,8 @@ const coursesData = [
 // Отзывы
 
 // Текущая страница
-export const currentPage = 'home';
-export const currentCourseId = null;
+export let currentPage = 'home';
+export let currentCourseId = null;
 
 // Функция для создания HTML-структуры сайта
 export function renderApp() {
@@ -864,7 +864,6 @@ function setupEventListeners() {
 
         // Выбираем первый урок выбранного курса
         const firstLessonId = course.lessons[0].id; // ID первого урока
-        console.log(`Рендерится урок с ID: ${firstLessonId}`); // Логирование для отладки
 
         // Рендерим урок
         renderLesson(document.querySelector('#app'), firstLessonId);
