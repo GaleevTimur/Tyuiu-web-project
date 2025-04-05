@@ -1,10 +1,36 @@
 import { courses } from '/data/courses.js';
-import { router } from './main_menu.js'; // Импортируем функцию router
+import styles from '/styles/lesson.module.css';
+ // Импортируем стили как модуль
+import { currentPage, currentCourseId, renderApp } from './main_menu.js';
 
 function handleLessonClick(courseId, lessonId) {
     const href = `/course/${courseId}/${lessonId}`;
     history.pushState(null, '', href); // Изменяем URL без перезагрузки страницы
     router(); // Вызываем маршрутизатор для рендера нового урока
+}
+
+function navigateToHome() {
+    renderApp();
+}
+
+function router() {
+    const path = window.location.pathname;
+    if (path === '/') {
+        // Рендеринг главной страницы
+        renderHome(document.querySelector('#app'), courses);
+    } else if (path.startsWith('/course/')) {
+        // Обработка страниц курсов
+        const courseId = path.split('/')[2];
+        const lessonId = path.split('/')[3] || '1'; // По умолчанию выбираем первый урок
+        const course = courses.find(c => c.id === parseInt(courseId));
+        if (course) {
+            // Рендеринг урока
+            renderLesson(document.querySelector('#app'), lessonId);
+        } else {
+            console.error(`Курс с ID ${courseId} не найден.`);
+            document.querySelector('#app').innerHTML = '<p>Курс не найден.</p>';
+        }
+    }
 }
 
 export function renderLesson(container, lessonId) {
@@ -26,12 +52,25 @@ export function renderLesson(container, lessonId) {
 
     // Рендерим урок
     container.innerHTML = `
-        <div class="lesson-container">
-            <div class="lesson-sidebar">
+        <header class="${styles.lessonHeader}">
+            <div class="${styles.lessonHeaderContainer}">
+                <a href="#" class="${styles.lessonLogo}" data-page="home">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png" alt="WebDev Logo">
+                    WebDev Курсы
+                </a>
+                <nav>
+                    <ul class="${styles.lessonNavMenu}">
+                        <li><a href="#" class="${styles.lessonBtn}">Войти</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="${styles.lessonContainer}">
+            <div class="${styles.lessonSidebar}">
                 <h2>${course.title}</h2>
-                <ul class="lesson-nav">
+                <ul class="${styles.lessonNav}">
                     ${course.lessons.map(l => `
-                        <li class="lesson-nav-item ${l.id === lessonId ? 'active' : ''}"
+                        <li class="${styles.lessonNavItem} ${l.id === lessonId ? styles.lessonNavItemActive : ''}"
                             data-course-id="${course.id}"
                             data-lesson-id="${l.id}">
                             ${l.title}
@@ -39,7 +78,7 @@ export function renderLesson(container, lessonId) {
                     `).join('')}
                 </ul>
             </div>
-            <div class="lesson-content">
+            <div class="${styles.lessonContent}">
                 ${renderLessonContent(lesson)}
             </div>
         </div>
@@ -54,6 +93,15 @@ export function renderLesson(container, lessonId) {
 
     // Добавляем обработчики кликов для элементов сайдбара
     setupSidebarClickHandlers();
+
+    // Обработчик для логотипа
+    const logoLink = container.querySelector(`.${styles.lessonLogo}`);
+    if (logoLink) {
+        logoLink.addEventListener('click', function (e) {
+            e.preventDefault(); // Предотвращаем стандартное поведение ссылки
+            navigateToHome(); // Переход на главную страницу
+        });
+    }
 }
 
 function renderLessonContent(lesson) {
@@ -61,19 +109,19 @@ function renderLessonContent(lesson) {
         case 'theory':
             return `
                 <h1>${lesson.title}</h1>
-                <div class="theory-content">
+                <div class="${styles.theoryContent}">
                     ${lesson.content}
                 </div>
             `;
         case 'quiz':
             return `
                 <h1>${lesson.title}</h1>
-                <div class="quiz-container">
-                    <div class="quiz-question">
+                <div class="${styles.quizContainer}">
+                    <div class="${styles.quizQuestion}">
                         <h3>${lesson.question}</h3>
-                        <div class="quiz-options">
+                        <div class="${styles.quizOptions}">
                             ${lesson.options.map((option, index) => `
-                                <div class="quiz-option" data-index="${index}">
+                                <div class="${styles.quizOption}" data-index="${index}">
                                     ${option}
                                 </div>
                             `).join('')}
@@ -84,12 +132,12 @@ function renderLessonContent(lesson) {
         case 'coding':
             return `
                 <h1>${lesson.title}</h1>
-                <div class="coding-container">
-                    <div class="code-editor">
+                <div class="${styles.codingContainer}">
+                    <div class="${styles.codeEditor}">
                         <textarea id="code-input">${lesson.starterCode || ''}</textarea>
                     </div>
-                    <button class="run-button">Run Code</button>
-                    <div class="output" id="code-output"></div>
+                    <button class="${styles.runButton}">Run Code</button>
+                    <div class="${styles.output}" id="code-output"></div>
                 </div>
             `;
         default:
@@ -98,9 +146,8 @@ function renderLessonContent(lesson) {
 }
 
 // Функция для обработки кликов по ссылкам в сайдбаре
-// Функция для настройки обработчиков кликов в сайдбаре
 function setupSidebarClickHandlers() {
-    document.querySelectorAll('.lesson-nav-item').forEach(item => {
+    document.querySelectorAll(`.${styles.lessonNavItem}`).forEach(item => {
         item.addEventListener('click', function () {
             const courseId = this.getAttribute('data-course-id');
             const lessonId = this.getAttribute('data-lesson-id');
@@ -110,7 +157,7 @@ function setupSidebarClickHandlers() {
 }
 
 function setupQuiz(container, lesson) {
-    const options = container.querySelectorAll('.quiz-option');
+    const options = container.querySelectorAll(`.${styles.quizOption}`);
     options.forEach(option => {
         option.addEventListener('click', () => {
             const index = parseInt(option.dataset.index);
@@ -125,9 +172,9 @@ function setupQuiz(container, lesson) {
 
 // Настройка среды выполнения кода
 function setupCodingEnvironment(container, lesson) {
-    const runButton = container.querySelector('.run-button');
+    const runButton = container.querySelector(`.${styles.runButton}`);
     const codeInput = container.querySelector('#code-input');
-    const output = container.querySelector('#code-output');
+    const output = container.querySelector(`.${styles.output}`);
 
     runButton.addEventListener('click', () => {
         try {

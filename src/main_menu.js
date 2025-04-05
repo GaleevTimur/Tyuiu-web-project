@@ -8,37 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupCloseAuthPopup(); // Настройка закрытия попапа
 });
 
-export function router() {
-  const path = window.location.pathname;
-  if (path === '/') {
-      // Рендеринг главной страницы
-      renderHome(document.querySelector('#app'), courses);
-  } else if (path.startsWith('/course/')) {
-      // Обработка страниц курсов
-      const courseId = path.split('/')[2];
-      const lessonId = path.split('/')[3] || '1'; // По умолчанию выбираем первый урок
-      const course = courses.find(c => c.id === parseInt(courseId));
-      if (course) {
-          // Рендеринг урока
-          renderLesson(document.querySelector('#app'), lessonId);
-      } else {
-          console.error(`Курс с ID ${courseId} не найден.`);
-          document.querySelector('#app').innerHTML = '<p>Курс не найден.</p>';
-      }
-  }
-}
-// Обработка навигации
-window.addEventListener('popstate', router); // При изменении истории браузера
 
-// Обработка кликов по ссылкам
-document.addEventListener('click', (e) => {
-  if (e.target.matches('[data-link]')) {
-      e.preventDefault();
-      const href = e.target.getAttribute('href');
-      history.pushState(null, '', href); // Изменяем URL без перезагрузки страницы
-      router(); // Вызываем маршрутизатор
-  }
-});
 
 // Данные о курсах
 const coursesData = [
@@ -559,27 +529,13 @@ const coursesData = [
 ];
 
 // Отзывы
-const testimonials = [
-  {
-    text: 'Курс по HTML и CSS полностью изменил мое представление о веб-разработке. Теперь я могу создавать профессиональные сайты!',
-    name: 'Анна Смирнова',
-    position: 'Студент университета',
-    avatar: 'https://randomuser.me/api/portraits/women/65.jpg'
-  },
-  {
-    text: 'Благодаря курсу по JavaScript я смог найти работу в IT-компании. Материал подается очень понятно и структурированно.',
-    name: 'Иван Петров',
-    position: 'Студент университета',
-    avatar: 'https://randomuser.me/api/portraits/men/32.jpg'
-  }
-];
 
 // Текущая страница
-let currentPage = 'home';
-let currentCourseId = null;
+export const currentPage = 'home';
+export const currentCourseId = null;
 
 // Функция для создания HTML-структуры сайта
-function renderApp() {
+export function renderApp() {
   const app = document.querySelector('#app');
   if (currentPage === 'home') {
     renderHomePage(app); // Рендерим главную страницу
@@ -897,18 +853,21 @@ function setupEventListeners() {
 
   // 3. Обработчик для кнопок "Перейти к курсу" (ИСПРАВЛЕННАЯ ВЕРСИЯ)
   document.querySelectorAll('.btn-course').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      const courseId = this.getAttribute('data-course-id'); // Получаем ID курса
-      const course = courses.find(c => c.id === parseInt(courseId)); // Находим курс в массиве courses
-      if (!course) {
-        console.error(`Курс с ID ${courseId} не найден.`);
-        return;
-      }
-      // Выбираем первый урок (или любой другой)
-      const firstLessonId = course.lessons[0].id; // ID первого урока
-      // Рендерим урок
-      renderLesson(document.querySelector('#app'), firstLessonId);
+    btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const courseId = this.getAttribute('data-course-id'); // Получаем ID курса
+        const course = courses.find(c => c.id === parseInt(courseId)); // Находим курс в массиве courses
+        if (!course) {
+            console.error(`Курс с ID ${courseId} не найден.`);
+            return;
+        }
+
+        // Выбираем первый урок выбранного курса
+        const firstLessonId = course.lessons[0].id; // ID первого урока
+        console.log(`Рендерится урок с ID: ${firstLessonId}`); // Логирование для отладки
+
+        // Рендерим урок
+        renderLesson(document.querySelector('#app'), firstLessonId);
     });
   });
   // 4. Обработчик для ссылок на курсы в футере

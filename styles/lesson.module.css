@@ -1,0 +1,220 @@
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --background-color: #f8fafc;
+    --text-color: #1e293b;
+    --border-color: #e2e8f0;
+}
+
+/* Стили шапки */
+.lessonHeader {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.lessonHeaderContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.lessonLogo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3b82f6;
+    display: flex;
+    align-items: center;
+}
+
+.lessonLogo img {
+    height: 2rem;
+    margin-right: 0.5rem;
+}
+
+.lessonNavMenu {
+    display: flex;
+    list-style: none;
+}
+
+.lessonNavLink {
+    display: inline-block;
+    padding: 0.8rem;
+    font-weight: 600;
+}
+
+.lessonBtn {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #3b82f6;
+    padding: 0.8rem 5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.lessonBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Остальные стили */
+.lessonContainer {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 3rem;
+    min-height: calc(100vh - 150px);
+}
+
+.lessonSidebar {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.lessonContent {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.lessonNav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.lessonNavItem {
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.lessonNavItem:hover {
+    background-color: #f1f5f9;
+}
+
+.lessonNavItemActive {
+    background-color: #e2e8f0;
+    font-weight: 600;
+}
+
+.quizContainer {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.quizQuestion {
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+}
+
+.quizOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.quizOption {
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.quizOption:hover {
+    background-color: #f1f5f9;
+}
+
+.codeEditor {
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.codeEditor textarea {
+    width: 100%;
+    min-height: 250px;
+    padding: 1.5rem;
+    font-family: monospace;
+    font-size: 1rem;
+    border: none;
+    resize: vertical;
+}
+
+.runButton {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.runButton:hover {
+    background-color: var(--secondary-color);
+}
+
+.output {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background-color: #1e293b;
+    color: white;
+    border-radius: 0.5rem;
+    font-family: monospace;
+    font-size: 1rem;
+}
+
+.theoryContent pre {
+    font-size: 1.1rem; /* Увеличиваем размер шрифта */
+    line-height: 1.6; /* Добавляем больше межстрочного интервала */
+    background-color: #f8fafc; /* Легкий фон для контраста */
+    padding: 1rem; /* Добавляем отступы */
+    border-radius: 0.5rem; /* Скругляем углы */
+    overflow-x: auto; /* Добавляем горизонтальную прокрутку при необходимости */
+}
+
+.theoryContent code {
+    font-size: 1.1rem; /* Увеличиваем размер шрифта */
+    color: black; /* Цвет для подсветки кода */
+    font-family: 'Courier New', monospace; /* Используем моноширинный шрифт */
+}
+
+/* Основной текст теории */
+.theoryContent p {
+    font-size: 1.1rem; /* Увеличиваем размер шрифта для обычного текста */
+    line-height: 1.7; /* Добавляем больше межстрочного интервала */
+}
+
+.theoryContent h2 {
+    font-size: 1.5rem; /* Увеличиваем заголовки */
+    margin-bottom: 1rem;
+}
+
+.theoryContent h3 {
+    font-size: 1.3rem; /* Увеличиваем подзаголовки */
+    margin-bottom: 0.75rem;
+}
+
+/* Примеры списков */
+.theoryContent ul,
+.theoryContent ol {
+    font-size: 1.1rem; /* Увеличиваем размер шрифта для списков */
+    line-height: 1.7; /* Добавляем больше межстрочного интервала */
+    margin-left: 1.5rem; /* Отступ для маркеров */
+}
