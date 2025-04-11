@@ -408,7 +408,218 @@ console.log(sumArray([1, 2, 3, 4]));`,
                         expected: 30
                     }
                 ]
+            },
+            {
+                id: "2-13",
+                type: "theory",
+                title: "Что такое DOM и как с ним работать",
+                content: `
+                    <h2>Что такое DOM?</h2>
+                    <p>DOM (Document Object Model) — это программный интерфейс для HTML-документов. Он представляет документ в виде дерева объектов, где каждый узел является объектом, представляющим часть документа.</p>
+                    <h3>Основные операции:</h3>
+                    <ul>
+                        <li><strong>Выбор элементов:</strong> Выбор элементов на странице для их изменения.</li>
+                        <li><strong>Изменение содержимого:</strong> Добавление, удаление или изменение элементов и их атрибутов.</li>
+                        <li><strong>Обработка событий:</strong> Реакция на действия пользователя, такие как клики, ввод текста и т.д.</li>
+                    </ul>
+                    <h3>Пример:</h3>
+                    <pre><code>
+    // Выбор элемента по ID
+    let element = document.getElementById("myElement");
+    console.log(element);
+                    </code></pre>
+                `
+            },
+            {
+                id: "2-14",
+                type: "quiz",
+                title: "Тест: Основы DOM",
+                question: "Что означает аббревиатура DOM?",
+                options: [
+                    "Data Object Model",
+                    "Document Object Model",
+                    "Dynamic Object Model",
+                    "Digital Object Management"
+                ],
+                correctAnswer: 2
+            },
+            {
+                id: "2-15",
+                type: "coding",
+                title: "Практика: Выбор элементов",
+                starterCode: `// Напишите код для выбора элемента с ID "header" и выведите его в консоль
+    // Ваш код здесь`,
+                solution: `let header = document.getElementById("header");
+    console.log(header);`,
+                tests: [
+                    {
+                        input: [],
+                        expected: "document.getElementById('header')"
+                    }
+                ]
+            },
+            // Тема 2: Выбор и изменение элементов на странице
+            {
+                id: "2-16",
+                type: "theory",
+                title: "Выбор и изменение элементов на странице",
+                content: `
+                    <h2>Выбор элементов</h2>
+                    <p>Для выбора элементов можно использовать различные методы:</p>
+                    <ul>
+                        <li><code>getElementById</code>: Выбирает элемент по уникальному ID.</li>
+                        <li><code>getElementsByClassName</code>: Возвращает коллекцию элементов по классу.</li>
+                        <li><code>getElementsByTagName</code>: Возвращает коллекцию элементов по тегу.</li>
+                        <li><code>querySelector</code>: Выбирает первый элемент, соответствующий CSS-селектору.</li>
+                        <li><code>querySelectorAll</code>: Выбирает все элементы, соответствующие CSS-селектору.</li>
+                    </ul>
+                    <h3>Изменение элементов:</h3>
+                    <p>После выбора элемента можно изменить его содержимое, атрибуты или стиль:</p>
+                    <pre><code>
+    let element = document.querySelector(".title");
+    element.textContent = "Новый заголовок";
+    element.style.color = "red";
+                    </code></pre>
+                `
+            },
+            {
+                id: "2-17",
+                type: "quiz",
+                title: "Тест: Выбор элементов",
+                question: "Какой метод используется для выбора всех элементов по классу?",
+                options: [
+                    "getElementById",
+                    "getElementsByClassName",
+                    "querySelector",
+                    "getElementsByTagName"
+                ],
+                correctAnswer: 2
+            },
+            {
+                id: "2-18",
+                type: "coding",
+                title: "Практика: Изменение элементов",
+                starterCode: `// Измените текст элемента с классом "title" на "Привет, мир!" и установите цвет текста на красный
+    let element = document.querySelector(".title");
+    // Ваш код здесь`,
+                solution: `let element = document.querySelector(".title");
+    element.textContent = "Привет, мир!";
+    element.style.color = "red";`,
+                tests: [
+                    {
+                        input: [],
+                        expected: 'document.querySelector(".title").textContent = "Привет, мир!"'
+                    }
+                ]
+            },
+            // Тема 3: Создание и удаление элементов
+            {
+                id: "2-19",
+                type: "theory",
+                title: "Создание и удаление элементов",
+                content: `
+                    <h2>Создание элементов</h2>
+                    <p>Для создания новых элементов используется метод <code>document.createElement</code>.</p>
+                    <h3>Добавление элементов:</h3>
+                    <p>После создания элемент можно добавить на страницу с помощью методов:</p>
+                    <ul>
+                        <li><code>appendChild</code>: Добавляет элемент в конец родительского элемента.</li>
+                        <li><code>insertBefore</code>: Добавляет элемент перед указанным элементом.</li>
+                    </ul>
+                    <h3>Удаление элементов:</h3>
+                    <p>Для удаления элемента используется метод <code>removeChild</code>.</p>
+                    <h3>Пример:</h3>
+                    <pre><code>
+    // Создание нового элемента
+    let newElement = document.createElement("div");
+    newElement.textContent = "Новый элемент";
+    document.body.appendChild(newElement);
+                    </code></pre>
+                `
+            },
+            {
+                id: "2-20",
+                type: "quiz",
+                title: "Тест: Создание элементов",
+                question: "Какой метод используется для создания нового элемента в DOM?",
+                options: [
+                    "createNode",
+                    "createElement",
+                    "newElement",
+                    "addElement"
+                ],
+                correctAnswer: 2
+            },
+            {
+                id: "2-21",
+                type: "coding",
+                title: "Практика: Создание элементов",
+                starterCode: `// Создайте новый элемент <p> с текстом "Это новый параграф" и добавьте его в body
+    // Ваш код здесь`,
+                solution: `let newParagraph = document.createElement("p");
+    newParagraph.textContent = "Это новый параграф";
+    document.body.appendChild(newParagraph);`,
+                tests: [
+                    {
+                        input: [],
+                        expected: 'document.createElement("p")'
+                    }
+                ]
+            },
+            // Тема 4: Обработка событий
+            {
+                id: "2-22",
+                type: "theory",
+                title: "Обработка событий",
+                content: `
+                    <h2>Обработка событий</h2>
+                    <p>JavaScript позволяет обрабатывать события, такие как клики, наведение мыши, ввод текста и т.д.</p>
+                    <h3>Методы обработки событий:</h3>
+                    <ul>
+                        <li><code>addEventListener</code>: Добавляет обработчик события к элементу.</li>
+                        <li><code>removeEventListener</code>: Удаляет обработчик события.</li>
+                    </ul>
+                    <h3>Пример:</h3>
+                    <pre><code>
+    let button = document.querySelector("button");
+    button.addEventListener("click", function() {
+        alert("Кнопка нажата!");
+    });
+                    </code></pre>
+                `
+            },
+            {
+                id: "2-23",
+                type: "quiz",
+                title: "Тест: Обработка событий",
+                question: "Какой метод используется для добавления обработчика события?",
+                options: [
+                    "addHandler",
+                    "onEvent",
+                    "addEventListener",
+                    "attachEvent"
+                ],
+                correctAnswer: 3
+            },
+            {
+                id: "2-24",
+                type: "coding",
+                title: "Практика: Обработка событий",
+                starterCode: `// Добавьте обработчик события на кнопку с ID "myButton", чтобы при клике выводилось сообщение "Кнопка нажата!"
+    let button = document.getElementById("myButton");
+    // Ваш код здесь`,
+                solution: `let button = document.getElementById("myButton");
+    button.addEventListener("click", function() {
+        console.log("Кнопка нажата!");
+    });`,
+                tests: [
+                    {
+                        input: [],
+                        expected: 'document.getElementById("myButton").addEventListener("click", ...)'
+                    }
+                ]
             }
+        
         ]
     },
     {
