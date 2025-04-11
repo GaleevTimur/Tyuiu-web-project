@@ -1,9 +1,15 @@
 import { courses } from '/data/courses.js';
-import styles from '/styles/lesson.module.css';
- // Импортируем стили как модуль
-import { currentPage, currentCourseId, renderApp } from './main_menu.js';
+import styles from '/styles/lesson.module.css'; // Импортируем стили как модуль
+import { renderApp } from './main_menu.js';
+
+let scrollPosition = 0; // Глобальная переменная для хранения позиции скролла
 
 function handleLessonClick(courseId, lessonId) {
+    const sidebar = document.querySelector(`.${styles.lessonSidebar}`);
+    if (sidebar) {
+        scrollPosition = sidebar.scrollTop; // Сохраняем текущую позицию скролла
+    }
+
     const href = `/course/${courseId}/${lessonId}`;
     history.pushState(null, '', href); // Изменяем URL без перезагрузки страницы
     router(); // Вызываем маршрутизатор для рендера нового урока
@@ -26,6 +32,14 @@ function router() {
         if (course) {
             // Рендеринг урока
             renderLesson(document.querySelector('#app'), lessonId);
+
+            // Восстанавливаем позицию скролла после рендера
+            const sidebar = document.querySelector(`.${styles.lessonSidebar}`);
+            if (sidebar) {
+                setTimeout(() => {
+                    sidebar.scrollTop = scrollPosition;
+                }, 0);
+            }
         } else {
             console.error(`Курс с ID ${courseId} не найден.`);
             document.querySelector('#app').innerHTML = '<p>Курс не найден.</p>';

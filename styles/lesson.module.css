@@ -63,28 +63,33 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Остальные стили */
+/* Основной контейнер */
 .lessonContainer {
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    gap: 3rem;
-    min-height: calc(100vh - 150px);
+    display: flex; /* Используем flexbox для распределения пространства */
+    height: calc(100vh - 60px); /* Учитываем высоту шапки */
+    overflow: hidden; /* Запрещаем скролл всего контейнера */
 }
 
+/* Левый сайдбар */
 .lessonSidebar {
-    background: white;
+    width: 250px; /* Фиксированная ширина сайдбара */
+    overflow-y: auto; /* Включаем вертикальный скролл */
+    background-color: #f9fafb; /* Цвет фона сайдбара */
     padding: 1.5rem;
-    border-radius: 0.75rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid var(--border-color); /* Граница справа */
 }
 
+/* Основное содержимое урока */
 .lessonContent {
-    background: white;
+    flex-grow: 1; /* Занимает оставшееся пространство */
     padding: 2.5rem;
+    overflow-y: auto; /* Включаем скролл только для содержимого */
+    background-color: #ffffff; /* Цвет фона основного контента */
     border-radius: 0.75rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Стили для списка уроков */
 .lessonNav {
     list-style: none;
     margin: 0;
@@ -109,6 +114,7 @@
     font-weight: 600;
 }
 
+/* Стили для тестов */
 .quizContainer {
     max-width: 600px;
     margin: 0 auto;
@@ -138,6 +144,7 @@
     background-color: #f1f5f9;
 }
 
+/* Стили для среды выполнения кода */
 .codeEditor {
     border: 1px solid var(--border-color);
     border-radius: 0.5rem;
@@ -180,41 +187,40 @@
     font-size: 1rem;
 }
 
+/* Стили для теории */
 .theoryContent pre {
-    font-size: 1.1rem; /* Увеличиваем размер шрифта */
-    line-height: 1.6; /* Добавляем больше межстрочного интервала */
-    background-color: #f8fafc; /* Легкий фон для контраста */
-    padding: 1rem; /* Добавляем отступы */
-    border-radius: 0.5rem; /* Скругляем углы */
-    overflow-x: auto; /* Добавляем горизонтальную прокрутку при необходимости */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    background-color: #f8fafc;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
 }
 
 .theoryContent code {
-    font-size: 1.1rem; /* Увеличиваем размер шрифта */
-    color: black; /* Цвет для подсветки кода */
-    font-family: 'Courier New', monospace; /* Используем моноширинный шрифт */
+    font-size: 1.1rem;
+    color: black;
+    font-family: 'Courier New', monospace;
 }
 
-/* Основной текст теории */
 .theoryContent p {
-    font-size: 1.1rem; /* Увеличиваем размер шрифта для обычного текста */
-    line-height: 1.7; /* Добавляем больше межстрочного интервала */
+    font-size: 1.1rem;
+    line-height: 1.7;
 }
 
 .theoryContent h2 {
-    font-size: 1.5rem; /* Увеличиваем заголовки */
+    font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
 .theoryContent h3 {
-    font-size: 1.3rem; /* Увеличиваем подзаголовки */
+    font-size: 1.3rem;
     margin-bottom: 0.75rem;
 }
 
-/* Примеры списков */
 .theoryContent ul,
 .theoryContent ol {
-    font-size: 1.1rem; /* Увеличиваем размер шрифта для списков */
-    line-height: 1.7; /* Добавляем больше межстрочного интервала */
-    margin-left: 1.5rem; /* Отступ для маркеров */
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-left: 1.5rem;
 }
