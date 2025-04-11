@@ -85,7 +85,6 @@ const coursesData = [
           </ul>
         </div>
       </div>
-      button: '<button class="course-button" data-course-id="1">Перейти к курсу</button>'
     `
     
   },
