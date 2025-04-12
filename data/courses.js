@@ -622,6 +622,7 @@ console.log(sumArray([1, 2, 3, 4]));`,
         
         ]
     },
+    
     {
         id: 5,
         title: "Введение в веб-разработку",
@@ -762,5 +763,1285 @@ console.log(sumArray([1, 2, 3, 4]));`,
                 correctAnswer: 3
             }
         ]
-    }   
+    },
+    
+    {
+        id: 1, // Оставляем без изменений
+        title: "JavaScript Basics",
+        description: "Learn the fundamentals of JavaScript programming",
+        image: "https://placehold.co/600x400?text=JavaScript+Basics",
+        lessons: [
+            {
+                id: "1-1",
+                type: "theory",
+                title: "Introduction to JavaScript",
+                content: `
+                    <h2>Hello!</h2>
+                    <p>Hi.</p>
+                    <h3>What you will learn:</h3>
+                    <ul>
+                        <li>How to write basic code</li>
+                        <li>Understanding variables</li>
+                        <li>Working with functions</li>
+                    </ul>
+                `
+            },
+            {
+                id: "1-2",
+                type: "quiz",
+                title: "Quiz Example",
+                question: "What is JavaScript?",
+                options: [
+                    "A programming language",
+                    "A markup language",
+                    "A database system",
+                    "All of the above"
+                ],
+                correctAnswer: 1
+            },
+            {
+                id: "1-3",
+                type: "coding",
+                title: "Your First Code",
+                starterCode: `// Write a function that returns "Hello, World!"
+function greet() {
+    // Your code here
+}
+
+greet();`,
+                solution: `function greet() {
+    return "Hello, World!";
+}`,
+                tests: [
+                    {
+                        input: [],
+                        expected: "Hello, World!"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 3, // Новый модуль с id = 3
+        title: "Введение в React",
+        description: "Изучение основ фреймворка React для создания пользовательских интерфейсов",
+        image: "https://placehold.co/600x400?text=React+Basics",
+        lessons: [
+            {
+                id: "3-1",
+                type: "theory",
+                title: "Что такое React?",
+                content: `
+                    <h2>Что такое React?</h2>
+                    <p>React — это JavaScript-библиотека для создания пользовательских интерфейсов. Она разработана Facebook и активно используется для создания динамических веб-приложений.</p>
+                    <h3>Основные особенности:</h3>
+                    <ul>
+                        <li>Компонентный подход</li>
+                        <li>Декларативный стиль программирования</li>
+                        <li>Однонаправленный поток данных</li>
+                        <li>Работа с виртуальным DOM</li>
+                    </ul>
+                `
+            },
+            {
+                id: "3-2",
+                type: "theory",
+                title: "Установка и настройка окружения",
+                content: `
+                    <h2>Установка и настройка окружения</h2>
+                    <p>Для работы с React необходимо установить Node.js и npm (менеджер пакетов). После этого можно создать проект с помощью Create React App:</p>
+                    <pre><code>npx create-react-app my-app</code></pre>
+                    <p>Эта команда создаст базовый шаблон приложения React.</p>
+                    <h3>Запуск приложения:</h3>
+                    <pre><code>cd my-app
+npm start</code></pre>
+                    <p>Приложение будет доступно по адресу <a href="http://localhost:3000">http://localhost:3000</a>.</p>
+                `
+            },
+            {
+                id: "3-3",
+                type: "theory",
+                title: "Создание первого компонента",
+                content: `
+                    <h2>Создание первого компонента</h2>
+                    <p>Компоненты — это строительные блоки React. Они могут быть функциональными или классовыми. Вот пример функционального компонента:</p>
+                    <pre><code>function Welcome() {
+    return <h1>Привет, мир!</h1>;
+}</code></pre>
+                    <p>Чтобы использовать компонент, его нужно импортировать и отрендерить в JSX:</p>
+                    <pre><code><Welcome /></code></pre>
+                `
+            },
+            {
+                id: "3-4",
+                type: "theory",
+                title: "JSX и его особенности",
+                content: `
+                    <h2>JSX и его особенности</h2>
+                    <p>JSX — это синтаксический сахар для вызова React.createElement(). Он позволяет писать HTML-подобный код внутри JavaScript.</p>
+                    <h3>Пример JSX:</h3>
+                    <pre><code>const element = <h1>Hello, world!</h1>;</code></pre>
+                    <p>JSX позволяет встраивать JavaScript-выражения в фигурные скобки:</p>
+                    <pre><code>const name = "Alice";
+const element = <h1>Hello, {name}!</h1>;</code></pre>
+                `
+            },
+            {
+                id: "3-5",
+                type: "quiz",
+                title: "Тест: Что такое React?",
+                question: "Что из перечисленного является основной задачей React?",
+                options: [
+                    "Создание серверных API",
+                    "Создание пользовательских интерфейсов",
+                    "Управление базами данных",
+                    "Автоматизация тестирования"
+                ],
+                correctAnswer: 2
+            },
+            {
+                id: "3-6",
+                type: "quiz",
+                title: "Тест: JSX",
+                question: "Что такое JSX?",
+                options: [
+                    "Язык программирования",
+                    "Синтаксис для описания UI в React",
+                    "База данных",
+                    "Фреймворк для тестирования"
+                ],
+                correctAnswer: 2
+            },
+            {
+                id: "3-7",
+                type: "coding",
+                title: "Создание простого компонента",
+                starterCode: `// Создайте функциональный компонент, который выводит текст "Привет, React!"
+function Greeting() {
+    // Ваш код здесь
+}
+
+export default Greeting;`,
+                solution: `function Greeting() {
+    return <h1>Привет, React!</h1>;
+}
+
+export default Greeting;`,
+                tests: [
+                    {
+                        input: [],
+                        expected: "<h1>Привет, React!</h1>"
+                    }
+                ]
+            },
+            {
+                id: "3-8",
+                type: "coding",
+                title: "Использование JSX",
+                starterCode: `// Используйте JSX для создания элемента, который отображает сумму двух чисел
+function SumComponent({ a, b }) {
+    // Ваш код здесь
+}
+
+export default SumComponent;`,
+                solution: `function SumComponent({ a, b }) {
+    return <p>Сумма: {a + b}</p>;
+}
+
+export default SumComponent;`,
+                tests: [
+                    {
+                        input: [{ a: 5, b: 10 }],
+                        expected: "<p>Сумма: 15</p>"
+                    },
+                    {
+                        input: [{ a: 3, b: 7 }],
+                        expected: "<p>Сумма: 10</p>"
+                    }
+                ]
+            },
+            {
+                id: "3-9",
+                type: "theory",
+                title: "Создание функциональных и классовых компонентов",
+                content: `
+                    <h2>Создание функциональных и классовых компонентов</h2>
+                    <p>В React есть два основных типа компонентов:</p>
+                    <h3>Функциональные компоненты:</h3>
+                    <pre><code>function Welcome(props) {
+        return <h1>Привет, {props.name}!</h1>;
+    }</code></pre>
+                    <h3>Классовые компоненты:</h3>
+                    <pre><code>class Welcome extends React.Component {
+        render() {
+            return <h1>Привет, {this.props.name}!</h1>;
+        }
+    }</code></pre>
+                    <p>Функциональные компоненты проще и чаще используются в современном React.</p>
+                `
+            },
+            {
+                id: "3-10",
+                type: "theory",
+                title: "Передача данных через пропсы",
+                content: `
+                    <h2>Передача данных через пропсы</h2>
+                    <p>Пропсы — это данные, которые передаются от родительского компонента к дочернему. Они доступны как аргумент функционального компонента или как this.props в классовых компонентах.</p>
+                    <h3>Пример:</h3>
+                    <pre><code>function Greeting(props) {
+        return <h1>Привет, {props.name}!</h1>;
+    }
+    
+    <Greeting name="Алиса" /></code></pre>
+                    <p>Здесь "name" — это пропс, который передается в компонент Greeting.</p>
+                `
+            },
+            {
+                id: "3-11",
+                type: "theory",
+                title: "Композиция компонентов",
+                content: `
+                    <h2>Композиция компонентов</h2>
+                    <p>Компоненты можно комбинировать друг с другом, создавая более сложные структуры. Это называется композицией компонентов.</p>
+                    <h3>Пример:</h3>
+                    <pre><code>function Header() {
+        return <header><h1>Мой сайт</h1></header>;
+    }
+    
+    function App() {
+        return (
+            <div>
+                <Header />
+                <p>Добро пожаловать на мой сайт!</p>
+            </div>
+        );
+    }</code></pre>
+                    <p>Здесь компонент Header используется внутри компонента App.</p>
+                `
+            },
+            {
+                id: "3-12",
+                type: "theory",
+                title: "Управление состоянием компонентов",
+                content: `
+                    <h2>Управление состоянием компонентов</h2>
+                    <p>Состояние (state) — это объект, который хранит данные компонента. В функциональных компонентах состояние управляется через хук useState.</p>
+                    <h3>Пример использования useState:</h3>
+                    <pre><code>import React, { useState } from 'react';
+    
+    function Counter() {
+        const [count, setCount] = useState(0);
+    
+        return (
+            <div>
+                <p>Текущее значение: {count}</p>
+                <button onClick={() => setCount(count + 1)}>+1</button>
+            </div>
+        );
+    }</code></pre>
+                    <p>Здесь useState инициализирует состояние count и предоставляет функцию setCount для его изменения.</p>
+                `
+            },
+            {
+                id: "3-13",
+                type: "quiz",
+                title: "Тест: Типы компонентов",
+                question: "Какие типы компонентов существуют в React?",
+                options: [
+                    "Функциональные и классовые",
+                    "Статические и динамические",
+                    "HTML и CSS",
+                    "Синхронные и асинхронные"
+                ],
+                correctAnswer: 1
+            },
+            {
+                id: "3-14",
+                type: "quiz",
+                title: "Тест: Пропсы",
+                question: "Что такое пропсы в React?",
+                options: [
+                    "Глобальные переменные",
+                    "Параметры, передаваемые в компонент",
+                    "Состояние компонента",
+                    "Методы для обработки событий"
+                ],
+                correctAnswer: 2
+            },
+            {
+                id: "3-15",
+                type: "coding",
+                title: "Создание функционального компонента с пропсами",
+                starterCode: `// Создайте функциональный компонент, который принимает пропс "name" и выводит текст "Привет, {name}!"
+    function Greeting(props) {
+        // Ваш код здесь
+    }
+    
+    export default Greeting;`,
+                solution: `function Greeting(props) {
+        return <h1>Привет, {props.name}!</h1>;
+    }
+    
+    export default Greeting;`,
+                tests: [
+                    {
+                        input: [{ name: "Алиса" }],
+                        expected: "<h1>Привет, Алиса!</h1>"
+                    },
+                    {
+                        input: [{ name: "Боб" }],
+                        expected: "<h1>Привет, Боб!</h1>"
+                    }
+                ]
+            },
+            {
+                id: "3-16",
+                type: "coding",
+                title: "Управление состоянием с помощью useState",
+                starterCode: `// Создайте компонент Counter, который увеличивает счетчик на 1 при нажатии кнопки
+    import React, { useState } from 'react';
+    
+    function Counter() {
+        // Инициализируйте состояние count и функцию setCount
+        // Ваш код здесь
+    
+        return (
+            <div>
+                <p>Текущее значение: {/* Выведите значение count */}</p>
+                <button onClick={() => {/* Увеличьте значение count на 1 */}}>+1</button>
+            </div>
+        );
+    }
+    
+    export default Counter;`,
+                solution: `import React, { useState } from 'react';
+    
+    function Counter() {
+        const [count, setCount] = useState(0);
+    
+        return (
+            <div>
+                <p>Текущее значение: {count}</p>
+                <button onClick={() => setCount(count + 1)}>+1</button>
+            </div>
+        );
+    }
+    
+    export default Counter;`,
+                tests: [
+                    {
+                        input: [],
+                        expected: `<div><p>Текущее значение: 0</p><button>+1</button></div>`
+                    }
+                ]
+            },
+            {
+                id: "3-17",
+                type: "theory",
+                title: "Введение в состояние (state)",
+                content: `
+                    <h2>Введение в состояние (state)</h2>
+                    <p>Состояние (state) — это объект, который хранит данные компонента. Оно может изменяться в течение жизненного цикла компонента и вызывать перерисовку интерфейса.</p>
+                    <h3>Пример:</h3>
+                    <pre><code>import React, { useState } from 'react';
+    
+    function Counter() {
+        const [count, setCount] = useState(0);
+    
+        return (
+            <div>
+                <p>Текущее значение: {count}</p>
+                <button onClick={() => setCount(count + 1)}>+1</button>
+            </div>
+        );
+    }</code></pre>
+                    <p>Здесь useState инициализирует состояние count и предоставляет функцию setCount для его изменения.</p>
+                `
+            },
+            {
+                id: "3-18",
+                type: "theory",
+                title: "Хуки useState и useEffect",
+                content: `
+                    <h2>Хуки useState и useEffect</h2>
+                    <p>Хуки — это функции, которые позволяют использовать состояние и другие возможности React без написания классовых компонентов.</p>
+                    <h3>useState:</h3>
+                    <pre><code>const [state, setState] = useState(initialValue);</code></pre>
+                    <p>Используется для управления состоянием.</p>
+                    <h3>useEffect:</h3>
+                    <pre><code>useEffect(() => {
+        // Выполняется после рендера
+        return () => {
+            // Очистка эффекта
+        };
+    }, [dependencies]);</code></pre>
+                    <p>Используется для выполнения побочных эффектов, таких как запросы к API или подписка на события.</p>
+                `
+            },
+            {
+                id: "3-19",
+                type: "theory",
+                title: "Управление состоянием с помощью контекста",
+                content: `
+                    <h2>Управление состоянием с помощью контекста</h2>
+                    <p>Контекст позволяет передавать данные через дерево компонентов без необходимости передачи пропсов на каждом уровне.</p>
+                    <h3>Создание контекста:</h3>
+                    <pre><code>const MyContext = React.createContext(defaultValue);</code></pre>
+                    <h3>Предоставление контекста:</h3>
+                    <pre><code><MyContext.Provider value={/* значение */}>
+        <ChildComponent />
+    </MyContext.Provider></code></pre>
+                    <h3>Использование контекста:</h3>
+                    <pre><code>const value = useContext(MyContext);</code></pre>
+                    <p>Это позволяет избежать прокидывания пропсов через множество уровней компонентов.</p>
+                `
+            },
+            {
+                id: "3-20",
+                type: "theory",
+                title: "Оптимизация производительности",
+                content: `
+                    <h2>Оптимизация производительности</h2>
+                    <p>React автоматически оптимизирует рендеринг компонентов, но иногда требуется дополнительная оптимизация.</p>
+                    <h3>React.memo:</h3>
+                    <pre><code>const MemoizedComponent = React.memo(MyComponent);</code></pre>
+                    <p>Позволяет предотвратить ненужные рендеры компонента, если его пропсы не изменились.</p>
+                    <h3>useMemo и useCallback:</h3>
+                    <pre><code>const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+    const memoizedCallback = useCallback(() => doSomething(), [dependencies]);</code></pre>
+                    <p>useMemo кэширует результат вычислений, а useCallback кэширует функции.</p>
+                `
+            },
+            {
+                id: "3-21",
+                type: "quiz",
+                title: "Тест: Хуки React",
+                question: "Что делает хук useEffect?",
+                options: [
+                    "Управляет состоянием компонента",
+                    "Выполняет побочные эффекты после рендера",
+                    "Передает данные между компонентами",
+                    "Оптимизирует производительность"
+                ],
+                correctAnswer: 2
+            },
+            {
+                id: "3-22",
+                type: "quiz",
+                title: "Тест: Контекст",
+                question: "Для чего используется React Context?",
+                options: [
+                    "Для управления состоянием компонента",
+                    "Для передачи данных через дерево компонентов",
+                    "Для выполнения побочных эффектов",
+                    "Для оптимизации производительности"
+                ],
+                correctAnswer: 2
+            },
+            {
+                id: "3-23",
+                type: "coding",
+                title: "Использование хука useEffect",
+                starterCode: `// Создайте компонент, который выводит сообщение в консоль при монтировании и очищает его при размонтировании
+    import React, { useEffect } from 'react';
+    
+    function LifecycleComponent() {
+        useEffect(() => {
+            console.log('Компонент смонтирован');
+    
+            return () => {
+                // Ваш код здесь
+            };
+        }, []);
+    
+        return <p>Проверьте консоль!</p>;
+    }
+    
+    export default LifecycleComponent;`,
+                solution: `import React, { useEffect } from 'react';
+    
+    function LifecycleComponent() {
+        useEffect(() => {
+            console.log('Компонент смонтирован');
+    
+            return () => {
+                console.log('Компонент размонтирован');
+            };
+        }, []);
+    
+        return <p>Проверьте консоль!</p>;
+    }
+    
+    export default LifecycleComponent;`,
+                tests: [
+                    {
+                        input: [],
+                        expected: "Console logs: 'Компонент смонтирован' and 'Компонент размонтирован'"
+                    }
+                ]
+            },
+            {
+                id: "3-24",
+                type: "coding",
+                title: "Использование контекста",
+                starterCode: `// Создайте контекст и используйте его для передачи значения "theme" в дочерний компонент
+    import React, { createContext, useContext } from 'react';
+    
+    const ThemeContext = createContext();
+    
+    function ChildComponent() {
+        const theme = useContext(ThemeContext);
+        return <p>Текущая тема: {theme}</p>;
+    }
+    
+    function ParentComponent() {
+        return (
+            <ThemeContext.Provider value="dark">
+                {/* Ваш код здесь */}
+            </ThemeContext.Provider>
+        );
+    }
+    
+    export default ParentComponent;`,
+                solution: `import React, { createContext, useContext } from 'react';
+    
+    const ThemeContext = createContext();
+    
+    function ChildComponent() {
+        const theme = useContext(ThemeContext);
+        return <p>Текущая тема: {theme}</p>;
+    }
+    
+    function ParentComponent() {
+        return (
+            <ThemeContext.Provider value="dark">
+                <ChildComponent />
+            </ThemeContext.Provider>
+        );
+    }
+    
+    export default ParentComponent;`,
+                tests: [
+                    {
+                        input: [],
+                        expected: "<p>Текущая тема: dark</p>"
+                    }
+                ]
+            },
+            {
+                id: "3-25",
+                type: "theory",
+                title: "Установка и настройка React Router",
+                content: `
+                    <h2>Установка и настройка React Router</h2>
+                    <p>React Router — это библиотека для маршрутизации в React-приложениях. Она позволяет создавать одностраничные приложения с навигацией между страницами без перезагрузки.</p>
+                    <h3>Установка:</h3>
+                    <pre><code>npm install react-router-dom</code></pre>
+                    <h3>Настройка:</h3>
+                    <pre><code>import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+    
+    function App() {
+        return (
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                </Routes>
+            </Router>
+        );
+    }</code></pre>
+                    <p>Здесь мы настраиваем маршруты для компонентов Home и About.</p>
+                `
+            },
+            {
+                id: "3-26",
+                type: "theory",
+                title: "Создание маршрутов и навигации",
+                content: `
+                    <h2>Создание маршрутов и навигации</h2>
+                    <p>Для создания маршрутов используется компонент Route, а для навигации — Link.</p>
+                    <h3>Пример:</h3>
+                    <pre><code>import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+    
+    function App() {
+        return (
+            <Router>
+                <nav>
+                    <Link to="/">Главная</Link> | 
+                    <Link to="/about">О нас</Link>
+                </nav>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                </Routes>
+            </Router>
+        );
+    }</code></pre>
+                    <p>Здесь Link используется для создания ссылок на маршруты.</p>
+                `
+            },
+            {
+                id: "3-27",
+                type: "theory",
+                title: "Передача параметров в маршрутах",
+                content: `
+                    <h2>Передача параметров в маршрутах</h2>
+                    <p>React Router позволяет передавать параметры через URL. Для этого используется динамический сегмент пути.</p>
+                    <h3>Пример:</h3>
+                    <pre><code>import { useParams } from 'react-router-dom';
+    
+    function User() {
+        const { id } = useParams();
+        return <p>Пользователь с ID: {id}</p>;
+    }
+    
+    function App() {
+        return (
+            <Routes>
+                <Route path="/user/:id" element={<User />} />
+            </Routes>
+        );
+    }</code></pre>
+                    <p>Здесь useParams извлекает параметр id из URL.</p>
+                `
+            },
+            {
+                id: "3-28",
+                type: "theory",
+                title: "Защита маршрутов и аутентификация",
+                content: `
+                    <h2>Защита маршрутов и аутентификация</h2>
+                    <p>Для защиты маршрутов можно использовать условный рендеринг или специальные компоненты-обертки.</p>
+                    <h3>Пример защищенного маршрута:</h3>
+                    <pre><code>function PrivateRoute({ children }) {
+        const isAuthenticated = checkAuth(); // Функция проверки аутентификации
+    
+        return isAuthenticated ? children : <Navigate to="/login" />;
+    }
+    
+    function App() {
+        return (
+            <Routes>
+                <Route path="/dashboard" element={
+                    <PrivateRoute>
+                        <Dashboard />
+                    </PrivateRoute>
+                } />
+            </Routes>
+        );
+    }</code></pre>
+                    <p>Здесь маршрут /dashboard доступен только авторизованным пользователям.</p>
+                `
+            },
+            {
+                id: "3-29",
+                type: "quiz",
+                title: "Тест: React Router",
+                question: "Что делает компонент Link в React Router?",
+                options: [
+                    "Перенаправляет на другой маршрут",
+                    "Создает ссылку для навигации",
+                    "Защищает маршрут",
+                    "Передает параметры в маршрут"
+                ],
+                correctAnswer: 2
+            },
+            {
+                id: "3-30",
+                type: "quiz",
+                title: "Тест: Параметры маршрута",
+                question: "Как получить параметры из URL в React Router?",
+                options: [
+                    "Используя props.params",
+                    "Используя хук useParams",
+                    "Используя контекст",
+                    "Используя useState"
+                ],
+                correctAnswer: 2
+            },
+            {
+                id: "3-31",
+                type: "coding",
+                title: "Создание маршрутов",
+                starterCode: `// Создайте маршруты для страниц Home и About
+    import React from 'react';
+    import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+    
+    function Home() {
+        return <h1>Главная страница</h1>;
+    }
+    
+    function About() {
+        return <h1>О нас</h1>;
+    }
+    
+    function App() {
+        return (
+            <Router>
+                <nav>
+                    {/* Добавьте ссылки на маршруты */}
+                </nav>
+                <Routes>
+                    {/* Добавьте маршруты */}
+                </Routes>
+            </Router>
+        );
+    }
+    
+    export default App;`,
+                solution: `import React from 'react';
+    import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+    
+    function Home() {
+        return <h1>Главная страница</h1>;
+    }
+    
+    function About() {
+        return <h1>О нас</h1>;
+    }
+    
+    function App() {
+        return (
+            <Router>
+                <nav>
+                    <Link to="/">Главная</Link> | 
+                    <Link to="/about">О нас</Link>
+                </nav>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                </Routes>
+            </Router>
+        );
+    }
+    
+    export default App;`,
+                tests: [
+                    {
+                        input: [],
+                        expected: "<h1>Главная страница</h1>"
+                    }
+                ]
+            },
+            {
+                id: "3-32",
+                type: "coding",
+                title: "Передача параметров в маршруты",
+                starterCode: `// Создайте маршрут для отображения информации о пользователе по ID
+    import React from 'react';
+    import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
+    
+    function User() {
+        const { id } = useParams();
+        return <p>Пользователь с ID: {id}</p>;
+    }
+    
+    function App() {
+        return (
+            <Router>
+                <Routes>
+                    {/* Добавьте маршрут с параметром */ }
+                </Routes>
+            </Router>
+        );
+    }
+    
+    export default App;`,
+                solution: `import React from 'react';
+    import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
+    
+    function User() {
+        const { id } = useParams();
+        return <p>Пользователь с ID: {id}</p>;
+    }
+    
+    function App() {
+        return (
+            <Router>
+                <Routes>
+                    <Route path="/user/:id" element={<User />} />
+                </Routes>
+            </Router>
+        );
+    }
+    
+    export default App;`,
+                tests: [
+                    {
+                        input: [{ id: "123" }],
+                        expected: "<p>Пользователь с ID: 123</p>"
+                    }
+                ]
+            },
+            {
+                id: "3-33",
+                type: "theory",
+                title: "Запросы к API с помощью fetch и axios",
+                content: `
+                    <h2>Запросы к API с помощью fetch и axios</h2>
+                    <p>Для взаимодействия с внешними API можно использовать fetch (встроенный в браузер) или axios (популярная библиотека).</p>
+                    <h3>fetch:</h3>
+                    <pre><code>fetch('https://api.example.com/data')
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Ошибка:', error));</code></pre>
+                    <h3>axios:</h3>
+                    <pre><code>import axios from 'axios';
+    
+    axios.get('https://api.example.com/data')
+        .then(response => console.log(response.data))
+        .catch(error => console.error('Ошибка:', error));</code></pre>
+                    <p>Axios удобен тем, что автоматически преобразует ответ в JSON.</p>
+                `
+            },
+            {
+                id: "3-34",
+                type: "theory",
+                title: "Обработка ответов и ошибок",
+                content: `
+                    <h2>Обработка ответов и ошибок</h2>
+                    <p>При работе с API важно корректно обрабатывать успешные ответы и ошибки.</p>
+                    <h3>Пример:</h3>
+                    <pre><code>function fetchData() {
+        fetch('https://api.example.com/data')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Сетевая ошибка');
+                }
+                return response.json();
+            })
+            .then(data => console.log(data))
+            .catch(error => console.error('Ошибка:', error.message));
+    }</code></pre>
+                    <p>Здесь проверяется статус ответа, и если он не успешный, выбрасывается ошибка.</p>
+                `
+            },
+            {
+                id: "3-35",
+                type: "theory",
+                title: "Создание форм и обработка данных",
+                content: `
+                    <h2>Создание форм и обработка данных</h2>
+                    <p>Формы позволяют собирать данные от пользователя и отправлять их на сервер.</p>
+                    <h3>Пример формы:</h3>
+                    <pre><code>function FormComponent() {
+        const [name, setName] = useState('');
+    
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            console.log('Отправлено имя:', name);
+        };
+    
+        return (
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Введите имя"
+                />
+                <button type="submit">Отправить</button>
+            </form>
+        );
+    }</code></pre>
+                    <p>Здесь состояние управляет значением поля ввода, а форма отправляет данные при нажатии кнопки.</p>
+                `
+            },
+            {
+                id: "3-36",
+                type: "theory",
+                title: "Интеграция с внешними API",
+                content: `
+                    <h2>Интеграция с внешними API</h2>
+                    <p>Для интеграции с внешними API нужно выполнить запросы и отобразить полученные данные.</p>
+                    <h3>Пример:</h3>
+                    <pre><code>function UserList() {
+        const [users, setUsers] = useState([]);
+    
+        useEffect(() => {
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => response.json())
+                .then(data => setUsers(data));
+        }, []);
+    
+        return (
+            <ul>
+                {users.map(user => (
+                    <li key={user.id}>{user.name}</li>
+                ))}
+            </ul>
+        );
+    }</code></pre>
+                    <p>Здесь выполняется запрос к API, и данные отображаются в виде списка.</p>
+                `
+            },
+            {
+                id: "3-37",
+                type: "quiz",
+                title: "Тест: Запросы к API",
+                question: "Какой метод используется для отправки GET-запроса с помощью fetch?",
+                options: [
+                    "fetch.post()",
+                    "fetch.get()",
+                    "fetch()",
+                    "axios.get()"
+                ],
+                correctAnswer: 3
+            },
+            {
+                id: "3-38",
+                type: "quiz",
+                title: "Тест: Обработка ошибок",
+                question: "Что происходит, если ответ API имеет статус 404?",
+                options: [
+                    "Ошибки нет, данные успешно загружены",
+                    "Выбрасывается ошибка сети",
+                    "Выполняется блок catch",
+                    "Страница перезагружается"
+                ],
+                correctAnswer: 3
+            },
+            {
+                id: "3-39",
+                type: "coding",
+                title: "Запрос к API с использованием fetch",
+                starterCode: `// Создайте компонент, который загружает список пользователей с API и отображает их имена
+    import React, { useState, useEffect } from 'react';
+    
+    function UserList() {
+        const [users, setUsers] = useState([]);
+    
+        useEffect(() => {
+            // Ваш код здесь
+        }, []);
+    
+        return (
+            <ul>
+                {users.map(user => (
+                    <li key={user.id}>{user.name}</li>
+                ))}
+            </ul>
+        );
+    }
+    
+    export default UserList;`,
+                solution: `import React, { useState, useEffect } from 'react';
+    
+    function UserList() {
+        const [users, setUsers] = useState([]);
+    
+        useEffect(() => {
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => response.json())
+                .then(data => setUsers(data))
+                .catch(error => console.error('Ошибка:', error));
+        }, []);
+    
+        return (
+            <ul>
+                {users.map(user => (
+                    <li key={user.id}>{user.name}</li>
+                ))}
+            </ul>
+        );
+    }
+    
+    export default UserList;`,
+                tests: [
+                    {
+                        input: [],
+                        expected: "<ul><li>Leanne Graham</li><li>Ervin Howell</li>...</ul>"
+                    }
+                ]
+            },
+            {
+                id: "3-40",
+                type: "coding",
+                title: "Создание формы и отправка данных",
+                starterCode: `// Создайте форму, которая собирает имя пользователя и выводит его в консоль при отправке
+    import React, { useState } from 'react';
+    
+    function FormComponent() {
+        const [name, setName] = useState('');
+    
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            // Ваш код здесь
+        };
+    
+        return (
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Введите имя"
+                />
+                <button type="submit">Отправить</button>
+            </form>
+        );
+    }
+    
+    export default FormComponent;`,
+                solution: `import React, { useState } from 'react';
+    
+    function FormComponent() {
+        const [name, setName] = useState('');
+    
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            console.log('Отправлено имя:', name);
+        };
+    
+        return (
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Введите имя"
+                />
+                <button type="submit">Отправить</button>
+            </form>
+        );
+    }
+    
+    export default FormComponent;`,
+                tests: [
+                    {
+                        input: [{ name: "Алиса" }],
+                        expected: "Console logs: 'Отправлено имя: Алиса'"
+                    }
+                ]
+            },
+            {
+                id: "3-41",
+                type: "theory",
+                title: "Создание полноценного веб-приложения",
+                content: `
+                    <h2>Создание полноценного веб-приложения</h2>
+                    <p>Полноценное веб-приложение включает фронтенд (интерфейс пользователя) и бэкенд (логика сервера). React используется для создания фронтенда.</p>
+                    <h3>Этапы разработки:</h3>
+                    <ul>
+                        <li>Проектирование структуры приложения</li>
+                        <li>Создание компонентов</li>
+                        <li>Настройка маршрутизации</li>
+                        <li>Интеграция с API</li>
+                    </ul>
+                    <h3>Пример структуры:</h3>
+                    <pre><code>src/
+    ├── components/      # Компоненты
+    ├── pages/           # Страницы
+    ├── App.js           # Главный компонент
+    ├── index.js         # Точка входа
+    └── api.js           # Логика работы с API</code></pre>
+                    <p>Такая структура помогает организовать код и сделать его более поддерживаемым.</p>
+                `
+            },
+            {
+                id: "3-42",
+                type: "theory",
+                title: "Интеграция с фронтендом и бэкендом",
+                content: `
+                    <h2>Интеграция с фронтендом и бэкендом</h2>
+                    <p>Фронтенд взаимодействует с бэкендом через API. Для этого используются HTTP-запросы (GET, POST, PUT, DELETE).</p>
+                    <h3>Пример интеграции:</h3>
+                    <pre><code>// api.js
+    import axios from 'axios';
+    
+    const API_URL = 'https://api.example.com';
+    
+    export const fetchUsers = () => axios.get(\`\${API_URL}/users\`);
+    export const createUser = (userData) => axios.post(\`\${API_URL}/users\`, userData);
+    
+    // UserList.js
+    import { useEffect, useState } from 'react';
+    import { fetchUsers } from './api';
+    
+    function UserList() {
+        const [users, setUsers] = useState([]);
+    
+        useEffect(() => {
+            fetchUsers()
+                .then(response => setUsers(response.data))
+                .catch(error => console.error('Ошибка:', error));
+        }, []);
+    
+        return (
+            <ul>
+                {users.map(user => (
+                    <li key={user.id}>{user.name}</li>
+                ))}
+            </ul>
+        );
+    }</code></pre>
+                    <p>Здесь API-функции вынесены в отдельный файл для повторного использования.</p>
+                `
+            },
+            {
+                id: "3-43",
+                type: "theory",
+                title: "Оптимизация и тестирование приложения",
+                content: `
+                    <h2>Оптимизация и тестирование приложения</h2>
+                    <p>Оптимизация повышает производительность приложения, а тестирование гарантирует его надежность.</p>
+                    <h3>Оптимизация:</h3>
+                    <ul>
+                        <li>Использование React.memo для предотвращения лишних ререндеров</li>
+                        <li>Кэширование данных с помощью useMemo и useCallback</li>
+                        <li>Ленивая загрузка компонентов (React.lazy)</li>
+                    </ul>
+                    <h3>Тестирование:</h3>
+                    <ul>
+                        <li>Юнит-тесты (Jest)</li>
+                        <li>Тесты компонентов (React Testing Library)</li>
+                        <li>Интеграционные тесты</li>
+                    </ul>
+                `
+            },
+            {
+                id: "3-44",
+                type: "theory",
+                title: "Развертывание приложения на сервере",
+                content: `
+                    <h2>Развертывание приложения на сервере</h2>
+                    <p>Для развертывания React-приложения можно использовать такие сервисы, как Netlify, Vercel или GitHub Pages.</p>
+                    <h3>Шаги развертывания:</h3>
+                    <ol>
+                        <li>Сборка приложения: <code>npm run build</code></li>
+                        <li>Загрузка собранного приложения на сервер</li>
+                        <li>Настройка домена и HTTPS</li>
+                    </ol>
+                    <h3>Пример развертывания на Netlify:</h3>
+                    <pre><code>1. Загрузите репозиторий на Netlify.
+    2. Укажите команду сборки: npm run build.
+    3. Укажите папку для деплоя: build/.</code></pre>
+                    <p>После этого приложение будет доступно по указанному URL.</p>
+                `
+            },
+            {
+                id: "3-45",
+                type: "quiz",
+                title: "Тест: Интеграция фронтенда и бэкенда",
+                question: "Какой метод HTTP используется для отправки данных на сервер?",
+                options: [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "DELETE"
+                ],
+                correctAnswer: 2
+            },
+            {
+                id: "3-46",
+                type: "quiz",
+                title: "Тест: Развертывание приложения",
+                question: "Какая команда используется для сборки React-приложения перед развертыванием?",
+                options: [
+                    "npm start",
+                    "npm run build",
+                    "npm test",
+                    "npm deploy"
+                ],
+                correctAnswer: 2
+            },
+            {
+                id: "3-47",
+                type: "coding",
+                title: "Создание простого CRUD-приложения",
+                starterCode: `// Создайте компонент, который позволяет добавлять и отображать список задач
+    import React, { useState } from 'react';
+    
+    function TodoApp() {
+        const [tasks, setTasks] = useState([]);
+        const [newTask, setNewTask] = useState('');
+    
+        const addTask = () => {
+            if (newTask.trim()) {
+                setTasks([...tasks, newTask]);
+                setNewTask('');
+            }
+        };
+    
+        return (
+            <div>
+                <input
+                    type="text"
+                    value={newTask}
+                    onChange={(e) => setNewTask(e.target.value)}
+                    placeholder="Введите задачу"
+                />
+                <button onClick={addTask}>Добавить</button>
+                <ul>
+                    {tasks.map((task, index) => (
+                        <li key={index}>{task}</li>
+                    ))}
+                </ul>
+            </div>
+        );
+    }
+    
+    export default TodoApp;`,
+                solution: `import React, { useState } from 'react';
+    
+    function TodoApp() {
+        const [tasks, setTasks] = useState([]);
+        const [newTask, setNewTask] = useState('');
+    
+        const addTask = () => {
+            if (newTask.trim()) {
+                setTasks([...tasks, newTask]);
+                setNewTask('');
+            }
+        };
+    
+        return (
+            <div>
+                <input
+                    type="text"
+                    value={newTask}
+                    onChange={(e) => setNewTask(e.target.value)}
+                    placeholder="Введите задачу"
+                />
+                <button onClick={addTask}>Добавить</button>
+                <ul>
+                    {tasks.map((task, index) => (
+                        <li key={index}>{task}</li>
+                    ))}
+                </ul>
+            </div>
+        );
+    }
+    
+    export default TodoApp;`,
+                tests: [
+                    {
+                        input: [{ tasks: ["Купить хлеб", "Выгулять собаку"] }],
+                        expected: "<ul><li>Купить хлеб</li><li>Выгулять собаку</li></ul>"
+                    }
+                ]
+            },
+            {
+                id: "3-48",
+                type: "coding",
+                title: "Развертывание приложения",
+                starterCode: `// Напишите инструкцию для развертывания React-приложения на Netlify
+    // Ваш ответ здесь`,
+                solution: `// Инструкция для развертывания React-приложения на Netlify:
+    1. Загрузите ваш репозиторий на Netlify через GitHub, GitLab или Bitbucket.
+    2. Укажите команду сборки: npm run build.
+    3. Укажите папку для деплоя: build/.
+    4. Настройте домен и HTTPS, если необходимо.
+    5. После завершения процесса сборки, ваше приложение будет доступно по указанному URL.`,
+                tests: [
+                    {
+                        input: [],
+                        expected: "Инструкция содержит шаги для развертывания на Netlify"
+                    }
+                ]
+            }
+
+        ]
+    }
+    
 ];
