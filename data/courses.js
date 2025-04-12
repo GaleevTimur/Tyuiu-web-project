@@ -622,7 +622,206 @@ console.log(sumArray([1, 2, 3, 4]));`,
         
         ]
     },
+    {
+        id: 4,
+        title: "Продвинутый JavaScript",
+        description: "Изучение продвинутых концепций JavaScript для профессиональной разработки",
+        image: "https://placehold.co/600x400?text=Advanced+JavaScript",
+        lessons: [
+            {
+                id: "4-1",
+                type: "theory",
+                title: "Асинхронное программирование: Promises и async/await",
+                content: `
+                    <h2>Асинхронность в JavaScript</h2>
+                    <p>Изучите современные подходы к работе с асинхронным кодом.</p>
+                    <h3>Основные темы:</h3>
+                    <ul>
+                        <li>Callback Hell и проблемы асинхронности</li>
+                        <li>Создание и использование Promises</li>
+                        <li>Цепочки промисов (Promise chaining)</li>
+                        <li>Синтаксис async/await</li>
+                        <li>Обработка ошибок в асинхронном коде</li>
+                    </ul>
+                `
+            },
+            {
+                id: "4-2",
+                type: "coding",
+                title: "Практика с async/await",
+                starterCode: `// Напишите асинхронную функцию fetchData, которая:
+    // 1. Делает запрос к API (используйте fetch)
+    // 2. Обрабатывает ответ в формате JSON
+    // 3. Возвращает данные
     
+    async function fetchData() {
+        // Ваш код здесь
+    }
+    
+    fetchData();`,
+                solution: `async function fetchData() {
+        const response = await fetch('https://api.example.com/data');
+        const data = await response.json();
+        return data;
+    }`,
+                tests: [
+                    {
+                        description: "Функция должна возвращать Promise",
+                        testFunction: `async () => {
+                            const result = fetchData();
+                            return result instanceof Promise;
+                        }`,
+                        expected: true
+                    }
+                ]
+            },
+            {
+                id: "4-3",
+                type: "theory",
+                title: "Продвинутая работа с DOM",
+                content: `
+                    <h2>Эффективное управление DOM</h2>
+                    <p>Оптимизация работы с DOM для создания быстрых веб-приложений.</p>
+                    <h3>Ключевые концепции:</h3>
+                    <ul>
+                        <li>Virtual DOM и Shadow DOM</li>
+                        <li>Event delegation</li>
+                        <li>Оптимизация перерисовки (reflow и repaint)</li>
+                        <li>Работа с DOM Fragment</li>
+                        <li>MutationObserver</li>
+                    </ul>
+                `
+            },
+            {
+                id: "4-4",
+                type: "coding",
+                title: "Создание динамического интерфейса",
+                starterCode: `// Создайте функцию, которая динамически генерирует таблицу 5x5
+    // Каждая ячейка должна содержать произведение ее индексов (row * col)
+    
+    function generateTable(container) {
+        // Ваш код здесь
+    }`,
+                solution: `function generateTable(container) {
+        const table = document.createElement('table');
+        
+        for (let i = 0; i < 5; i++) {
+            const row = document.createElement('tr');
+            
+            for (let j = 0; j < 5; j++) {
+                const cell = document.createElement('td');
+                cell.textContent = i * j;
+                row.appendChild(cell);
+            }
+            
+            table.appendChild(row);
+        }
+        
+        container.appendChild(table);
+    }`,
+                tests: [
+                    {
+                        description: "Должна создаться таблица с 5 строками",
+                        testFunction: `() => {
+                            const div = document.createElement('div');
+                            generateTable(div);
+                            return div.querySelectorAll('tr').length === 5;
+                        }`,
+                        expected: true
+                    }
+                ]
+            },
+            {
+                id: "4-5",
+                type: "theory",
+                title: "Модули и сборка проекта",
+                content: `
+                    <h2>Современная разработка на JavaScript</h2>
+                    <p>Организация кода и инструменты сборки.</p>
+                    <h3>Темы модуля:</h3>
+                    <ul>
+                        <li>ES6 Modules (import/export)</li>
+                        <li>CommonJS и другие системы модулей</li>
+                        <li>Настройка Webpack</li>
+                        <li>Babel и транспиляция кода</li>
+                        <li>Дерево зависимостей и оптимизация бандла</li>
+                    </ul>
+                `
+            },
+            {
+                id: "4-6",
+                type: "quiz",
+                title: "Проверка знаний по модулям",
+                question: "Какой синтаксис используется для экспорта по умолчанию в ES6 модулях?",
+                options: [
+                    "export default MyComponent",
+                    "module.exports = MyComponent",
+                    "exports.MyComponent = MyComponent",
+                    "default export MyComponent"
+                ],
+                correctAnswer: 0
+            },
+            {
+                id: "4-7",
+                type: "theory",
+                title: "Основы тестирования кода",
+                content: `
+                    <h2>Тестирование JavaScript приложений</h2>
+                    <p>Обеспечение качества кода через автоматическое тестирование.</p>
+                    <h3>Что изучим:</h3>
+                    <ul>
+                        <li>Виды тестов: unit, integration, e2e</li>
+                        <li>Настройка Jest</li>
+                        <li>Паттерны тестирования (AAA, mock/stub)</li>
+                        <li>Тестирование асинхронного кода</li>
+                        <li>Покрытие кода (code coverage)</li>
+                    </ul>
+                `
+            },
+            {
+                id: "4-8",
+                type: "coding",
+                title: "Написание unit-тестов",
+                starterCode: `// Протестируйте эту функцию с помощью Jest
+    
+    /**
+     * Функция складывает два числа
+     * @param {number} a 
+     * @param {number} b 
+     * @returns number
+     */
+    function sum(a, b) {
+        return a + b;
+    }
+    
+    // Напишите тесты ниже
+    test('', () => {
+        // ваш тест
+    });`,
+                solution: `test('суммирует 1 + 2 = 3', () => {
+        expect(sum(1, 2)).toBe(3);
+    });
+    
+    test('работает с отрицательными числами', () => {
+        expect(sum(-1, -2)).toBe(-3);
+    });
+    
+    test('возвращает NaN при нечисловых аргументах', () => {
+        expect(sum('a', 'b')).toBeNaN();
+    });`,
+                tests: [
+                    {
+                        description: "Должно быть минимум 3 теста",
+                        testFunction: `() => {
+                            const testCount = solution.match(/test\s*\(/g).length;
+                            return testCount >= 3;
+                        }`,
+                        expected: true
+                    }
+                ]
+            }
+        ]
+    },
     {
         id: 5,
         title: "Введение в веб-разработку",
