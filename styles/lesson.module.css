@@ -253,3 +253,8 @@ progress + span {
     font-size: 14px;
     color: #333;
 }
+
+.lessonNavItem.completed {
+    color: green;
+    font-weight: bold;
+}

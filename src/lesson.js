@@ -91,7 +91,7 @@ export function renderLesson(container, lessonId) {
                 <h2>${course.title}</h2>
                 <ul class="${styles.lessonNav}">
                     ${course.lessons.map(l => `
-                        <li class="${styles.lessonNavItem} ${l.id === lessonId ? styles.lessonNavItemActive : ''}"
+                        <li class="${styles.lessonNavItem} ${isLessonCompleted(course.id, l.id) ? styles.lessonNavItemCompleted : ''}"
                             data-course-id="${course.id}"
                             data-lesson-id="${l.id}"
                             style="color: ${isLessonCompleted(course.id, l.id) ? 'green' : 'black'};">
@@ -173,6 +173,31 @@ function setupSidebarClickHandlers() {
         item.addEventListener('click', function () {
             const courseId = this.getAttribute('data-course-id');
             const lessonId = this.getAttribute('data-lesson-id');
+
+            // Находим курс и урок
+            const course = courses.find(c => c.id === parseInt(courseId));
+            const lesson = course?.lessons.find(l => l.id === lessonId);
+
+            if (lesson && lesson.type === 'theory') {
+                // Помечаем урок как выполненный, только если это теоретический урок
+                markLessonAsCompleted(courseId, lessonId);
+
+                // Обновляем стиль элемента
+                this.style.color = 'green';
+
+                // Пересчитываем прогресс
+                const progress = calculateProgress(course);
+
+                // Обновляем шкалу прогресса в шапке
+                const progressElement = document.querySelector(`.${styles.progressWrapper} progress`);
+                const progressText = document.querySelector(`.${styles.progressWrapper} span`);
+                if (progressElement && progressText) {
+                    progressElement.value = progress;
+                    progressText.textContent = `${progress}% завершено`;
+                }
+            }
+
+            // Переходим к выбранному уроку
             handleLessonClick(courseId, lessonId);
         });
     });
