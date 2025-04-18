@@ -64,6 +64,9 @@ export function renderLesson(container, lessonId) {
         return;
     }
 
+    // Рассчитываем прогресс
+    const progress = calculateProgress(course);
+
     // Рендерим урок
     container.innerHTML = `
         <header class="${styles.lessonHeader}">
@@ -72,6 +75,10 @@ export function renderLesson(container, lessonId) {
                     <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png" alt="WebDev Logo">
                     WebDev Курсы
                 </a>
+                <div class="${styles.progressWrapper}">
+                    <progress value="${progress}" max="100"></progress>
+                    <span>${progress}% завершено</span>
+                </div>
                 <nav>
                     <ul class="${styles.lessonNavMenu}">
                         <li><a href="#" class="${styles.lessonBtn}">Войти</a></li>
@@ -86,7 +93,8 @@ export function renderLesson(container, lessonId) {
                     ${course.lessons.map(l => `
                         <li class="${styles.lessonNavItem} ${l.id === lessonId ? styles.lessonNavItemActive : ''}"
                             data-course-id="${course.id}"
-                            data-lesson-id="${l.id}">
+                            data-lesson-id="${l.id}"
+                            style="color: ${isLessonCompleted(course.id, l.id) ? 'green' : 'black'};">
                             ${l.title}
                         </li>
                     `).join('')}
@@ -100,9 +108,9 @@ export function renderLesson(container, lessonId) {
 
     // Добавляем обработчики для специфических типов уроков
     if (lesson.type === 'quiz') {
-        setupQuiz(container, lesson); // Настройка теста
+        setupQuiz(container, lesson, course.id, lesson.id); // Передаем courseId и lessonId
     } else if (lesson.type === 'coding') {
-        setupCodingEnvironment(container, lesson); // Настройка среды выполнения кода
+        setupCodingEnvironment(container, lesson, course.id, lesson.id); // Передаем courseId и lessonId
     }
 
     // Добавляем обработчики кликов для элементов сайдбара
@@ -170,13 +178,14 @@ function setupSidebarClickHandlers() {
     });
 }
 
-function setupQuiz(container, lesson) {
+function setupQuiz(container, lesson, courseId, lessonId) {
     const options = container.querySelectorAll(`.${styles.quizOption}`);
     options.forEach(option => {
         option.addEventListener('click', () => {
             const index = parseInt(option.dataset.index);
             if (index === lesson.correctAnswer) {
                 option.style.backgroundColor = '#86efac'; // Зеленый цвет для правильного ответа
+                markLessonAsCompleted(courseId, lessonId); // Помечаем задание как выполненное
             } else {
                 option.style.backgroundColor = '#fca5a5'; // Красный цвет для неправильного ответа
             }
@@ -185,7 +194,7 @@ function setupQuiz(container, lesson) {
 }
 
 // Настройка среды выполнения кода
-function setupCodingEnvironment(container, lesson) {
+function setupCodingEnvironment(container, lesson, courseId, lessonId) {
     const runButton = container.querySelector(`.${styles.runButton}`);
     const codeInput = container.querySelector('#code-input');
     const output = container.querySelector(`.${styles.output}`);
@@ -195,8 +204,37 @@ function setupCodingEnvironment(container, lesson) {
             const code = codeInput.value;
             const result = new Function(code)(); // Выполняем код
             output.textContent = result; // Выводим результат
+
+            // Проверяем, соответствует ли вывод ожидаемому результату
+            const isCorrect = lesson.tests.every(test => {
+                const expectedOutput = test.expectedOutputContains;
+                return result.includes(expectedOutput);
+            });
+
+            if (isCorrect) {
+                markLessonAsCompleted(courseId, lessonId); // Помечаем задание как выполненное
+                runButton.style.backgroundColor = 'green'; // Меняем цвет кнопки
+            } else {
+                output.textContent = 'Ошибка: Результат не соответствует ожиданиям.';
+            }
         } catch (error) {
             output.textContent = `Error: ${error.message}`; // Обработка ошибок
         }
     });
+}
+
+function calculateProgress(course) {
+    const totalLessons = course.lessons.length;
+    const completedLessons = course.lessons.filter(lesson => isLessonCompleted(course.id, lesson.id)).length;
+    return Math.round((completedLessons / totalLessons) * 100);
+}
+
+function markLessonAsCompleted(courseId, lessonId) {
+    const key = `course-${courseId}-lesson-${lessonId}`;
+    localStorage.setItem(key, 'completed');
+}
+
+function isLessonCompleted(courseId, lessonId) {
+    const key = `course-${courseId}-lesson-${lessonId}`;
+    return localStorage.getItem(key) === 'completed';
 }
