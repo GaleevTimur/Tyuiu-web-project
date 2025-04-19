@@ -960,6 +960,1926 @@ console.log(sumArray([1, 2, 3, 4]));`,
                     "Telegram"
                 ],
                 correctAnswer: 3
+            },
+            // Модуль 2
+            {
+                id: "5-9",
+                type: "theory",
+                title: "Структура HTML-документа",
+                content: `
+                    <h2>Что такое HTML?</h2>
+                    <p><strong>HTML (HyperText Markup Language)</strong> - стандартный язык разметки для создания веб-страниц. Это не язык программирования, а инструмент для описания структуры контента.</p>
+                    
+                    <h3>Базовый каркас документа</h3>
+                    <p>Каждый HTML-документ должен содержать обязательные элементы:</p>
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Моя страница&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Привет, мир!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                    <h3>Детальное описание элементов:</h3>
+                    <div class="definition">
+                        <p><strong>&lt;!DOCTYPE html&gt;</strong> - декларация типа документа, указывает браузеру, что это HTML5 документ.</p>
+                        <p><strong>&lt;html&gt;</strong> - корневой элемент, содержит весь контент страницы. Атрибут <em>lang</em> задает язык документа.</p>
+                        <p><strong>&lt;head&gt;</strong> - служебный раздел с метаданными: кодировкой, заголовком, ссылками на стили и скрипты.</p>
+                        <p><strong>&lt;body&gt;</strong> - видимая часть документа, где размещается весь контент.</p>
+                    </div>
+
+                    <h3>Основные теги контента:</h3>
+                    <ul>
+                        <li><strong>&lt;h1&gt;-&lt;h6&gt;</strong> - заголовки разных уровней</li>
+                        <li><strong>&lt;p&gt;</strong> - абзац текста</li>
+                        <li><strong>&lt;a href="..."&gt;</strong> - гиперссылка</li>
+                        <li><strong>&lt;img src="..." alt="..."&gt;</strong> - изображение</li>
+                        <li><strong>&lt;ul&gt;/&lt;ol&gt; с &lt;li&gt;</strong> - списки</li>
+                    </ul>
+                `
+            },
+            // Тест по структуре HTML (дополненный)
+            {
+                id: "5-10",
+                type: "quiz",
+                title: "Проверка знаний: HTML-структура",
+                question: "Какой элемент содержит метаинформацию о странице?",
+                options: [
+                    "&lt;meta&gt;",
+                    "&lt;head&gt;",
+                    "&lt;header&gt;",
+                    "&lt;body&gt;"
+                        ],
+                correctAnswer: 1
+                
+            },
+            // Урок 2: Семантическая верстка (расширенный)
+            {
+                id: "5-11",
+                type: "theory",
+                title: "Семантическая верстка",
+                content: `
+                    <h2>Что такое семантическая верстка?</h2>
+                    <p><strong>Семантическая верстка</strong> - подход к созданию HTML-документов, где каждый элемент используется согласно его смысловому назначению. Это улучшает:</p>
+                    <ul>
+                        <li>Доступность для screen readers</li>
+                        <li>SEO-оптимизацию</li>
+                        <li>Читаемость кода</li>
+                    </ul>
+
+                    <h3>Семантические теги HTML5</h3>
+                    <table class="semantic-tags">
+                        <tr>
+                            <th>Тег</th>
+                            <th>Назначение</th>
+                            <th>Аналог в div-верстке</th>
+                        </tr>
+                        <tr>
+                            <td>&lt;header&gt;</td>
+                            <td>Шапка сайта или раздела</td>
+                            <td>&lt;div class="header"&gt;</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;nav&gt;</td>
+                            <td>Навигационное меню</td>
+                            <td>&lt;div class="nav"&gt;</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;main&gt;</td>
+                            <td>Основное уникальное содержимое</td>
+                            <td>&lt;div class="main"&gt;</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;article&gt;</td>
+                            <td>Независимый контент (пост, новость)</td>
+                            <td>&lt;div class="article"&gt;</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;section&gt;</td>
+                            <td>Тематическая группа контента</td>
+                            <td>&lt;div class="section"&gt;</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;aside&gt;</td>
+                            <td>Боковая панель, доп. информация</td>
+                            <td>&lt;div class="sidebar"&gt;</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;footer&gt;</td>
+                            <td>Подвал сайта или раздела</td>
+                            <td>&lt;div class="footer"&gt;</td>
+                        </tr>
+                    </table>
+
+                    <h3>Пример правильной структуры</h3>
+                    <pre><code>&lt;body&gt;
+    &lt;header&gt;
+        &lt;nav&gt;...&lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+        &lt;article&gt;
+            &lt;section&gt;...&lt;/section&gt;
+            &lt;section&gt;...&lt;/section&gt;
+        &lt;/article&gt;
+        &lt;aside&gt;...&lt;/aside&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+                `
+            },
+            // Урок 3: Основы CSS (расширенный)
+            {
+                id: "5-12",
+                type: "theory",
+                title: "Основы CSS: селекторы, свойства, значения",
+                content: `
+                    <h2>Что такое CSS?</h2>
+                    <p><strong>CSS (Cascading Style Sheets)</strong> - язык стилей, определяющий внешний вид HTML-документов. Позволяет контролировать:</p>
+                    <ul>
+                        <li>Цвета и шрифты</li>
+                        <li>Расположение элементов</li>
+                        <li>Адаптацию под разные устройства</li>
+                        <li>Анимации и эффекты</li>
+                    </ul>
+
+                    <h3>Синтаксис CSS</h3>
+                    <pre><code>селектор {
+    свойство: значение;
+    другое-свойство: значение;
+}</code></pre>
+
+                    <h3>Типы селекторов</h3>
+                    <table class="css-selectors">
+                        <tr>
+                            <th>Тип</th>
+                            <th>Пример</th>
+                            <th>Описание</th>
+                        </tr>
+                        <tr>
+                            <td>По тегу</td>
+                            <td><code>p { color: red; }</code></td>
+                            <td>Применяется ко всем элементам &lt;p&gt;</td>
+                        </tr>
+                        <tr>
+                            <td>По классу</td>
+                            <td><code>.warning { ... }</code></td>
+                            <td>Элементы с class="warning"</td>
+                        </tr>
+                        <tr>
+                            <td>По ID</td>
+                            <td><code>#header { ... }</code></td>
+                            <td>Элемент с id="header" (уникальный!)</td>
+                        </tr>
+                        <tr>
+                            <td>Атрибут</td>
+                            <td><code>[type="text"] { ... }</code></td>
+                            <td>Элементы с атрибутом type="text"</td>
+                        </tr>
+                    </table>
+
+                    <h3>Каскадность и специфичность</h3>
+                    <p><strong>Каскадность</strong> - порядок применения стилей:</p>
+                    <ol>
+                        <li>Стили браузера (user agent stylesheet)</li>
+                        <li>Внешние CSS-файлы (в порядке подключения)</li>
+                        <li>Стили в &lt;style&gt; внутри HTML</li>
+                        <li>Inline-стили (атрибут style)</li>
+                    </ol>
+                    <p><strong>Специфичность</strong> - "вес" селектора (ID > класс > тег)</p>
+                `
+            },
+            // Урок 4: Адаптивные макеты (расширенный)
+            {
+                id: "5-13",
+                type: "theory",
+                title: "Создание адаптивных макетов",
+                content: `
+                    <h2>Адаптивный дизайн</h2>
+                    <p><strong>Адаптивный веб-дизайн (RWD)</strong> - подход, при котором страница автоматически подстраивается под размеры и характеристики устройства.</p>
+                    
+                    <h3>Ключевые технологии:</h3>
+                    <div class="responsive-technologies">
+                        <h4>1. Медиазапросы (Media Queries)</h4>
+                        <p>Позволяют применять стили в зависимости от характеристик устройства:</p>
+                        <pre><code>/* Для экранов шириной до 768px */
+@media (max-width: 768px) {
+    .menu { display: none; }
+    .mobile-menu { display: block; }
+}</code></pre>
+
+                        <h4>2. Flexbox</h4>
+                        <p>Модель для создания гибких макетов:</p>
+                        <pre><code>.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}</code></pre>
+                        <p><strong>Основные свойства:</strong></p>
+                        <ul>
+                            <li><code>flex-direction</code> - направление (row/column)</li>
+                            <li><code>justify-content</code> - выравнивание по главной оси</li>
+                            <li><code>align-items</code> - выравнивание по поперечной оси</li>
+                            <li><code>flex-wrap</code> - перенос элементов</li>
+                        </ul>
+
+                        <h4>3. Относительные единицы измерения</h4>
+                        <ul>
+                            <li><strong>%</strong> - относительно родителя</li>
+                            <li><strong>vw/vh</strong> - % от ширины/высоты окна</li>
+                            <li><strong>rem</strong> - относительно размера шрифта html</li>
+                            <li><strong>em</strong> - относительно размера шрифта элемента</li>
+                        </ul>
+                    </div>
+
+                    <h3>Mobile-First подход</h3>
+                    <p>Сначала разрабатывается мобильная версия, затем добавляются стили для больших экранов:</p>
+                    <pre><code>/* Базовые стили (для mobile) */
+.container { padding: 10px; }
+
+/* Для планшетов */
+@media (min-width: 768px) {
+    .container { padding: 20px; }
+}
+
+/* Для десктопов */
+@media (min-width: 1024px) {
+    .container { 
+        padding: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}</code></pre>
+                `
+            },
+            // Практические задания (дополненные)
+            {
+                id: "5-14",
+                type: "coding",
+                title: "Создание семантической страницы",
+                starterCode: `<!DOCTYPE html>
+<html>
+<head>
+    <title>Мой сайт</title>
+</head>
+<body>
+    <!-- Ваш код здесь -->
+</body>
+</html>`,
+                solution: `<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мой сайт</title>
+</head>
+<body>
+    <header>
+        <h1>Название сайта</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">О нас</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <h2>Заголовок статьи</h2>
+            <p>Текст статьи...</p>
+        </article>
+        <aside>
+            <h3>Реклама</h3>
+            <p>Здесь может быть ваша реклама</p>
+        </aside>
+    </main>
+    <footer>
+        <p>© 2023 Мой сайт</p>
+    </footer>
+</body>
+</html>`,
+                tests: [
+                    {
+                        description: "Проверка наличия семантических тегов",
+                        testFunction: (code) => 
+                            code.includes("<header>") && 
+                            code.includes("<nav>") && 
+                            code.includes("<main>")
+                    }
+                ]
+            },
+            {
+                id: "5-15",
+                type: "coding",
+                title: "Адаптивная карточка товара",
+                starterCode: `<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Ваши стили здесь */
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        <img src="product.jpg" alt="Товар">
+        <h3>Название товара</h3>
+        <p class="price">999 руб.</p>
+        <button>Купить</button>
+    </div>
+</body>
+</html>`,
+                solution: `<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px;
+            text-align: center;
+            max-width: 300px;
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+        }
+        .price {
+            color: green;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .product-card {
+                max-width: 100%;
+            }
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        <img src="product.jpg" alt="Товар">
+        <h3>Название товара</h3>
+        <p class="price">999 руб.</p>
+        <button>Купить</button>
+    </div>
+</body>
+</html>`,
+                tests: [
+                    {
+                        description: "Проверка медиазапроса",
+                        testFunction: (code) => code.includes("@media")
+                    }
+                ]
+            },
+            // Модуль 3
+            {
+                id: "5-16",
+                type: "theory",
+                title: "Основы синтаксиса JavaScript",
+                content: `
+                    <h2>Что такое JavaScript?</h2>
+                    <p><strong>JavaScript</strong> - язык программирования, который делает веб-страницы интерактивными. В отличие от HTML (структура) и CSS (стили), JS добавляет поведение.</p>
+                    
+                    <h3>Базовый синтаксис</h3>
+                    <pre><code>// Однострочный комментарий
+/* Многострочный комментарий */
+
+console.log("Hello World!");</code></pre>
+
+                    <h3>Основные концепции:</h3>
+                    <div class="definition">
+                        <p><strong>Инструкции</strong> - "предложения" в коде, выполняющие действия.</p>
+                        <p><strong>Выражения</strong> - фрагменты кода, производящие значение.</p>
+                        <p><strong>Чувствительность к регистру</strong> - <code>myVar</code> и <code>myvar</code> это разные переменные.</p>
+                    </div>
+                `
+            },
+            // Тест 5-17 (упрощённый вопрос из второго варианта)
+            {
+                id: "5-17",
+                type: "quiz",
+                title: "Проверка знаний: Синтаксис JS",
+                question: "Какой символ используется для однострочных комментариев?",
+                options: [
+                    "//",
+                    "#",
+                    "--",
+                    "/*"
+                ],
+                correctAnswer: 0
+            },
+            // Урок 5-18: Переменные и типы данных (полная лекция из первого варианта)
+            {
+                id: "5-18",
+                type: "theory",
+                title: "Работа с переменными и типами данных",
+                content: `
+                    <h2>Объявление переменных</h2>
+                    <pre><code>let age = 25;         // Может изменяться
+const PI = 3.14;      // Константа
+var oldVar = "устаревший"; // Не рекомендуется</code></pre>
+
+                    <h3>Типы данных в JavaScript</h3>
+                    <table class="data-types">
+                        <tr>
+                            <th>Тип</th>
+                            <th>Пример</th>
+                        </tr>
+                        <tr>
+                            <td>Number</td>
+                            <td><code>42, 3.14</code></td>
+                        </tr>
+                        <tr>
+                            <td>String</td>
+                            <td><code>"Hello"</code></td>
+                        </tr>
+                        <tr>
+                            <td>Boolean</td>
+                            <td><code>true, false</code></td>
+                        </tr>
+                    </table>
+                `
+            },
+            // Практика 5-19: Работа с переменными (полное задание из первого варианта)
+            {
+                id: "5-19",
+                type: "coding",
+                title: "Создание переменных",
+                starterCode: `// 1. Создайте константу для хранения курса доллара
+// 2. Объявите переменную для суммы в рублях
+// 3. Рассчитайте сумму в долларах`,
+                solution: `const USD_RATE = 92.50;
+let rubAmount = 5000;
+let usdAmount = rubAmount / USD_RATE;`,
+                tests: [
+                    {
+                        description: "Проверка использования const",
+                        testFunction: (code) => code.includes("const USD_RATE")
+                    }
+                ]
+            },
+            // Урок 5-20: Условия и циклы (полная лекция из первого варианта)
+            {
+                id: "5-20",
+                type: "theory",
+                title: "Условия и циклы",
+                content: `
+                    <h2>Условные конструкции</h2>
+                    <pre><code>if (age < 18) {
+    console.log("Доступ запрещён");
+} else {
+    console.log("Доступ разрешён");
+}</code></pre>
+
+                    <h3>Цикл for</h3>
+                    <pre><code>for (let i = 0; i < 5; i++) {
+    console.log(i);
+}</code></pre>
+                `
+            },
+            // Тест 5-21 (упрощённый вопрос из второго варианта)
+            {
+                id: "5-21",
+                type: "quiz",
+                title: "Проверка знаний: Условия",
+                question: "Какой оператор проверяет равенство по значению и типу?",
+                options: [
+                    "==",
+                    "===",
+                    "=",
+                    "!="
+                ],
+                correctAnswer: 1
+            },
+            // Практика 5-22: FizzBuzz (полное задание из первого варианта)
+            {
+                id: "5-22",
+                type: "coding",
+                title: "Задача FizzBuzz",
+                starterCode: `// Выведите числа от 1 до 100, заменяя кратные 3 на "Fizz",
+// кратные 5 на "Buzz", а кратные 15 на "FizzBuzz"`,
+                solution: `for (let i = 1; i <= 100; i++) {
+    if (i % 15 === 0) console.log("FizzBuzz");
+    else if (i % 3 === 0) console.log("Fizz");
+    else if (i % 5 === 0) console.log("Buzz");
+    else console.log(i);
+}`,
+                tests: [
+                    {
+                        description: "Проверка FizzBuzz для 15",
+                        testFunction: (code) => {
+                            const logs = [];
+                            const originalLog = console.log;
+                            console.log = (msg) => logs.push(msg);
+                            eval(code.replace(/console\.log/g, 'logs.push'));
+                            console.log = originalLog;
+                            return logs[14] === "FizzBuzz";
+                        }
+                    }
+                ]
+            },
+            // Урок 5-23: Функции и объекты (полная лекция из первого варианта)
+            {
+                id: "5-23",
+                type: "theory",
+                title: "Функции и объекты",
+                content: `
+                    <h2>Функции</h2>
+                    <pre><code>function greet(name) {
+    return "Hello, " + name;
+}</code></pre>
+
+                    <h3>Объекты</h3>
+                    <pre><code>const user = {
+    name: "Alice",
+    age: 25,
+    sayHi() {
+        console.log("Hi!");
+    }
+};</code></pre>
+                `
+            },
+            // Тест 5-24 (упрощённый вопрос из второго варианта)
+            {
+                id: "5-24",
+                type: "quiz",
+                title: "Проверка знаний: Функции",
+                question: "Как объявить функцию с именем 'sum'?",
+                options: [
+                    "let sum = function() {}",
+                    "function sum() {}",
+                    "const sum => {}",
+                    "sum: function() {}"
+                ],
+                correctAnswer: 1
+            },
+            // Практика 5-25: Калькулятор (полное задание из первого варианта)
+            {
+                id: "5-25",
+                type: "coding",
+                title: "Создание калькулятора",
+                starterCode: `// Напишите функцию calculator(a, b, operator) 
+// которая выполняет операции +, -, *, /`,
+                solution: `function calculator(a, b, operator) {
+    switch (operator) {
+        case '+': return a + b;
+        case '-': return a - b;
+        case '*': return a * b;
+        case '/': return a / b;
+        default: return "Ошибка";
+    }
+}`,
+                tests: [
+                    {
+                        input: [10, 2, "/"],
+                        expected: 5
+                    }
+                ]
+            },
+            // Module 4
+            {
+                
+                id: "5-26",
+                type: "theory",
+                title: "Асинхронное программирование: Promises и async/await",
+                content: `
+                    <h2>Проблема асинхронности в JavaScript</h2>
+                    <p>JavaScript - однопоточный язык, но использует Event Loop для обработки асинхронных операций:</p>
+                    <ul>
+                        <li>Сетевые запросы (AJAX, Fetch API)</li>
+                        <li>Работа с файлами (в Node.js)</li>
+                        <li>Таймеры (setTimeout, setInterval)</li>
+                    </ul>
+
+                    <h3>Эволюция подходов:</h3>
+                    <div class="timeline">
+                        <p><strong>Callback Hell (2010):</strong></p>
+                        <pre><code>getData(function(a) {
+    getMoreData(a, function(b) {
+        getMoreData(b, function(c) {
+            console.log(c);
+        });
+    });
+});</code></pre>
+
+                        <p><strong>Promises (ES6, 2015):</strong></p>
+                        <pre><code>getData()
+    .then(a => getMoreData(a))
+    .then(b => getMoreData(b))
+    .then(c => console.log(c))
+    .catch(err => console.error(err));</code></pre>
+
+                        <p><strong>Async/Await (ES8, 2017):</strong></p>
+                        <pre><code>async function loadData() {
+    try {
+        const a = await getData();
+        const b = await getMoreData(a);
+        const c = await getMoreData(b);
+        console.log(c);
+    } catch (err) {
+        console.error(err);
+    }
+}</code></pre>
+                    </div>
+
+                    <h3>Создание Promise:</h3>
+                    <pre><code>const delay = (ms) => new Promise((resolve) => {
+    setTimeout(() => resolve('Готово!'), ms);
+});
+
+delay(1000).then(console.log); // Через 1 сек: "Готово!"</code></pre>
+
+                    <h3>Параллельное выполнение:</h3>
+                    <pre><code>// Promise.all - ожидает все
+Promise.all([
+    fetch('/user'),
+    fetch('/posts')
+]).then(([user, posts]) => {
+    console.log(user, posts);
+});
+
+// Promise.race - первый завершенный
+Promise.race([
+    fetch('/fast-api'),
+    timeout(5000) // Таймаут
+]).then(firstResponse => {
+    console.log(firstResponse);
+});</code></pre>
+                `
+            },
+            // Тест 5-27
+            {
+                id: "5-27",
+                type: "quiz",
+                title: "Проверка знаний: Асинхронность",
+                question: "Какой метод Promise используется для обработки ошибок?",
+                options: [
+                    ".then()",
+                    ".catch()",
+                    ".finally()",
+                    ".error()"
+                ],
+                correctAnswer: 1
+            },
+            // Практика 5-28
+            {
+                id: "5-28",
+                type: "coding",
+                title: "Цепочка асинхронных запросов",
+                starterCode: `// Реализуйте функцию getUsersPosts(userId), которая:
+// 1. Загружает пользователя по ID (/users/{userId})
+// 2. Затем загружает его посты (/posts?userId={userId})
+// 3. Возвращает объект { user, posts }
+
+async function getUsersPosts(userId) {
+    // Ваш код здесь
+}`,
+                solution: `async function getUsersPosts(userId) {
+    const userResponse = await fetch(\`/users/\${userId}\`);
+    const user = await userResponse.json();
+    
+    const postsResponse = await fetch(\`/posts?userId=\${userId}\`);
+    const posts = await postsResponse.json();
+    
+    return { user, posts };
+}`,
+                tests: [
+                    {
+                        description: "Проверка цепочки запросов",
+                        testFunction: (code) => code.includes("await fetch") && code.match(/await.+?\.json\(\)/g)?.length === 2
+                    }
+                ]
+            },
+            // Урок 5-29: Работа с DOM (расширенный)
+            {
+                id: "5-29",
+                type: "theory",
+                title: "Работа с DOM: полное руководство",
+                content: `
+                    <h2>DOM (Document Object Model)</h2>
+                    <p>Иерархическое представление HTML-документа в виде дерева объектов:</p>
+                    <img src="https://example.com/dom-tree.png" alt="DOM Tree Structure" style="max-width: 100%;">
+
+                    <h3>Методы поиска элементов:</h3>
+                    <table class="dom-methods">
+                        <tr>
+                            <th>Метод</th>
+                            <th>Пример</th>
+                            <th>Возвращает</th>
+                        </tr>
+                        <tr>
+                            <td>getElementById</td>
+                            <td><code>document.getElementById('header')</code></td>
+                            <td>Один элемент</td>
+                        </tr>
+                        <tr>
+                            <td>querySelector</td>
+                            <td><code>document.querySelector('.btn')</code></td>
+                            <td>Первый подходящий</td>
+                        </tr>
+                        <tr>
+                            <td>querySelectorAll</td>
+                            <td><code>document.querySelectorAll('div')</code></td>
+                            <td>NodeList (коллекция)</td>
+                        </tr>
+                    </table>
+
+                    <h3>Создание и изменение элементов:</h3>
+                    <pre><code>// Создание
+const div = document.createElement('div');
+div.className = 'alert';
+
+// Добавление контента
+div.innerHTML = '&lt;strong&gt;Внимание!&lt;/strong&gt; Вы читаете текст';
+
+// Вставка в DOM
+document.body.append(div);
+
+// Удаление через 1 секунду
+setTimeout(() => div.remove(), 1000);</code></pre>
+
+                    <h3>События:</h3>
+                    <pre><code>// Делегирование событий
+document.addEventListener('click', (event) => {
+    if (event.target.matches('.delete-btn')) {
+        event.target.closest('.item').remove();
+    }
+});
+
+// Свои события
+const customEvent = new CustomEvent('itemAdded', {
+    detail: { id: 42 }
+});
+element.dispatchEvent(customEvent);</code></pre>
+                `
+            },
+            // Тест 5-30
+            {
+                id: "5-30",
+                type: "quiz",
+                title: "Проверка знаний: DOM",
+                question: "Какой метод создаёт новый HTML-элемент?",
+                options: [
+                    "document.findElement()",
+                    "document.createElement()",
+                    "document.newElement()",
+                    "document.buildElement()"
+                ],
+                correctAnswer: 1
+            },
+            // Практика 5-31
+            {
+                id: "5-31",
+                type: "coding",
+                title: "Динамическая таблица",
+                starterCode: `// Создайте функцию createTable(rows, cols), 
+// которая генерирует HTML-таблицу заданного размера
+// с ячейками, содержащими их координаты (row, col)
+
+function createTable(rows, cols) {
+    // Ваш код здесь
+}`,
+                solution: `function createTable(rows, cols) {
+    const table = document.createElement('table');
+    
+    for (let i = 0; i < rows; i++) {
+        const tr = document.createElement('tr');
+        
+        for (let j = 0; j < cols; j++) {
+            const td = document.createElement('td');
+            td.textContent = \`(\${i}, \${j})\`;
+            tr.append(td);
+        }
+        
+        table.append(tr);
+    }
+    
+    return table;
+}`,
+                tests: [
+                    {
+                        description: "Проверка создания таблицы 2x2",
+                        testFunction: (code) => {
+                            const table = eval(code + '; createTable(2, 2);');
+                            return table.rows.length === 2 && 
+                                   table.rows[0].cells.length === 2;
+                        }
+                    }
+                ]
+            },
+            // Урок 5-32: Модули и сборка (расширенный)
+            {
+                id: "5-32",
+                type: "theory",
+                title: "Модули и сборка проекта",
+                content: `
+                    <h2>Система модулей в JavaScript</h2>
+                    <p>Исторические варианты:</p>
+                    <ul>
+                        <li><strong>IIFE</strong> (2009): <code>(function() { ... })();</code></li>
+                        <li><strong>CommonJS</strong> (Node.js): <code>module.exports / require</code></li>
+                        <li><strong>ES Modules</strong> (ES6, современный стандарт): <code>export / import</code></li>
+                    </ul>
+
+                    <h3>ES Modules синтаксис:</h3>
+                    <pre><code>// math.js
+export const PI = 3.14;
+export function sum(a, b) { return a + b; }
+export default class Calculator { ... }
+
+// app.js
+import { PI, sum } from './math.js';
+import Calculator from './math.js';</code></pre>
+
+                    <h3>Сборка проектов:</h3>
+                    <div class="build-tools">
+                        <h4>Webpack</h4>
+                        <p>Собирает модули в бандлы:</p>
+                        <pre><code>// webpack.config.js
+module.exports = {
+    entry: './src/index.js',
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist')
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: 'babel-loader'
+            }
+        ]
+    }
+};</code></pre>
+
+                        <h4>Babel</h4>
+                        <p>Транспиляция современного JS для старых браузеров:</p>
+                        <pre><code>// .babelrc
+{
+    "presets": ["@babel/preset-env"]
+}</code></pre>
+                    </div>
+                `
+            },
+            // Тест 5-33
+            {
+                id: "5-33",
+                type: "quiz",
+                title: "Проверка знаний: Модули",
+                question: "Как экспортировать функцию по умолчанию?",
+                options: [
+                    "export function myFunc() {}",
+                    "export default function() {}",
+                    "export = function() {}",
+                    "default export function() {}"
+                ],
+                correctAnswer: 1
+            },
+            // Урок 5-34: Основы тестирования (расширенный)
+            {
+                id: "5-34",
+                type: "theory",
+                title: "Основы тестирования кода",
+                content: `
+                    <h2>Виды тестирования</h2>
+                    <ul>
+                        <li><strong>Unit-тесты</strong>: проверка отдельных функций</li>
+                        <li><strong>Интеграционные</strong>: проверка взаимодействия компонентов</li>
+                        <li><strong>E2E</strong>: тестирование всего приложения</li>
+                    </ul>
+
+                    <h3>Jest - популярный фреймворк</h3>
+                    <pre><code>// sum.js
+export function sum(a, b) { return a + b; }
+
+// sum.test.js
+import { sum } from './sum';
+
+test('adds 1 + 2 to equal 3', () => {
+    expect(sum(1, 2)).toBe(3);
+});
+
+describe('sum function', () => {
+    it('works with positive numbers', () => {
+        expect(sum(1, 2)).toBe(3);
+    });
+    
+    it('works with negative numbers', () => {
+        expect(sum(-1, -2)).toBe(-3);
+    });
+});</code></pre>
+
+                    <h3>Mock-функции</h3>
+                    <pre><code>test('calls callback with data', () => {
+    const mockCallback = jest.fn();
+    fetchData(mockCallback);
+    expect(mockCallback).toHaveBeenCalledWith('data');
+});</code></pre>
+                `
+            },
+            // Практика 5-35
+            {
+                id: "5-35",
+                type: "coding",
+                title: "Написание unit-теста",
+                starterCode: `// Протестируйте функцию formatDate(date)
+// Она принимает Date и возвращает строку "DD.MM.YYYY"
+
+// Ваши тесты здесь
+test('форматирует дату правильно', () => {
+    // Проверьте что new Date(2023, 0, 1) → "01.01.2023"
+});`,
+                solution: `function formatDate(date) {
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return \`\${day}.\${month}.\${year}\`;
+}
+
+test('форматирует дату правильно', () => {
+    expect(formatDate(new Date(2023, 0, 1))).toBe("01.01.2023");
+    expect(formatDate(new Date(2020, 11, 31))).toBe("31.12.2020");
+});`,
+                tests: [
+                    {
+                        description: "Проверка наличия теста",
+                        testFunction: (code) => code.includes("expect(") && code.includes(").toBe(")
+                    }
+                ]
+            },
+            {
+                id: "5-36",
+                type: "theory",
+                title: "Что такое фреймворки и библиотеки?",
+                content: `
+                    <h2>Что такое фреймворки и библиотеки?</h2>
+                    <p>Фреймворки и библиотеки — это инструменты, которые упрощают разработку программного обеспечения.</p>
+                    <h3>Основные различия:</h3>
+                    <ul>
+                        <li><strong>Библиотека:</strong> Набор готовых функций, которые вы можете использовать по своему усмотрению.</li>
+                        <li><strong>Фреймворк:</strong> Структурированная среда, которая предоставляет правила и шаблоны для разработки приложений.</li>
+                    </ul>
+                    <h3>Примеры:</h3>
+                    <ul>
+                        <li>React, Vue.js, Angular — это фреймворки/библиотеки для создания пользовательских интерфейсов.</li>
+                        <li>Lodash, Moment.js — это примеры библиотек для работы с данными и временем.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "5-37",
+                type: "quiz",
+                title: "Тест: Фреймворки и библиотеки",
+                question: "Что из перечисленного является фреймворком?",
+                options: [
+                    "React",
+                    "Lodash",
+                    "jQuery",
+                    "Moment.js"
+                ],
+                correctAnswer: 1
+            },
+            {
+                id: "5-38",
+                type: "theory",
+                title: "Основы React: компоненты и состояние",
+                content: `
+                    <h2>Основы React</h2>
+                    <p>React — это JavaScript-библиотека для создания пользовательских интерфейсов.</p>
+                    <h3>Компоненты:</h3>
+                    <ul>
+                        <li>Компоненты — это строительные блоки React-приложений.</li>
+                        <li>Компоненты могут быть функциональными или классовыми.</li>
+                    </ul>
+                    <h3>Состояние (State):</h3>
+                    <ul>
+                        <li>Состояние — это объект, который хранит данные компонента.</li>
+                        <li>При изменении состояния компонент автоматически перерисовывается.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "5-39",
+                type: "coding",
+                title: "Создание простого компонента React",
+                starterCode: `// Создайте функциональный компонент, который выводит "Hello, React!"
+function App() {
+    return (
+        // Ваш код здесь
+    );
+}
+
+export default App;`,
+                solution: `function App() {
+    return (
+        <div>Hello, React!</div>
+    );
+}
+
+export default App;`,
+                tests: [
+                    {
+                        input: [],
+                        expected: "<div>Hello, React!</div>"
+                    }
+                ]
+            },
+            {
+                id: "5-40",
+                type: "theory",
+                title: "Основы Vue.js: реактивность и компоненты",
+                content: `
+                    <h2>Основы Vue.js</h2>
+                    <p>Vue.js — это прогрессивный JavaScript-фреймворк для создания пользовательских интерфейсов.</p>
+                    <h3>Реактивность:</h3>
+                    <ul>
+                        <li>Vue.js автоматически отслеживает изменения данных и обновляет DOM.</li>
+                        <li>Для этого используется система реактивности.</li>
+                    </ul>
+                    <h3>Компоненты:</h3>
+                    <ul>
+                        <li>Компоненты Vue.js позволяют создавать переиспользуемые части интерфейса.</li>
+                        <li>Каждый компонент имеет свой собственный шаблон, логику и стили.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "5-41",
+                type: "coding",
+                title: "Создание простого компонента Vue.js",
+                starterCode: `// Создайте компонент Vue.js, который выводит "Hello, Vue!"
+new Vue({
+    el: '#app',
+    data: {
+        message: ''
+    }
+});`,
+                solution: `new Vue({
+    el: '#app',
+    data: {
+        message: 'Hello, Vue!'
+    }
+});`,
+                tests: [
+                    {
+                        input: [],
+                        expected: "Hello, Vue!"
+                    }
+                ]
+            },
+            {
+                id: "5-42",
+                type: "theory",
+                title: "Сравнение фреймворков",
+                content: `
+                    <h2>Сравнение фреймворков</h2>
+                    <p>React, Vue.js и Angular — это три популярных решения для создания интерфейсов.</p>
+                    <h3>React:</h3>
+                    <ul>
+                        <li>Библиотека, а не полноценный фреймворк.</li>
+                        <li>Гибкость в выборе инструментов.</li>
+                    </ul>
+                    <h3>Vue.js:</h3>
+                    <ul>
+                        <li>Простота освоения и использования.</li>
+                        <li>Отличная документация.</li>
+                    </ul>
+                    <h3>Angular:</h3>
+                    <ul>
+                        <li>Полноценный фреймворк с большим количеством встроенных функций.</li>
+                        <li>Подходит для крупных проектов.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "5-43",
+                type: "quiz",
+                title: "Тест: Сравнение фреймворков",
+                question: "Какой фреймворк лучше всего подходит для начинающих?",
+                options: [
+                    "React",
+                    "Vue.js",
+                    "Angular",
+                    "Нет правильного ответа"
+                ],
+                correctAnswer: 2
+            },
+            {
+                id: "5-44",
+                type: "theory",
+                title: "Введение в Node.js и его экосистему",
+                content: `
+                    <h2>Что такое Node.js?</h2>
+                    <p>Node.js — это среда выполнения JavaScript, которая позволяет запускать JavaScript на стороне сервера.</p>
+                    <h3>Основные особенности:</h3>
+                    <ul>
+                        <li><strong>Асинхронность:</strong> Node.js использует неблокирующий ввод/вывод, что делает его быстрым и эффективным.</li>
+                        <li><strong>Однопоточность:</strong> Основан на событийно-ориентированной модели.</li>
+                        <li><strong>NPM (Node Package Manager):</strong> Экосистема пакетов для установки библиотек и инструментов.</li>
+                    </ul>
+                    <h3>Экосистема Node.js:</h3>
+                    <ul>
+                        <li><strong>Express.js:</strong> Фреймворк для создания веб-приложений и API.</li>
+                        <li><strong>MongoDB:</strong> База данных NoSQL, часто используется с Node.js.</li>
+                        <li><strong>Socket.IO:</strong> Для работы с WebSocket и реального времени.</li>
+                    </ul>
+                    <h3>Пример использования:</h3>
+                    <p>Node.js часто используется для создания серверных приложений, микросервисов, чатов и RESTful API.</p>
+                `
+            },
+            {
+                id: "5-45",
+                type: "quiz",
+                title: "Тест: Введение в Node.js",
+                question: "Какая из перечисленных особенностей характерна для Node.js?",
+                options: [
+                    "Блокирующий ввод/вывод",
+                    "Асинхронность и неблокирующий ввод/вывод",
+                    "Многопоточность",
+                    "Компиляция в машинный код"
+                ],
+                correctAnswer: 2
+            },
+            {
+                id: "5-46",
+                type: "theory",
+                title: "Создание простого сервера",
+                content: `
+                    <h2>Создание простого сервера в Node.js</h2>
+                    <p>Node.js предоставляет встроенный модуль <code>http</code>, который позволяет создавать HTTP-серверы.</p>
+                    <h3>Шаги для создания сервера:</h3>
+                    <ol>
+                        <li>Импортировать модуль <code>http</code>.</li>
+                        <li>Создать сервер с помощью метода <code>createServer</code>.</li>
+                        <li>Задать порт, на котором будет работать сервер.</li>
+                        <li>Обработать входящие запросы и отправить ответ.</li>
+                    </ol>
+                    <h3>Пример кода:</h3>
+                    <pre><code>
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Hello, World!');
+});
+
+server.listen(3000, () => {
+    console.log('Сервер запущен на http://localhost:3000/');
+});
+                    </code></pre>
+                    <p>Этот сервер отвечает на любой запрос текстом "Hello, World!".</p>
+                `
+            },
+            // Задание на кодинг 5-47: Создание простого сервера
+            {
+                id: "5-47",
+                type: "coding",
+                title: "Создание простого сервера",
+                starterCode: `// Создайте HTTP-сервер, который отвечает на запросы текстом "Hello, Node.js!"
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+    // Ваш код здесь
+});
+
+server.listen(3000, () => {
+    console.log('Сервер запущен на http://localhost:3000/');
+});`,
+                solution: `const http = require('http');
+
+const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Hello, Node.js!');
+});
+
+server.listen(3000, () => {
+    console.log('Сервер запущен на http://localhost:3000/');
+});`,
+                tests: [
+                    {
+                        input: [],
+                        expected: "Hello, Node.js!"
+                    }
+                ]
+            },
+            {
+                id: "5-48",
+                type: "theory",
+                title: "Работа с Express.js",
+                content: `
+                    <h2>Express.js — фреймворк для Node.js</h2>
+                    <p>Express.js упрощает создание веб-приложений и API, предоставляя удобные инструменты для маршрутизации, обработки запросов и middleware.</p>
+                    <h3>Основные возможности:</h3>
+                    <ul>
+                        <li><strong>Маршрутизация:</strong> Управление URL-путями и HTTP-методами.</li>
+                        <li><strong>Middleware:</strong> Промежуточные функции для обработки запросов.</li>
+                        <li><strong>Шаблонизация:</strong> Интеграция с шаблонизаторами (например, EJS, Pug).</li>
+                    </ul>
+                    <h3>Пример кода:</h3>
+                    <pre><code>
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Hello, Express!');
+});
+
+app.listen(3000, () => {
+    console.log('Сервер запущен на http://localhost:3000/');
+});
+                    </code></pre>
+                    <p>Этот код создает сервер, который отвечает на GET-запрос к корню текстом "Hello, Express!".</p>
+                `
+            },
+            // Задание на кодинг 5-49: Создание сервера с Express.js
+            {
+                id: "5-49",
+                type: "coding",
+                title: "Создание сервера с Express.js",
+                starterCode: `// Создайте сервер Express.js, который отвечает на GET-запрос к "/hello" текстом "Hello, Express!"
+const express = require('express');
+const app = express();
+
+// Ваш код здесь
+
+app.listen(3000, () => {
+    console.log('Сервер запущен на http://localhost:3000/');
+});`,
+                solution: `const express = require('express');
+const app = express();
+
+app.get('/hello', (req, res) => {
+    res.send('Hello, Express!');
+});
+
+app.listen(3000, () => {
+    console.log('Сервер запущен на http://localhost:3000/');
+});`,
+                tests: [
+                    {
+                        input: ["/hello"],
+                        expected: "Hello, Express!"
+                    }
+                ]
+            },
+            // Лекция 5-50: Создание RESTful API
+            {
+                id: "5-50",
+                type: "theory",
+                title: "Создание RESTful API",
+                content: `
+                    <h2>RESTful API</h2>
+                    <p>REST (Representational State Transfer) — это архитектурный стиль для проектирования сетевых приложений.</p>
+                    <h3>Основные принципы:</h3>
+                    <ul>
+                        <li><strong>Клиент-серверная архитектура:</strong> Разделение логики клиента и сервера.</li>
+                        <li><strong>Отсутствие состояния:</strong> Каждый запрос содержит всю необходимую информацию.</li>
+                        <li><strong>HTTP-методы:</strong> Использование GET, POST, PUT, DELETE для CRUD-операций.</li>
+                    </ul>
+                    <h3>Пример API:</h3>
+                    <pre><code>
+const express = require('express');
+const app = express();
+
+let users = [{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }];
+
+// Получить всех пользователей
+app.get('/users', (req, res) => {
+    res.json(users);
+});
+
+// Добавить нового пользователя
+app.post('/users', (req, res) => {
+    const newUser = { id: users.length + 1, name: req.body.name };
+    users.push(newUser);
+    res.status(201).json(newUser);
+});
+
+app.listen(3000, () => {
+    console.log('Сервер запущен на http://localhost:3000/');
+});
+                    </code></pre>
+                    <p>Этот API позволяет получать список пользователей и добавлять новых.</p>
+                `
+            },
+            // Задание на кодинг 5-51: Создание RESTful API
+            {
+                id: "5-51",
+                type: "coding",
+                title: "Создание RESTful API",
+                starterCode: `// Создайте RESTful API для управления списком задач (todos)
+const express = require('express');
+const app = express();
+app.use(express.json());
+
+let todos = [{ id: 1, task: 'Learn Node.js' }];
+
+// Ваш код здесь
+
+app.listen(3000, () => {
+    console.log('Сервер запущен на http://localhost:3000/');
+});`,
+                solution: `const express = require('express');
+const app = express();
+app.use(express.json());
+
+let todos = [{ id: 1, task: 'Learn Node.js' }];
+
+// Получить все задачи
+app.get('/todos', (req, res) => {
+    res.json(todos);
+});
+
+// Добавить новую задачу
+app.post('/todos', (req, res) => {
+    const newTodo = { id: todos.length + 1, task: req.body.task };
+    todos.push(newTodo);
+    res.status(201).json(newTodo);
+});
+
+app.listen(3000, () => {
+    console.log('Сервер запущен на http://localhost:3000/');
+});`,
+                tests: [
+                    {
+                        input: ["/todos", { method: "GET" }],
+                        expected: [{ id: 1, task: "Learn Node.js" }]
+                    },
+                    {
+                        input: ["/todos", { method: "POST", body: { task: "Learn Express.js" } }],
+                        expected: { id: 2, task: "Learn Express.js" }
+                    }
+                ]
+            },
+            //Module 7
+            {
+                id: "5-52",
+                type: "theory",
+                title: "Основы реляционных и нереляционных баз данных",
+                content: `
+                    <h2>Что такое базы данных?</h2>
+                    <p>Базы данных — это системы для хранения, управления и извлечения данных.</p>
+                    <h3>Реляционные базы данных:</h3>
+                    <ul>
+                        <li><strong>Структура:</strong> Данные хранятся в таблицах (строки и столбцы).</li>
+                        <li><strong>Примеры:</strong> MySQL, PostgreSQL, SQLite.</li>
+                        <li><strong>Особенности:</strong> Строгая схема данных, поддержка SQL.</li>
+                    </ul>
+                    <h3>Нереляционные базы данных:</h3>
+                    <ul>
+                        <li><strong>Структура:</strong> Данные хранятся в виде документов, графов или ключей-значений.</li>
+                        <li><strong>Примеры:</strong> MongoDB, Redis, Cassandra.</li>
+                        <li><strong>Особенности:</strong> Гибкая схема данных, высокая производительность.</li>
+                    </ul>
+                    <h3>Когда использовать:</h3>
+                    <ul>
+                        <li>Реляционные БД подходят для структурированных данных и сложных запросов.</li>
+                        <li>Нереляционные БД лучше для больших объемов данных и масштабирования.</li>
+                    </ul>
+                `
+            },
+            // Тест 5-53: Основы реляционных и нереляционных баз данных
+            {
+                id: "5-53",
+                type: "quiz",
+                title: "Тест: Основы реляционных и нереляционных баз данных",
+                question: "Какая база данных является нереляционной?",
+                options: [
+                    "MySQL",
+                    "PostgreSQL",
+                    "MongoDB",
+                    "SQLite"
+                ],
+                correctAnswer: 3
+            },
+            // Лекция 5-54: Работа с MongoDB
+            {
+                id: "5-54",
+                type: "theory",
+                title: "Работа с MongoDB",
+                content: `
+                    <h2>MongoDB — нереляционная база данных</h2>
+                    <p>MongoDB хранит данные в формате JSON-подобных документов.</p>
+                    <h3>Основные понятия:</h3>
+                    <ul>
+                        <li><strong>Коллекция:</strong> Аналог таблицы в реляционных БД.</li>
+                        <li><strong>Документ:</strong> Запись в коллекции, представленная в формате BSON (Binary JSON).</li>
+                        <li><strong>Схема:</strong> В MongoDB схема данных не фиксирована, что позволяет гибко управлять данными.</li>
+                    </ul>
+                    <h3>Пример использования:</h3>
+                    <pre><code>
+const { MongoClient } = require('mongodb');
+
+async function main() {
+    const uri = 'mongodb://localhost:27017';
+    const client = new MongoClient(uri);
+
+    try {
+        await client.connect();
+        const database = client.db('test');
+        const collection = database.collection('users');
+
+        // Вставка документа
+        await collection.insertOne({ name: 'Alice', age: 25 });
+
+        // Поиск документов
+        const users = await collection.find({}).toArray();
+        console.log(users);
+    } finally {
+        await client.close();
+    }
+}
+
+main().catch(console.error);
+                    </code></pre>
+                    <p>Этот код подключается к MongoDB, создает коллекцию и выполняет операции с данными.</p>
+                `
+            },
+            // Задание на кодинг 5-55: Работа с MongoDB
+            {
+                id: "5-55",
+                type: "coding",
+                title: "Работа с MongoDB",
+                starterCode: `// Подключитесь к MongoDB и создайте коллекцию "products"
+const { MongoClient } = require('mongodb');
+
+async function main() {
+    const uri = 'mongodb://localhost:27017';
+    const client = new MongoClient(uri);
+
+    try {
+        await client.connect();
+        const database = client.db('test');
+        const collection = database.collection('products');
+
+        // Ваш код здесь
+
+    } finally {
+        await client.close();
+    }
+}
+
+main().catch(console.error);`,
+                solution: `const { MongoClient } = require('mongodb');
+
+async function main() {
+    const uri = 'mongodb://localhost:27017';
+    const client = new MongoClient(uri);
+
+    try {
+        await client.connect();
+        const database = client.db('test');
+        const collection = database.collection('products');
+
+        // Вставка документа
+        await collection.insertOne({ name: 'Laptop', price: 1000 });
+
+        // Поиск документов
+        const products = await collection.find({}).toArray();
+        console.log(products);
+    } finally {
+        await client.close();
+    }
+}
+
+main().catch(console.error);`,
+                tests: [
+                    {
+                        input: [],
+                        expected: [{ name: "Laptop", price: 1000 }]
+                    }
+                ]
+            },
+            // Лекция 5-56: Создание и управление базами данных
+            {
+                id: "5-56",
+                type: "theory",
+                title: "Создание и управление базами данных",
+                content: `
+                    <h2>Создание и управление базами данных</h2>
+                    <p>Для работы с базами данных важно уметь создавать, обновлять и удалять данные.</p>
+                    <h3>CRUD-операции:</h3>
+                    <ul>
+                        <li><strong>Create (Создание):</strong> Добавление новых записей.</li>
+                        <li><strong>Read (Чтение):</strong> Получение данных из базы.</li>
+                        <li><strong>Update (Обновление):</strong> Изменение существующих записей.</li>
+                        <li><strong>Delete (Удаление):</strong> Удаление записей.</li>
+                    </ul>
+                    <h3>Пример CRUD в MongoDB:</h3>
+                    <pre><code>
+const { MongoClient } = require('mongodb');
+
+async function main() {
+    const uri = 'mongodb://localhost:27017';
+    const client = new MongoClient(uri);
+
+    try {
+        await client.connect();
+        const database = client.db('test');
+        const collection = database.collection('items');
+
+        // Create
+        await collection.insertOne({ name: 'Book', quantity: 10 });
+
+        // Read
+        const items = await collection.find({}).toArray();
+        console.log(items);
+
+        // Update
+        await collection.updateOne({ name: 'Book' }, { $set: { quantity: 20 } });
+
+        // Delete
+        await collection.deleteOne({ name: 'Book' });
+    } finally {
+        await client.close();
+    }
+}
+
+main().catch(console.error);
+                    </code></pre>
+                    <p>Этот код демонстрирует выполнение всех CRUD-операций в MongoDB.</p>
+                `
+            },
+            // Задание на кодинг 5-57: CRUD-операции в MongoDB
+            {
+                id: "5-57",
+                type: "coding",
+                title: "CRUD-операции в MongoDB",
+                starterCode: `// Реализуйте CRUD-операции в MongoDB для коллекции "books"
+const { MongoClient } = require('mongodb');
+
+async function main() {
+    const uri = 'mongodb://localhost:27017';
+    const client = new MongoClient(uri);
+
+    try {
+        await client.connect();
+        const database = client.db('test');
+        const collection = database.collection('books');
+
+        // Ваш код здесь
+
+    } finally {
+        await client.close();
+    }
+}
+
+main().catch(console.error);`,
+                solution: `const { MongoClient } = require('mongodb');
+
+async function main() {
+    const uri = 'mongodb://localhost:27017';
+    const client = new MongoClient(uri);
+
+    try {
+        await client.connect();
+        const database = client.db('test');
+        const collection = database.collection('books');
+
+        // Create
+        await collection.insertOne({ title: 'JavaScript Basics', author: 'John Doe' });
+
+        // Read
+        const books = await collection.find({}).toArray();
+        console.log(books);
+
+        // Update
+        await collection.updateOne({ title: 'JavaScript Basics' }, { $set: { author: 'Jane Doe' } });
+
+        // Delete
+        await collection.deleteOne({ title: 'JavaScript Basics' });
+    } finally {
+        await client.close();
+    }
+}
+
+main().catch(console.error);`,
+                tests: [
+                    {
+                        input: [],
+                        expected: [{ title: "JavaScript Basics", author: "Jane Doe" }]
+                    }
+                ]
+            },
+            // Лекция 5-58: Интеграция базы данных с сервером
+            {
+                id: "5-58",
+                type: "theory",
+                title: "Интеграция базы данных с сервером",
+                content: `
+                    <h2>Интеграция базы данных с сервером</h2>
+                    <p>Для создания полноценного приложения необходимо интегрировать базу данных с сервером.</p>
+                    <h3>Шаги интеграции:</h3>
+                    <ol>
+                        <li><strong>Подключение к базе данных:</strong> Используйте драйвер или ORM для подключения.</li>
+                        <li><strong>Создание API:</strong> Реализуйте маршруты для взаимодействия с базой данных.</li>
+                        <li><strong>Обработка данных:</strong> Выполняйте CRUD-операции через API.</li>
+                    </ol>
+                    <h3>Пример интеграции с Express.js:</h3>
+                    <pre><code>
+const express = require('express');
+const { MongoClient } = require('mongodb');
+const app = express();
+app.use(express.json());
+
+const uri = 'mongodb://localhost:27017';
+const client = new MongoClient(uri);
+
+async function connectToDatabase() {
+    await client.connect();
+    return client.db('test').collection('users');
+}
+
+app.get('/users', async (req, res) => {
+    const collection = await connectToDatabase();
+    const users = await collection.find({}).toArray();
+    res.json(users);
+});
+
+app.post('/users', async (req, res) => {
+    const collection = await connectToDatabase();
+    const newUser = req.body;
+    await collection.insertOne(newUser);
+    res.status(201).json(newUser);
+});
+
+app.listen(3000, () => {
+    console.log('Сервер запущен на http://localhost:3000/');
+});
+                    </code></pre>
+                    <p>Этот код создает API для управления пользователями через MongoDB.</p>
+                `
+            },
+            // Задание на кодинг 5-59: Интеграция базы данных с сервером
+            {
+                id: "5-59",
+                type: "coding",
+                title: "Интеграция базы данных с сервером",
+                starterCode: `// Создайте API для управления задачами (tasks) с использованием MongoDB
+const express = require('express');
+const { MongoClient } = require('mongodb');
+const app = express();
+app.use(express.json());
+
+const uri = 'mongodb://localhost:27017';
+const client = new MongoClient(uri);
+
+async function connectToDatabase() {
+    await client.connect();
+    return client.db('test').collection('tasks');
+}
+
+// Ваш код здесь
+
+app.listen(3000, () => {
+    console.log('Сервер запущен на http://localhost:3000/');
+});`,
+                solution: `const express = require('express');
+const { MongoClient } = require('mongodb');
+const app = express();
+app.use(express.json());
+
+const uri = 'mongodb://localhost:27017';
+const client = new MongoClient(uri);
+
+async function connectToDatabase() {
+    await client.connect();
+    return client.db('test').collection('tasks');
+}
+
+app.get('/tasks', async (req, res) => {
+    const collection = await connectToDatabase();
+    const tasks = await collection.find({}).toArray();
+    res.json(tasks);
+});
+
+app.post('/tasks', async (req, res) => {
+    const collection = await connectToDatabase();
+    const newTask = req.body;
+    await collection.insertOne(newTask);
+    res.status(201).json(newTask);
+});
+
+app.listen(3000, () => {
+    console.log('Сервер запущен на http://localhost:3000/');
+});`,
+                tests: [
+                    {
+                        input: ["/tasks", { method: "GET" }],
+                        expected: []
+                    },
+                    {
+                        input: ["/tasks", { method: "POST", body: { task: "Learn MongoDB" } }],
+                        expected: { task: "Learn MongoDB" }
+                    }
+                ]
+            },
+            //Module 8
+            // Лекция 5-60: Создание полноценного веб-приложения
+            {
+                id: "5-60",
+                type: "theory",
+                title: "Создание полноценного веб-приложения",
+                content: `
+                    <h2>Как создать веб-приложение?</h2>
+                    <p>Веб-приложение — это программа, которая работает в браузере и взаимодействует с сервером.</p>
+                    <h3>Этапы разработки:</h3>
+                    <ol>
+                        <li><strong>Планирование:</strong> Определите функциональность и структуру приложения.</li>
+                        <li><strong>Разработка фронтенда:</strong> Создайте интерфейс пользователя (HTML, CSS, JavaScript).</li>
+                        <li><strong>Разработка бэкенда:</strong> Реализуйте API и логику работы с базой данных.</li>
+                        <li><strong>Интеграция:</strong> Соедините фронтенд и бэкенд через HTTP-запросы.</li>
+                        <li><strong>Тестирование:</strong> Проверьте работоспособность приложения.</li>
+                        <li><strong>Развертывание:</strong> Выложите приложение на сервер.</li>
+                    </ol>
+                    <h3>Пример проекта:</h3>
+                    <p>Создадим простое приложение для управления задачами (To-Do List).</p>
+                `
+            },
+            // Тест 5-61: Создание полноценного веб-приложения
+            {
+                id: "5-61",
+                type: "quiz",
+                title: "Тест: Создание полноценного веб-приложения",
+                question: "Какой этап разработки веб-приложения предшествует развертыванию?",
+                options: [
+                    "Планирование",
+                    "Разработка фронтенда",
+                    "Тестирование",
+                    "Интеграция"
+                ],
+                correctAnswer: 3
+            },
+            // Лекция 5-62: Интеграция фронтенда и бэкенда
+            {
+                id: "5-62",
+                type: "theory",
+                title: "Интеграция фронтенда и бэкенда",
+                content: `
+                    <h2>Интеграция фронтенда и бэкенда</h2>
+                    <p>Фронтенд и бэкенд общаются через HTTP-запросы. Фронтенд отправляет запросы, а бэкенд отвечает данными в формате JSON.</p>
+                    <h3>Шаги интеграции:</h3>
+                    <ol>
+                        <li><strong>Создание API:</strong> Бэкенд предоставляет RESTful или GraphQL API.</li>
+                        <li><strong>Обработка запросов:</strong> Фронтенд отправляет GET, POST, PUT, DELETE запросы.</li>
+                        <li><strong>Отображение данных:</strong> Фронтенд отображает данные, полученные от бэкенда.</li>
+                    </ol>
+                    <h3>Пример интеграции:</h3>
+                    <pre><code>
+// Фронтенд (JavaScript)
+fetch('http://localhost:3000/tasks')
+    .then(response => response.json())
+    .then(tasks => console.log(tasks));
+
+// Бэкенд (Express.js)
+app.get('/tasks', async (req, res) => {
+    const tasks = await collection.find({}).toArray();
+    res.json(tasks);
+});
+                    </code></pre>
+                    <p>Этот код демонстрирует, как фронтенд получает данные от бэкенда.</p>
+                `
+            },
+            // Задание на кодинг 5-63: Интеграция фронтенда и бэкенда
+            {
+                id: "5-63",
+                type: "coding",
+                title: "Интеграция фронтенда и бэкенда",
+                starterCode: `// Создайте фронтенд для получения списка задач с бэкенда
+async function fetchTasks() {
+    // Ваш код здесь
+}
+
+fetchTasks();`,
+                solution: `async function fetchTasks() {
+    const response = await fetch('http://localhost:3000/tasks');
+    const tasks = await response.json();
+    console.log(tasks);
+}
+
+fetchTasks();`,
+                tests: [
+                    {
+                        input: [],
+                        expected: []
+                    }
+                ]
+            },
+            // Лекция 5-64: Оптимизация и тестирование приложения
+            {
+                id: "5-64",
+                type: "theory",
+                title: "Оптимизация и тестирование приложения",
+                content: `
+                    <h2>Оптимизация приложения</h2>
+                    <p>Оптимизация улучшает производительность и удобство использования приложения.</p>
+                    <h3>Способы оптимизации:</h3>
+                    <ul>
+                        <li><strong>Минификация:</strong> Сжатие CSS и JavaScript файлов.</li>
+                        <li><strong>Кеширование:</strong> Хранение часто используемых данных в памяти.</li>
+                        <li><strong>Ленивая загрузка:</strong> Загрузка ресурсов только при необходимости.</li>
+                    </ul>
+                    <h2>Тестирование приложения</h2>
+                    <p>Тестирование гарантирует корректность работы приложения.</p>
+                    <h3>Типы тестирования:</h3>
+                    <ul>
+                        <li><strong>Юнит-тесты:</strong> Проверка отдельных частей кода.</li>
+                        <li><strong>Интеграционные тесты:</strong> Проверка взаимодействия компонентов.</li>
+                        <li><strong>UI-тесты:</strong> Проверка пользовательского интерфейса.</li>
+                    </ul>
+                    <h3>Пример тестирования:</h3>
+                    <pre><code>
+// Юнит-тест для функции
+function add(a, b) {
+    return a + b;
+}
+
+test('adds 1 + 2 to equal 3', () => {
+    expect(add(1, 2)).toBe(3);
+});
+                    </code></pre>
+                `
+            },
+            // Тест 5-65: Оптимизация и тестирование приложения
+            {
+                id: "5-65",
+                type: "quiz",
+                title: "Тест: Оптимизация и тестирование приложения",
+                question: "Какой тип тестирования проверяет отдельные части кода?",
+                options: [
+                    "Интеграционное тестирование",
+                    "Юнит-тестирование",
+                    "UI-тестирование",
+                    "Нагрузочное тестирование"
+                ],
+                correctAnswer: 2
+            },
+            // Лекция 5-66: Развертывание приложения на сервере
+            {
+                id: "5-66",
+                type: "theory",
+                title: "Развертывание приложения на сервере",
+                content: `
+                    <h2>Развертывание приложения</h2>
+                    <p>Развертывание — это процесс выкладывания приложения на сервер, чтобы оно стало доступным пользователям.</p>
+                    <h3>Шаги развертывания:</h3>
+                    <ol>
+                        <li><strong>Подготовка кода:</strong> Убедитесь, что код готов к продакшену.</li>
+                        <li><strong>Выбор хостинга:</strong> Используйте платформы, такие как Heroku, Vercel, AWS.</li>
+                        <li><strong>Настройка сервера:</strong> Настройте окружение и базу данных.</li>
+                        <li><strong>Деплой:</strong> Выложите приложение на сервер.</li>
+                        <li><strong>Мониторинг:</strong> Отслеживайте работу приложения.</li>
+                    </ol>
+                    <h3>Пример деплоя на Heroku:</h3>
+                    <pre><code>
+# Шаги деплоя на Heroku
+1. Создайте приложение на Heroku.
+2. Подключите Git-репозиторий:
+   git init
+   heroku git:remote -a your-app-name
+3. Загрузите код:
+   git add .
+   git commit -m "Initial commit"
+   git push heroku main
+4. Запустите приложение:
+   heroku open
+                    </code></pre>
+                `
+            },
+            // Задание на кодинг 5-67: Развертывание приложения
+            {
+                id: "5-67",
+                type: "coding",
+                title: "Развертывание приложения",
+                starterCode: `// Подготовьте команды для деплоя приложения на Heroku
+// Ваш код здесь`,
+                solution: `// Команды для деплоя на Heroku
+git init
+heroku git:remote -a your-app-name
+git add .
+git commit -m "Initial commit"
+git push heroku main
+heroku open`,
+                tests: [
+                    {
+                        input: [],
+                        expected: "Deployment successful"
+                    }
+                ]
             }
         ]
     },
