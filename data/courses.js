@@ -125,6 +125,807 @@ export const courses = [
                         expectedOutputContains: "<html"
                     }
                 ]
+            },
+            {
+                id: "1-7",
+                type: "theory",
+                title: "Синтаксис CSS",
+                content: `
+                    <h2>Что такое CSS?</h2>
+                    <p>CSS (Cascading Style Sheets) — это язык стилей, который определяет внешний вид HTML-документов.</p>
+                    
+                    <h3>Базовый синтаксис:</h3>
+                    <pre>
+        селектор {
+            свойство: значение;
+            свойство: значение;
+        }
+                    </pre>
+                    
+                    <h3>Пример:</h3>
+                    <pre>
+        p {
+            color: blue;
+            font-size: 16px;
+        }
+                    </pre>
+                    
+                    <h3>Способы подключения CSS:</h3>
+                    <ol>
+                        <li>Внутри тега &lt;style&gt; в &lt;head&gt;</li>
+                        <li>Внешний файл .css (рекомендуемый способ)</li>
+                        <li>Инлайновые стили (атрибут style)</li>
+                    </ol>
+                `
+            },
+            {
+                id: "1-8",
+                type: "theory",
+                title: "Селекторы и специфичность",
+                content: `
+                    <h2>Типы селекторов</h2>
+                    <ul>
+                        <li>Селекторы по тегу: <code>p, h1, div</code></li>
+                        <li>Селекторы по классу: <code>.my-class</code></li>
+                        <li>Селекторы по id: <code>#my-id</code></li>
+                        <li>Комбинированные селекторы: <code>div.my-class</code></li>
+                    </ul>
+                    
+                    <h3>Специфичность селекторов</h3>
+                    <p>Порядок приоритетов (от большего к меньшему):</p>
+                    <ol>
+                        <li>!important</li>
+                        <li>Инлайновые стили</li>
+                        <li>Селекторы по id</li>
+                        <li>Селекторы по классу</li>
+                        <li>Селекторы по тегу</li>
+                    </ol>
+                    
+                    <h3>Пример:</h3>
+                    <pre>
+        #header .menu-item {  /* Этот стиль приоритетнее */
+            color: red;
+        }
+        
+        .menu-item {
+            color: blue;
+        }
+                    </pre>
+                `
+            },
+            {
+                id: "1-9",
+                type: "theory",
+                title: "Работа с цветом и фоном",
+                content: `
+                    <h2>Цвета в CSS</h2>
+                    <p>Цвета можно задавать разными способами:</p>
+                    <ul>
+                        <li>По имени: <code>red, blue, green</code></li>
+                        <li>HEX: <code>#FF0000, #00FF00</code></li>
+                        <li>RGB: <code>rgb(255, 0, 0)</code></li>
+                        <li>RGBA: <code>rgba(255, 0, 0, 0.5)</code></li>
+                        <li>HSL: <code>hsl(0, 100%, 50%)</code></li>
+                    </ul>
+                    
+                    <h3>Свойства фона</h3>
+                    <pre>
+        .element {
+            background-color: #f0f0f0;
+            background-image: url('image.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+                    </pre>
+                    
+                    <h3>Градиенты</h3>
+                    <pre>
+        .gradient {
+            background: linear-gradient(to right, red, yellow);
+        }
+                    </pre>
+                `
+            },
+            {
+                id: "1-10",
+                type: "theory",
+                title: "Блочная модель (Box Model)",
+                content: `
+                    <h2>Что такое блочная модель?</h2>
+                    <p>Каждый элемент в HTML — это прямоугольный блок, который состоит из:</p>
+                    <ul>
+                        <li>Контента (content)</li>
+                        <li>Внутреннего отступа (padding)</li>
+                        <li>Границы (border)</li>
+                        <li>Внешнего отступа (margin)</li>
+                    </ul>
+                    
+                    <img src="https://mdn.mozillademos.org/files/16558/box-model.png" alt="Box Model" style="max-width: 400px;">
+                    
+                    <h3>Свойства блочной модели</h3>
+                    <pre>
+        .box {
+            width: 300px;
+            height: 200px;
+            padding: 20px;
+            border: 5px solid black;
+            margin: 30px;
+            box-sizing: border-box; /* альтернативная модель */
+        }
+                    </pre>
+                `
+            },
+            {
+                id: "1-11",
+                type: "quiz",
+                title: "Тест по основам CSS",
+                question: "Какое свойство CSS изменяет цвет текста?",
+                options: [
+                    "text-color",
+                    "font-color",
+                    "color",
+                    "text-style"
+                ],
+                correctAnswer: 2
+            },
+            {
+                id: "1-12",
+                type: "coding",
+                title: "Стилизация веб-страницы",
+                starterCode: `<!DOCTYPE html>
+        <html lang="ru">
+        <head>
+            <meta charset="UTF-8">
+            <title>Стилизация</title>
+            <style>
+                /* Ваши стили здесь */
+                
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h1>Добро пожаловать</h1>
+            </div>
+            <div class="content">
+                <p>Это параграф с текстом.</p>
+                <button class="btn">Кнопка</button>
+            </div>
+        </body>
+        </html>`,
+                solution: `<!DOCTYPE html>
+        <html lang="ru">
+        <head>
+            <meta charset="UTF-8">
+            <title>Стилизация</title>
+            <style>
+                .header {
+                    background-color: #f0f0f0;
+                    padding: 20px;
+                    text-align: center;
+                }
+                
+                .content {
+                    width: 80%;
+                    margin: 20px auto;
+                    border: 1px solid #ccc;
+                    padding: 15px;
+                }
+                
+                .btn {
+                    background-color: #4CAF50;
+                    color: white;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+                
+                .btn:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h1>Добро пожаловать</h1>
+            </div>
+            <div class="content">
+                <p>Это параграф с текстом.</p>
+                <button class="btn">Кнопка</button>
+            </div>
+        </body>
+        </html>`,
+                tests: [
+                    {
+                        input: [],
+                        expectedOutputContains: ".header {"
+                    },
+                    {
+                        input: [],
+                        expectedOutputContains: ".btn:hover"
+                    }
+                ]
+            },
+            {
+                id: "1-13",
+                type: "theory",
+                title: "Позиционирование элементов",
+                content: `
+                    <h2>Свойство position</h2>
+                    <p>5 ключевых значений:</p>
+                    <ul>
+                        <li><code>static</code> (по умолчанию)</li>
+                        <li><code>relative</code> (смещение относительно себя)</li>
+                        <li><code>absolute</code> (относительно ближайшего позиционированного предка)</li>
+                        <li><code>fixed</code> (фиксация в окне браузера)</li>
+                        <li><code>sticky</code> (гибрид relative + fixed)</li>
+                    </ul>
+                    <div class="position-demo" style="position: relative; height: 120px; background: #f5f5f5; margin: 20px 0; border: 1px dashed #333;">
+                        <div style="position: absolute; top: 20px; left: 30px; width: 80px; height: 40px; background: #ff6b6b;"></div>
+                        <p style="padding: 10px;">▲ Красный блок с position: absolute</p>
+                    </div>
+                `
+            },
+            {
+                id: "1-14",
+                type: "coding",
+                title: "Фиксированное меню",
+                task: "Создайте шапку, которая остается вверху при прокрутке",
+                starterCode: `<header class="header">Навигация</header>`,
+                solution: `<header class="header" style="position: fixed; top: 0; width: 100%; background: #333; color: white; padding: 15px;">Навигация</header>`,
+                tests: [
+                    { input: [], expectedOutputContains: "position: fixed" }
+                ]
+            },
+            {
+                id: "1-15",
+                type: "theory",
+                title: "Flexbox",
+                content: `
+                    <h2>Основы Flexbox</h2>
+                    <img src="https://css-tricks.com/wp-content/uploads/2018/10/flex-direction.svg" alt="Flexbox" width="400">
+                    <pre>.container {
+            display: flex;
+            flex-direction: row | column;
+            justify-content: center;
+            align-items: flex-start;
+        }</pre>
+                `
+            },
+            {
+                id: "1-16",
+                type: "coding",
+                title: "Галерея на Flexbox",
+                task: "Расположите 3 изображения в ряд с равными отступами",
+                starterCode: `<div class="gallery"><img src="photo1.jpg"><img src="photo2.jpg"><img src="photo3.jpg"></div>`,
+                solution: `<div class="gallery" style="display: flex; gap: 20px; justify-content: space-between;"><img src="photo1.jpg" width="100"><img src="photo2.jpg" width="100"><img src="photo3.jpg" width="100"></div>`,
+                tests: [
+                    { input: [], expectedOutputContains: "display: flex" }
+                ]
+            },
+            {
+                id: "1-17",
+                type: "theory",
+                title: "CSS Grid",
+                content: `
+                    <h2>Двумерные сетки</h2>
+                    <pre>.grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-template-rows: 100px auto;
+            gap: 10px;
+        }</pre>
+                    <img src="https://css-tricks.com/wp-content/uploads/2022/02/css-grid-template-areas.png" alt="Grid" width="500">
+                `
+            },
+            {
+                id: "1-18",
+                type: "coding",
+                title: "Макет на Grid",
+                task: "Создайте макет с шапкой, сайдбаром и контентом",
+                starterCode: `<div class="layout"><header>Шапка</header><aside>Сайдбар</aside><main>Контент</main></div>`,
+                solution: `<div class="layout" style="display: grid; grid-template-areas: 'header header' 'aside main'; gap: 15px;"><header style="grid-area: header; background: #eee;">Шапка</header><aside style="grid-area: aside; background: #ddd;">Сайдбар</aside><main style="grid-area: main; background: #eee;">Контент</main></div>`,
+                tests: [
+                    { input: [], expectedOutputContains: "grid-template-areas" }
+                ]
+            },
+            {
+                id: "1-19",
+                type: "theory",
+                title: "Адаптивная верстка",
+                content: `
+                    <h2>Медиазапросы</h2>
+                    <pre>@media (max-width: 768px) {
+            .menu { flex-direction: column; }
+        }</pre>
+                    <p><strong>Mobile-first</strong> подход:</p>
+                    <pre>/* Стили для мобильных */
+        @media (min-width: 768px) { /* Планшеты */ }
+        @media (min-width: 1024px) { /* Десктопы */ }</pre>
+                `
+            },
+            {
+                id: "1-20",
+                type: "quiz",
+                title: "Тест по адаптивности",
+                question: "Какой запрос сработает ТОЛЬКО на мобильных устройствах?",
+                options: [
+                    "@media (min-width: 768px)",
+                    "@media (max-width: 767px)",
+                    "@media (orientation: portrait)",
+                    "@media (hover: none)"
+                ],
+                correctAnswer: 1
+            },
+            {
+                id: "1-21",
+                type: "coding",
+                title: "Адаптивная карточка",
+                task: "Сделайте карточку, которая меняет ширину на разных экранах",
+                starterCode: `<div class="card">Контент</div>`,
+                solution: `<div class="card" style="width: 100%; padding: 15px; border: 1px solid #ddd; margin: 10px auto; @media (min-width: 768px) { width: 50%; } @media (min-width: 1024px) { width: 30%; }">Контент</div>`,
+                tests: [
+                    { input: [], expectedOutputContains: "@media" }
+                ]
+            },
+            {
+                id: "1-22",
+                type: "theory",
+                title: "Псевдоклассы и псевдоэлементы",
+                content: `
+                    <h2>Псевдоклассы (:)</h2>
+                    <p>Определяют особые состояния элементов:</p>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                        <div>
+                            <h3>Ссылки</h3>
+                            <pre>a:hover { color: red; }
+        a:active { font-weight: bold; }
+        a:focus { outline: 2px solid blue; }</pre>
+                        </div>
+                        <div>
+                            <h3>Навигация</h3>
+                            <pre>li:first-child { margin-left: 0; }
+        li:last-child { margin-right: 0; }
+        li:nth-child(odd) { background: #f5f5f5; }</pre>
+                        </div>
+                        <div>
+                            <h3>Формы</h3>
+                            <pre>input:disabled { opacity: 0.5; }
+        input:checked + label { font-weight: bold; }
+        :not(.hidden) { display: block; }</pre>
+                        </div>
+                    </div>
+        
+                    <h2>Псевдоэлементы (::)</h2>
+                    <pre>p::first-letter { font-size: 2em; }
+        p::first-line { color: blue; }
+        .block::before { content: "→ "; }
+        .block::after { content: ""; display: block; height: 1px; }</pre>
+                `
+            },
+            {
+                id: "1-23",
+                type: "coding",
+                title: "Интерактивная кнопка",
+                task: "Создайте кнопку с эффектами при наведении и нажатии",
+                starterCode: `<button class="btn">Нажми меня</button>`,
+                solution: `<button class="btn" style="padding: 12px 24px; background: #4CAF50; color: white; border: none; border-radius: 4px; transition: all 0.3s; cursor: pointer;">Нажми меня</button>
+        <style>
+        .btn:hover { background: #45a049; transform: translateY(-2px); }
+        .btn:active { transform: translateY(1px); }
+        .btn:focus { box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.4); }
+        </style>`,
+                tests: [
+                    { input: [], expectedOutputContains: ":hover" },
+                    { input: [], expectedOutputContains: "transition" }
+                ]
+            },
+            {
+                id: "1-24",
+                type: "theory",
+                title: "Трансформации и переходы",
+                content: `
+                    <h2>Transform</h2>
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <div style="transform: rotate(15deg); padding: 10px; border: 1px solid; background: #ffeaa7;">rotate(15deg)</div>
+                        <div style="transform: scale(1.2); padding: 10px; border: 1px solid; background: #a5d8ff;">scale(1.2)</div>
+                        <div style="transform: skewX(20deg); padding: 10px; border: 1px solid; background: #ffc9c9;">skewX(20deg)</div>
+                    </div>
+        
+                    <h3>3D-трансформации</h3>
+                    <pre>.cube {
+            transform: rotateX(45deg) rotateY(15deg);
+            transform-style: preserve-3d;
+        }</pre>
+        
+                    <h2>Transition</h2>
+                    <pre>.box {
+            transition: all 0.4s ease-in-out;
+            /* Сокращенная запись: property duration timing-function delay */
+        }</pre>
+                `
+            },
+            {
+                id: "1-25",
+                type: "coding",
+                title: "Карточка с 3D-эффектом",
+                task: "Реализуйте переворот карточки при наведении",
+                starterCode: `<div class="card"><div class="front">Лицевая сторона</div></div>`,
+                solution: `<div class="card" style="width: 200px; height: 200px; perspective: 1000px;">
+            <div class="front" style="width: 100%; height: 100%; background: #74b9ff; transition: transform 0.8s; transform-style: preserve-3d;">
+                Лицевая сторона
+            </div>
+        </div>
+        <style>
+        .card:hover .front { transform: rotateY(180deg); }
+        </style>`,
+                tests: [
+                    { input: [], expectedOutputContains: "rotateY" },
+                    { input: [], expectedOutputContains: "preserve-3d" }
+                ]
+            },
+            {
+                id: "1-26",
+                type: "theory",
+                title: "CSS-анимации",
+                content: `
+                    <h2>Keyframes</h2>
+                    <pre>@keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }</pre>
+        
+                    <h3>Применение анимации</h3>
+                    <pre>.element {
+            animation: slideIn 1s ease-in-out 0.5s infinite alternate;
+            /* Сокращенная запись: name duration timing-function delay iteration-count direction */
+        }</pre>
+        
+                    <h2>Практические примеры</h2>
+                    <div style="display: flex; gap: 15px;">
+                        <div style="width: 50px; height: 50px; background: #ff7675; animation: bounce 1s infinite alternate;"></div>
+                        <style>
+                            @keyframes bounce {
+                                from { transform: translateY(0); }
+                                to { transform: translateY(-20px); }
+                            }
+                        </style>
+                        <div style="width: 50px; height: 50px; background: #55efc4; animation: pulse 1.5s infinite;"></div>
+                        <style>
+                            @keyframes pulse {
+                                0% { transform: scale(1); }
+                                50% { transform: scale(1.2); }
+                                100% { transform: scale(1); }
+                            }
+                        </style>
+                    </div>
+                `
+            },
+            {
+                id: "1-27",
+                type: "coding",
+                title: "Анимированный лоадер",
+                task: "Создайте вращающийся индикатор загрузки",
+                starterCode: `<div class="loader"></div>`,
+                solution: `<div class="loader" style="width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid #3498db; border-radius: 50%;"></div>
+        <style>
+        .loader {
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        </style>`,
+                tests: [
+                    { input: [], expectedOutputContains: "@keyframes" },
+                    { input: [], expectedOutputContains: "infinite" }
+                ]
+            },
+            {
+                id: "1-28",
+                type: "theory",
+                title: "Медиазапросы для устройств",
+                content: `
+                    <h2>Типы устройств</h2>
+                    <pre>@media print { /* Стили для печати */ }
+        @media (orientation: portrait) { /* Вертикальный режим */ }
+        @media (hover: hover) { /* Устройства с мышью */ }
+        @media (prefers-color-scheme: dark) { /* Темная тема */ }</pre>
+        
+                    <h3>Комплексные условия</h3>
+                    <pre>@media (min-width: 768px) and (max-width: 1024px) {
+            /* Планшеты в альбомном режиме */
+        }</pre>
+        
+                    <h2>Метатеги для адаптивности</h2>
+                    <pre>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;meta name="theme-color" content="#ffffff"&gt;</pre>
+                `
+            },
+            {
+                id: "1-29",
+                type: "quiz",
+                title: "Тест по медиазапросам",
+                question: "Какой запрос определит устройство с сенсорным экраном?",
+                options: [
+                    "@media (touch-enabled: true)",
+                    "@media (hover: none) and (pointer: coarse)",
+                    "@media (device-type: tablet)",
+                    "@media (input-type: touch)"
+                ],
+                correctAnswer: 1
+            },
+            {
+                id: "1-30",
+                type: "coding",
+                title: "Адаптивная галерея",
+                task: "Создайте галерею, которая меняет количество колонок в зависимости от ширины экрана",
+                starterCode: `<div class="gallery"><img src="photo.jpg"><img src="photo.jpg"></div>`,
+                solution: `<div class="gallery" style="display: grid; gap: 15px;">
+            <img src="photo.jpg" width="100"><img src="photo.jpg" width="100">
+        </div>
+        <style>
+        .gallery { grid-template-columns: repeat(1, 1fr); }
+        @media (min-width: 600px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 900px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+        </style>`,
+                tests: [
+                    { input: [], expectedOutputContains: "@media (min-width: 600px)" },
+                    { input: [], expectedOutputContains: "grid-template-columns" }
+                ]
+            },
+            {
+                id: "1-31",
+                type: "project",
+                title: "Подготовка к верстке",
+                content: `
+                    <h2>Этапы создания проекта</h2>
+                    <ol>
+                        <li><strong>Анализ макетов</strong> (Figma/Photoshop)</li>
+                        <li><strong>Структура файлов</strong>:
+                            <pre>project/
+          ├── css/
+          ├── img/
+          ├── js/
+          └── index.html</pre>
+                        </li>
+                        <li><strong>Базовая разметка</strong> (HTML5 Boilerplate)</li>
+                    </ol>
+        
+                    <h3>Инструменты</h3>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                        <div>
+                            <h4>Верстка</h4>
+                            <ul>
+                                <li>Pixel Perfect</li>
+                                <li>PerfectPixel</li>
+                                <li>Grid overlay</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Оптимизация</h4>
+                            <ul>
+                                <li>PageSpeed Insights</li>
+                                <li>Lighthouse</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Тестирование</h4>
+                            <ul>
+                                <li>Cross-browser testing</li>
+                                <li>Responsive design checker</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: "1-32",
+                type: "coding",
+                title: "Верстка главной страницы",
+                task: "Создайте структуру сайта с шапкой, основным контентом и подвалом",
+                starterCode: `<!DOCTYPE html>
+        <html lang="ru">
+        <head>
+            <!-- Добавьте метатеги и заголовок -->
+        </head>
+        <body>
+            <!-- Ваш код здесь -->
+        </body>
+        </html>`,
+                solution: `<!DOCTYPE html>
+        <html lang="ru">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Мой проект</title>
+            <link rel="stylesheet" href="css/style.css">
+        </head>
+        <body>
+            <header class="header" style="background: #333; color: white; padding: 20px;">
+                <nav>
+                    <a href="/" style="color: white; margin-right: 15px;">Главная</a>
+                    <a href="/about" style="color: white; margin-right: 15px;">О нас</a>
+                </nav>
+            </header>
+            
+            <main class="content" style="padding: 20px; min-height: 80vh;">
+                <h1>Добро пожаловать!</h1>
+                <section class="hero" style="background: #f0f0f0; padding: 40px; text-align: center;">
+                    <h2>Заголовок секции</h2>
+                </section>
+            </main>
+            
+            <footer class="footer" style="background: #333; color: white; padding: 20px; text-align: center;">
+                © 2023 Мой проект
+            </footer>
+        </body>
+        </html>`,
+                tests: [
+                    { input: [], expectedOutputContains: "<header" },
+                    { input: [], expectedOutputContains: "<footer" },
+                    { input: [], expectedOutputContains: "viewport" }
+                ]
+            },
+            {
+                id: "1-33",
+                type: "project",
+                title: "Адаптивная сетка",
+                content: `
+                    <h2>Mobile-first подход</h2>
+                    <p>Пример медиазапросов для разных устройств:</p>
+                    <pre>/* Базовые стили (мобильные) */
+        .container { padding: 10px; }
+        
+        /* Планшеты */
+        @media (min-width: 768px) {
+            .container { padding: 20px; }
+        }
+        
+        /* Десктопы */
+        @media (min-width: 1024px) {
+            .container { 
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+        }</pre>
+        
+                    <h3>Техники адаптивности</h3>
+                    <ul>
+                        <li><strong>Резиновые изображения</strong>:
+                            <pre>img { max-width: 100%; height: auto; }</pre>
+                        </li>
+                        <li><strong>Flexbox/Grid для сеток</strong></li>
+                        <li><strong>Относительные единицы</strong> (rem, vw, %) вместо px</li>
+                    </ul>
+                `
+            },
+            {
+                id: "1-34",
+                type: "coding",
+                title: "Оптимизация стилей",
+                task: "Улучшите производительность CSS (минификация, удаление дубликатов)",
+                starterCode: `/* style.css */
+        .header { color: blue; }
+        .header { color: red; }
+        .main-content { font-size: 16px; }`,
+                solution: `/* style.min.css */
+        .header{color:red}.main-content{font-size:16px}`,
+                tests: [
+                    { input: [], expectedOutputContains: ".header{color:red}" },
+                    { input: [], expectedOutputDoesNotContain: "color: blue" }
+                ]
+            },
+            {
+                id: "1-35",
+                type: "project",
+                title: "Тестирование верстки",
+                content: `
+                    <h2>Кросс-браузерное тестирование</h2>
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <div style="border: 1px solid #ddd; padding: 10px;">
+                            <h3>BrowserStack</h3>
+                            <p>Проверка в 2000+ браузерах</p>
+                        </div>
+                        <div style="border: 1px solid #ddd; padding: 10px;">
+                            <h3>Can I Use</h3>
+                            <p>Поддержка CSS/JS функций</p>
+                        </div>
+                    </div>
+        
+                    <h3>Чеклист тестирования</h3>
+                    <ul>
+                        <li>Валидность HTML/CSS (validator.w3.org)</li>
+                        <li>Отображение на разных разрешениях</li>
+                        <li>Работа скриптов при отключенном JS</li>
+                        <li>Доступность (ARIA, контрастность)</li>
+                    </ul>
+                `
+            },
+            {
+                id: "1-36",
+                type: "coding",
+                title: "Публикация проекта",
+                task: "Настройте автоматическое развертывание через GitHub Pages",
+                instructions: `
+                    1. Создайте репозиторий на GitHub
+                    2. Закоммитьте ваш проект
+                    3. В настройках репозитория выберите ветку для публикации
+                `,
+                solution: `<!-- После настройки должен быть доступен URL вида: -->
+        <!-- https://ваш-логин.github.io/имя-репозитория/ -->`,
+                tests: [
+                    { input: [], expectedOutputContains: "github.io" }
+                ]
+            },
+            {
+                id: "1-37",
+                type: "theory",
+                title: "Дальнейшие шаги",
+                content: `
+                    <h2>Что изучать после верстки?</h2>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                        <div>
+                            <h3>Фронтенд</h3>
+                            <ul>
+                                <li>JavaScript (ES6+)</li>
+                                <li>React/Vue.js</li>
+                                <li>Webpack/Vite</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Бекенд</h3>
+                            <ul>
+                                <li>Node.js</li>
+                                <li>Базы данных</li>
+                                <li>API-разработка</li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <h3>Полезные ресурсы</h3>
+                    <ul>
+                        <li>MDN Web Docs</li>
+                        <li>CSS-Tricks</li>
+                        <li>Frontend Mentor (практика)</li>
+                    </ul>
+                `
+            },
+            {
+                id: "1-38",
+                type: "quiz",
+                title: "Финальный тест",
+                question: "Какой инструмент НЕ используется для тестирования производительности?",
+                options: [
+                    "Lighthouse",
+                    "PageSpeed Insights",
+                    "Validator.w3.org",
+                    "WebPageTest"
+                ],
+                correctAnswer: 2
+            },
+            {
+                id: "1-39",
+                type: "project",
+                title: "Итоговый проект",
+                task: "Сверстайте многостраничный сайт (портфолио/блог) с:",
+                requirements: `
+                    - Адаптивным дизайном
+                    - Оптимизированными изображениями
+                    - Проверкой в Lighthouse ≥80 баллов
+                    - Публикацией на GitHub Pages
+                `,
+                checklist: `
+                    <h3>Критерии оценки</h3>
+                    <ul>
+                        <li>Валидная семантическая верстка</li>
+                        <li>Кросс-браузерная совместимость</li>
+                        <li>Оптимизация загрузки (сжатие ресурсов)</li>
+                        <li>Читаемость кода и структура файлов</li>
+                    </ul>
+                `
             }
         ]
     },

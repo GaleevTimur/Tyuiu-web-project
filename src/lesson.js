@@ -263,3 +263,4 @@ function isLessonCompleted(courseId, lessonId) {
     const key = `course-${courseId}-lesson-${lessonId}`;
     return localStorage.getItem(key) === 'completed';
 }
+

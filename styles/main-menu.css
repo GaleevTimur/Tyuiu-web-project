@@ -506,19 +506,18 @@ p {
 
 .authorization_menu {
   background: white;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 2.5rem; /* Увеличено с 2rem */
+  border-radius: 0.8rem; /* Увеличено */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* Усилена тень */
   width: 100%;
-  max-width: 400px;
+  max-width: 450px; /* Увеличено с 400px */
   text-align: center;
-  position: relative; /* Для позиционирования кнопки закрытия */
+  position: relative;
 }
 
 .authorization_menu h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  color: #1e293b;
+  font-size: 2rem; /* Увеличено */
+  margin-bottom: 1.8rem; /* Увеличено */
 }
 
 .authorization_menu form {
@@ -528,10 +527,8 @@ p {
 }
 
 .authorization_menu label {
-  font-size: 1.3rem;
-  color: #64748b;
-  text-align: left;
-  margin-bottom: 0.5rem;
+  font-size: 1.1rem; /* Увеличено */
+  margin-bottom: 0.7rem; /* Увеличено */
 }
 
 .authorization_menu input {
@@ -554,13 +551,115 @@ p {
 .authorization_menu button[type="submit"] {
   background-color: #3b82f6;
   color: white;
-  padding: 0.8rem;
+  padding: 1rem;
   border: none;
   border-radius: 0.5rem;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
+}
+
+#authFormsContainer {
+  position: relative;
+  min-height: 350px; /* Увеличено с 300px */
+  padding: 0.5rem 0;
+}
+
+/* Общие стили для обеих форм */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Увеличено с 1.2rem */
+}
+
+/* Скрытая форма */
+.auth-form.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-20px);
+  pointer-events: none;
+}
+
+/* Стили для переключателя форм */
+.auth-switch {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #64748b;
+}
+
+.auth-switch a {
+  color: #3b82f6;
+  font-weight: 600;
+  margin-left: 0.3rem;
+  transition: color 0.2s;
+}
+
+.auth-switch a:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* Стили для сообщений */
+#authMessage {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Типы сообщений */
+#authMessage.success {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+#authMessage.error {
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+#authMessage.info {
+  background-color: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+/* Анимация переключения форм */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.auth-form:not(.hidden) {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Дополнительные стили для формы регистрации */
+#registerForm {
+  padding-top: 0.5rem;
+}
+
+/* Подтверждение пароля */
+#confirmPassword {
+  margin-bottom: 0.5rem;
+}
+
+/* Адаптивные стили */
+@media (max-width: 480px) {
+  .authorization_menu {
+    padding: 1.5rem;
+    width: 90%;
+  }
+  
+  .auth-form {
+    gap: 1rem;
+  }
 }
 
 .authorization_menu button[type="submit"]:hover {
@@ -613,6 +712,37 @@ p {
     order: -1;
   }
 }
+
+/* Стили для шапки с пользователем */
+.user-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-email {
+  font-size: 0.9rem;
+  color: #3b82f6;
+  font-weight: 500;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+  .user-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .user-email {
+    max-width: 100px;
+  }
+}
+
+
 
 /* @media (prefers-color-scheme: dark) {
   :root {

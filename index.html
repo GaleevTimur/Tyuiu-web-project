@@ -9,15 +9,38 @@
     <link rel="stylesheet" href="styles/main-menu.css">
     <!-- Иконка сайта -->
     <link rel="icon" type="image/svg+xml" href="/vite.svg">
+    
+    <!-- Подключаем Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics-compat.js"></script>
 </head>
 <body>
     <!-- Контейнер для динамического контента -->
     <div id="app"></div>
 
-    <!-- Подключаем скрипты -->
+    <!-- Инициализация Firebase -->
+    <script>
+        // Ваша конфигурация Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyD1ggtIa6EnlpV9qXe0C91-VXe44xd5UMc",
+            authDomain: "projecttyuiuvite.firebaseapp.com",
+            projectId: "projecttyuiuvite",
+            storageBucket: "projecttyuiuvite.firebasestorage.app",
+            messagingSenderId: "491252491239",
+            appId: "1:491252491239:web:0e75b624676228c6b0d342",
+            measurementId: "G-2VTS9BFZ2E"
+        };
+
+        // Инициализация Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const analytics = firebase.analytics();
+    </script>
+
+    <!-- Подключаем ваши модульные скрипты -->
     <script type="module" src="/src/authorization_menu.js"></script>
     <script type="module" src="/src/main_menu.js"></script>
     <script type="module" src="/src/lesson.js"></script>
-
 </body>
 </html>
